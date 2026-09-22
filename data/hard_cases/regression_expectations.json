@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "scope": "targeted_regression_only",
+  "description": "Known-case checks for the three user-reported hard images; not an independent generalization metric.",
+  "images": {
+    "hard_01.jpg": {
+      "counts": {
+        "person": {"exact": 3},
+        "helmet": {"exact": 3},
+        "vest": {"exact": 2}
+      },
+      "allowed_events": ["no_vest"],
+      "forbidden_events": ["no_helmet", "intrusion"]
+    },
+    "hard_02.jpg": {
+      "counts": {
+        "person": {"exact": 2},
+        "helmet": {"exact": 2},
+        "vest": {"exact": 2}
+      },
+      "allowed_events": [],
+      "forbidden_events": ["no_helmet", "no_vest", "intrusion"]
+    },
+    "hard_03.jpg": {
+      "counts": {
+        "person": {"exact": 1},
+        "helmet": {"exact": 1},
+        "vest": {"exact": 1}
+      },
+      "allowed_events": [],
+      "forbidden_events": ["no_helmet", "no_vest", "intrusion"]
+    }
+  }
+}

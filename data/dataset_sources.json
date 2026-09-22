@@ -1,0 +1,38 @@
+{
+  "name": "Construction-PPE",
+  "source_url": "https://github.com/ultralytics/assets/releases/download/v0.0.0/construction-ppe.zip",
+  "provider": "Ultralytics assets release",
+  "downloaded_at": "2026-09-15T01:22:24.620633+00:00",
+  "archive_bytes": 178415813,
+  "archive_sha256": "bef8dcb599aa4e9d9f5e602cb6fa7143d3c84d7f6a0ff40463d7f2a4c2632ccc",
+  "local_dir": "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\data\\external\\construction-ppe",
+  "data_yaml": "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\data\\construction_ppe.yaml",
+  "classes": [
+    "helmet",
+    "gloves",
+    "vest",
+    "boots",
+    "goggles",
+    "none",
+    "Person",
+    "no_helmet",
+    "no_goggle",
+    "no_gloves",
+    "no_boots"
+  ],
+  "splits": {
+    "train": {
+      "images": 1132,
+      "labels": 1142
+    },
+    "val": {
+      "images": 143,
+      "labels": 143
+    },
+    "test": {
+      "images": 141,
+      "labels": 141
+    }
+  },
+  "notes": "Use only actual training/evaluation output for thesis metrics; fallback demo output is not a model result."
+}

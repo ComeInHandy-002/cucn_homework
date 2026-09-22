@@ -1,0 +1,23 @@
+{
+  "dataset": "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\data\\external\\construction-ppe",
+  "splits": {
+    "train": {
+      "images": 1132,
+      "labels": 1142,
+      "boxes": 9098,
+      "errors": []
+    },
+    "val": {
+      "images": 143,
+      "labels": 143,
+      "boxes": 1172,
+      "errors": []
+    },
+    "test": {
+      "images": 141,
+      "labels": 141,
+      "boxes": 1251,
+      "errors": []
+    }
+  }
+}

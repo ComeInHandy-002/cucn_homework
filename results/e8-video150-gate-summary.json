@@ -1,0 +1,37 @@
+﻿{
+    "generated_at":  "2026-09-22T10:15:29.8075121+08:00",
+    "last_epoch":  30,
+    "weights":  "runs\\train\\expanded-ppe-yolov8s-e8-video150\\weights\\best.pt",
+    "deployed":  false,
+    "status":  "passed_commands_review_required",
+    "review":  "results/e8-video150-gate-review.json",
+    "deployment_decision":  "keep_e7",
+    "commands":  [
+                     "test",
+                     "hardcase",
+                     "demo",
+                     "video"
+                 ],
+    "outputs":  [
+                    {
+                        "name":  "test",
+                        "exit_code":  0,
+                        "output":  "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\results\\e8-video150-test.stdout.log"
+                    },
+                    {
+                        "name":  "hardcase",
+                        "exit_code":  0,
+                        "output":  "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\results\\e8-video150-hardcase.stdout.log"
+                    },
+                    {
+                        "name":  "demo",
+                        "exit_code":  0,
+                        "output":  "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\results\\e8-video150-demo.stdout.log"
+                    },
+                    {
+                        "name":  "video",
+                        "exit_code":  0,
+                        "output":  "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\results\\e8-video150-video.stdout.log"
+                    }
+                ]
+}

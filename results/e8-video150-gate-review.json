@@ -1,0 +1,37 @@
+{
+  "report_type": "e8_gate_review",
+  "reviewed_at": "2026-09-22T10:20:00+08:00",
+  "training": {
+    "experiment": "E8",
+    "epochs_completed": 30,
+    "best_weights": "runs/train/expanded-ppe-yolov8s-e8-video150/weights/best.pt",
+    "best_weights_sha256": "FD853116D0ED24791B7F78E0195DDBAF540A9B62712105C2D59B5B4168EAFD42",
+    "data_addition": "150 train-only video frames: 132 pseudo-positive frames and 18 hard-negative frames",
+    "data_boundary": "The added frames are not an independently annotated validation or test set."
+  },
+  "same_test_split_comparison": {
+    "split": "data/expanded_ppe_kaggle test (1163 images, 3047 boxes)",
+    "note": "The split contains some near-duplicate/recompressed images. Values are valid for E7/E8 same-split comparison, not a leakage-free generalization claim.",
+    "metrics": {
+      "precision": {"e7": 0.7977, "e8": 0.7802818574, "delta_e8_minus_e7": -0.0174181426},
+      "recall": {"e7": 0.662, "e8": 0.6732340474, "delta_e8_minus_e7": 0.0112340474},
+      "f1": {"e7": 0.7235, "e8": 0.7228160507, "delta_e8_minus_e7": -0.0006839493},
+      "map50": {"e7": 0.72, "e8": 0.7094503564, "delta_e8_minus_e7": -0.0105496436},
+      "map50_95": {"e7": 0.4441, "e8": 0.4463278187, "delta_e8_minus_e7": 0.0022278187},
+      "helmet_recall": {"e7": 0.4548, "e8": 0.4867872045, "delta_e8_minus_e7": 0.0319872045}
+    }
+  },
+  "gates": {
+    "test_metrics": {"passed": true, "output": "results/expanded-ppe-yolov8s-e8-video150-test-metrics.json"},
+    "hardcase_images": {"passed": true, "output": "results/hardcase-regression-e8-video150.json", "operational_errors": []},
+    "demo_images": {"passed": true, "output": "results/demo-regression-e8-video150.json", "operational_errors": []},
+    "videos": {"passed": true, "output": "results/video-regression-e8-video150.json", "operational_errors": []}
+  },
+  "decision": {
+    "selected_model": "E7",
+    "deploy_e8": false,
+    "reason": "E8 improves recall, helmet recall and mAP@0.5:0.95, but lowers precision, F1 and mAP@0.5 on the same test split. It is not a safe replacement for the current E7 serving model without another independently annotated evaluation.",
+    "serving_weight": "models/expanded-ppe-yolov8s-hardcase12.pt",
+    "serving_weight_sha256": "73CD31A09209C3F9B0375210160873B014F69F5FFF6B7B82EFA254C57D630E4F"
+  }
+}

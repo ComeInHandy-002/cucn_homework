@@ -1,0 +1,73 @@
+{
+  "dataset_name": "Expanded PPE (Construction-PPE + SH17)",
+  "prepared_at": "2026-09-15T16:03:05.270178Z",
+  "target_classes": [
+    "person",
+    "helmet",
+    "vest"
+  ],
+  "sources": [
+    {
+      "name": "Construction-PPE",
+      "source_url": "https://github.com/ultralytics/assets/releases/download/v0.0.0/construction-ppe.zip",
+      "license": "AGPL-3.0 as distributed with the dataset package",
+      "local_data": "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\data\\external\\construction-ppe",
+      "mapping": {
+        "Person": "person",
+        "helmet": "helmet",
+        "vest": "vest"
+      }
+    },
+    {
+      "name": "SH17",
+      "source_url": "https://github.com/ahmadmughees/SH17dataset",
+      "paper_dataset_url": "https://www.kaggle.com/datasets/mugheesahmad/sh17-dataset-for-ppe-detection",
+      "mirror_url": "https://huggingface.co/datasets/fathansanum/SH-17-Dataset",
+      "license": "CC BY-NC-SA 4.0 (SH17 project); mirror README also states CC BY 4.0; verify redistribution terms before publication",
+      "mapping": {
+        "Person": "person",
+        "Helmet": "helmet",
+        "Safety-vest": "vest"
+      },
+      "raw_annotations": "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\data\\downloads\\sh17",
+      "raw_annotation_sha256": {
+        "train": "764241227fe1540a31167c6745e12392397fd257e5e7dbec7224644054599299",
+        "val": "ea43fd6f501cf885c12347cee381b8a64a83216032ff2feccc1ba9947bbd55c2",
+        "test": "5c1d258ce3ba218715c30ac7b7069b8ebc4f417bb9f700b6fb5977e1381cf382"
+      }
+    }
+  ],
+  "baseline": {
+    "train": {
+      "images": 1132,
+      "mapped_boxes": 4380
+    },
+    "val": {
+      "images": 143,
+      "mapped_boxes": 611
+    },
+    "test": {
+      "images": 141,
+      "mapped_boxes": 606
+    }
+  },
+  "sh17": {
+    "train": {
+      "images": 5670,
+      "images_with_target_labels": 5516,
+      "mapped_boxes": 13351
+    },
+    "val": {
+      "images": 1619,
+      "images_with_target_labels": 1580,
+      "mapped_boxes": 3707
+    },
+    "test": {
+      "images": 810,
+      "images_with_target_labels": 793,
+      "mapped_boxes": 2061
+    }
+  },
+  "dataset_yaml": "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\data\\expanded_ppe\\dataset.yaml",
+  "notes": "No training metrics are inferred from this preparation step. Re-train and evaluate with scripts/train_yolo.py and scripts/evaluate_yolo.py."
+}

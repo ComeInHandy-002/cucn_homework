@@ -1,0 +1,11 @@
+path: D:/UserData/19505/Documents/ChatGPT/cucn_homework/data/expanded_ppe_kaggle
+train:
+  - images/train
+  - ../hard_cases/images/train
+  - ../e8_ppe_v1/images/train
+val: images/val
+test: images/test
+names:
+  0: person
+  1: helmet
+  2: vest

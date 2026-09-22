@@ -1,0 +1,87 @@
+{
+  "dataset_name": "Expanded PPE + Kaggle PPE",
+  "created_at": "2026-09-18T10:46:38.683726+00:00",
+  "sources": [
+    {
+      "name": "Expanded PPE (Construction-PPE + SH17)",
+      "path": "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\data\\expanded_ppe"
+    },
+    {
+      "name": "Kaggle PPE Detection",
+      "handle": "uzairahmad1434/ppe-detection",
+      "path": "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\data\\kaggle_ppe"
+    }
+  ],
+  "target_classes": [
+    "person",
+    "helmet",
+    "vest"
+  ],
+  "splits": {
+    "train": {
+      "counts": {
+        "images": 8276,
+        "boxes": 20695,
+        "class_1": 5656,
+        "class_0": 12194,
+        "class_2": 2845,
+        "empty_labels": 651,
+        "duplicates_skipped": 2
+      },
+      "duplicate_image_hashes": {
+        "25ab49850be7794064611f5d7ed9e0ae623a83da451cccdabec69c29dcc116e5": [
+          "kaggle/train/kaggle_train_20220721_162229_jpg.rf.12ddc2e4ab9a0ebd01b7d90ca644cd70.jpg",
+          "kaggle/train/kaggle_train_20220721_162229_jpg.rf.9153781165903174ea8cff02fbb68b41.jpg"
+        ],
+        "32302ca7761f8c04e48b67a448d833330fccf0b2355366c6c6dd3a69c3da740c": [
+          "expanded/train/construction_ppe_image753.jpg",
+          "kaggle/train/kaggle_train_images-2022-07-04T013051_jpg.rf.05b3f51243fd8909db6e0c312c00c37e.jpg"
+        ]
+      }
+    },
+    "val": {
+      "counts": {
+        "images": 2184,
+        "boxes": 5111,
+        "class_1": 1226,
+        "class_0": 3333,
+        "class_2": 552,
+        "empty_labels": 181,
+        "duplicates_skipped": 3
+      },
+      "duplicate_image_hashes": {
+        "14a99fe5f517264dd3adcd1061811b9a5fe6735bc99adc992231194aeeebe769": [
+          "expanded/train/construction_ppe_image741.jpg",
+          "kaggle/val/kaggle_val_image_259_jpg.rf.708954ae4c941b58048a0e77304cd7fb.jpg"
+        ],
+        "2ab4973c78b301cde0ea2bff2c08b8f52e36e21d292cb072a0c00384f17f70d8": [
+          "expanded/train/construction_ppe_image745.jpg",
+          "kaggle/val/kaggle_val_image_317_jpg.rf.cd5f13e808577ad5514b298c848607f2.jpg"
+        ],
+        "aedd1c55cd476b60fc6b9c252d04c81b60338bbc5d80bbf361560c7e4edbc4b3": [
+          "expanded/train/construction_ppe_image789.jpg",
+          "kaggle/val/kaggle_val_li-lin-rZcC9J5ZT6I-unsplash_jpg.rf.5c66d1e3dee7cbd59615abf069ebe221.jpg"
+        ]
+      }
+    },
+    "test": {
+      "counts": {
+        "images": 1163,
+        "boxes": 3047,
+        "class_1": 719,
+        "class_0": 1928,
+        "class_2": 400,
+        "empty_labels": 86,
+        "duplicates_skipped": 1
+      },
+      "duplicate_image_hashes": {
+        "c66ca23a2f59ba6fb71a1368c9e463db23ed44f908ab00ed85133d708d4e6ea4": [
+          "expanded/train/construction_ppe_image736.jpg",
+          "kaggle/test/kaggle_test_image_241_jpg.rf.415b64e67ae9c685f173cf785aca4979.jpg"
+        ]
+      }
+    }
+  },
+  "dataset_yaml": "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\data\\expanded_ppe_kaggle\\dataset.yaml",
+  "notes": "Generated copy only; source directories are not modified. Duplicate image hashes are reported per split."
+}

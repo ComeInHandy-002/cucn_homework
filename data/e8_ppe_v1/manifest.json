@@ -1,0 +1,3309 @@
+{
+  "dataset": "E8 PPE video hard cases",
+  "created_at": "2026-09-20T02:41:00.888520+00:00",
+  "classes": {
+    "0": "person",
+    "1": "helmet",
+    "2": "vest"
+  },
+  "weights": {
+    "path": "runs/train/expanded-ppe-yolov8s-hardcase12/weights/best.pt",
+    "sha256": "73cd31a09209c3f9b0375210160873b014f69f5fff6b7b82efa254c57d630e4f"
+  },
+  "video_manifest": {
+    "path": "data/downloads/ppe_videos/manifest.json",
+    "sha256": "8678d4f4736ee0fa1738c3ee8943ca0b72ec83107de83d19b683845e4a76cda6"
+  },
+  "annotation": {
+    "video_positive": "E7 model-assisted labels at high resolution with class thresholds and person-PPE spatial filtering; review sheets required before training",
+    "video_negative": "Empty labels from visually reviewed machinery-only sources",
+    "mined_samples": "Existing labels copied only from the original train split for controlled oversampling"
+  },
+  "limitations": [
+    "Video frames from one source are correlated and are not counted as independent scenes.",
+    "Pseudo labels are not independent ground truth and cannot be used as test metrics.",
+    "Mined samples intentionally duplicate train-split content and must not be reported as new images."
+  ],
+  "counts": {
+    "images": 150,
+    "kinds": {
+      "pseudo_positive": 132,
+      "hard_negative": 18
+    },
+    "classes": {
+      "person": 1154,
+      "helmet": 1162,
+      "vest": 1045
+    }
+  },
+  "review_sheets": {
+    "nasa-ksc-artemis-iii-2026-pseudo_positive": [
+      "review/nasa_artemis_iii_ksc_ppe_01.jpg",
+      "review/nasa_artemis_iii_ksc_ppe_02.jpg",
+      "review/nasa_artemis_iii_ksc_ppe_03.jpg",
+      "review/nasa_artemis_iii_ksc_ppe_04.jpg",
+      "review/nasa_artemis_iii_ksc_ppe_05.jpg",
+      "review/nasa_artemis_iii_ksc_ppe_06.jpg"
+    ],
+    "nesnad-japan-jackhammer-pseudo_positive": [
+      "review/japan_road_jackhammer_01.jpg"
+    ],
+    "acabashi-moira-close-2025-pseudo_positive": [
+      "review/moira_construction_2025_13_01.jpg"
+    ],
+    "eso-cerro-armazones-hard_negative": [
+      "review/cerro_armazones_heavy_machinery_01.jpg"
+    ],
+    "acabashi-moira-close-2025-hard_negative": [],
+    "mined_dark": [],
+    "mined_small": []
+  },
+  "samples": [
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000015000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 15000,
+      "blur_score": 245.419,
+      "dhash": "e3e39b8f87d12410",
+      "class_counts": {
+        "person": 12,
+        "helmet": 13,
+        "vest": 8
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.75
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000015000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000015000.txt",
+      "image_sha256": "3b650ab25e3cd7051f55d800b7df6d844ad6d334cc50158dc81b03061526ca9f",
+      "label_sha256": "bb330dc0e4c521f0b169112e7e173ec3ba24fef51c6b527abd264bae7272e295"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000016000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 16000,
+      "blur_score": 132.299,
+      "dhash": "66e2e0e441446c64",
+      "class_counts": {
+        "person": 12,
+        "helmet": 14,
+        "vest": 9
+      },
+      "coverage": {
+        "helmet_coverage": 0.9166666666666666,
+        "vest_coverage": 0.9166666666666666
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000016000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000016000.txt",
+      "image_sha256": "29ec6bcebedb9c41d79f738de4c3ab0146d1ea67efbae74b78328f91dbcfb4b4",
+      "label_sha256": "603f88bafbf685a9904b485d374446e0cc789e08436be36c313bb364cedcc7f6"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000017000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 17000,
+      "blur_score": 76.602,
+      "dhash": "f9717464a2a63632",
+      "class_counts": {
+        "person": 12,
+        "helmet": 11,
+        "vest": 10
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8333333333333334
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000017000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000017000.txt",
+      "image_sha256": "f24d50be42f728da5f31616ca7b98d35d313cc426e05b95311eefaa3a79fdacf",
+      "label_sha256": "2fe20494e5aad97829b9e75b75bea779a1cb0173858d9583373631567ec22010"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000018000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 18000,
+      "blur_score": 71.63,
+      "dhash": "78683aa0a2323232",
+      "class_counts": {
+        "person": 10,
+        "helmet": 10,
+        "vest": 11
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.9
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000018000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000018000.txt",
+      "image_sha256": "f557a76425b523706023b621eb301fa057028cd80d2b7d859963f18a1bc8ce55",
+      "label_sha256": "e9d408c8c1f7d38ef7d9590a81ce23a4c28bd55cfb8f5977e75e8b994898b7a9"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000019000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 19000,
+      "blur_score": 170.623,
+      "dhash": "38aa3aa0a22632f2",
+      "class_counts": {
+        "person": 8,
+        "helmet": 9,
+        "vest": 10
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000019000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000019000.txt",
+      "image_sha256": "7a45a7cde815f678a6042b0dff27f0b68cde814fe4af00e7fbbf824143d8d0c1",
+      "label_sha256": "736089f7abbe26368fce869367bb6e058789472acd3751450c87334a7b853760"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000020000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 20000,
+      "blur_score": 111.437,
+      "dhash": "bcb132a8e226b672",
+      "class_counts": {
+        "person": 11,
+        "helmet": 9,
+        "vest": 8
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.9090909090909091
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000020000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000020000.txt",
+      "image_sha256": "aa67ffdc860252dda0a84ea4dc6160fe3662ed47d61b20a4b09ea1cac54a4128",
+      "label_sha256": "fea21ffc13f0b713ce92e84bc953cceea6a41170658f94f017c592a7500ba7df"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000021000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 21000,
+      "blur_score": 137.468,
+      "dhash": "9cdd9baea022b6b2",
+      "class_counts": {
+        "person": 9,
+        "helmet": 9,
+        "vest": 7
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000021000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000021000.txt",
+      "image_sha256": "447213afea115b796c162445762208a75e2fd7e4ee11f897be897c5934f1e177",
+      "label_sha256": "f73f25d70c86b60618327bdaf7d9f81a92aa16272aef28692000e31d3a544501"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000022000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 22000,
+      "blur_score": 122.215,
+      "dhash": "dadedb0f222a9232",
+      "class_counts": {
+        "person": 9,
+        "helmet": 9,
+        "vest": 7
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8888888888888888
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000022000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000022000.txt",
+      "image_sha256": "1db00bc9d8ae01db018ddff4d437291b84091a4e996ec0403fc54b0ca96e1836",
+      "label_sha256": "5ae8dc921cddd7851420e58198ec415552ef4e17ab159bc5f0e6e5716ee25431"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000023000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 23000,
+      "blur_score": 156.738,
+      "dhash": "daeeb32ea026b6a6",
+      "class_counts": {
+        "person": 9,
+        "helmet": 9,
+        "vest": 6
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.7777777777777778
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000023000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000023000.txt",
+      "image_sha256": "af1f6e5d0d45be20fe3a1ddde2c2a5ca7957ac664b253b88b7bf9e1809d301ff",
+      "label_sha256": "a53b3f7a2fed51ba26511533481a9a07ea3f9022ef9c364e6cdf549aa32128e9"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000024000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 24000,
+      "blur_score": 90.922,
+      "dhash": "81312f2fa866743e",
+      "class_counts": {
+        "person": 6,
+        "helmet": 4,
+        "vest": 5
+      },
+      "coverage": {
+        "helmet_coverage": 0.6666666666666666,
+        "vest_coverage": 0.8333333333333334
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000024000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000024000.txt",
+      "image_sha256": "92bbb1f2060ff29e761bd77ab63456ee8f3361d9f767c92e8a29e81afe4f6b0a",
+      "label_sha256": "06d3de586c3b322bdc5b81dde32a2254f65df906a756d7ae3018e7f6d44bfabf"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000025000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 25000,
+      "blur_score": 80.293,
+      "dhash": "3099af99d8222eae",
+      "class_counts": {
+        "person": 5,
+        "helmet": 6,
+        "vest": 5
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000025000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000025000.txt",
+      "image_sha256": "70fad0e8ed819f80723676db4018ec6396c5429e6ad6262b63d75dfbae7e1cb3",
+      "label_sha256": "3ff37614fcf39969d5ae85cefb78fa12cebe74316806bd1738b15a545b3e4ab8"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000027000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 27000,
+      "blur_score": 96.082,
+      "dhash": "88cc454d5ad9ce6b",
+      "class_counts": {
+        "person": 5,
+        "helmet": 5,
+        "vest": 5
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000027000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000027000.txt",
+      "image_sha256": "0acba7503474f8863e37191e09ae6060f70825a44669b6b433cd8e3f73e95077",
+      "label_sha256": "7c4049d24548338c67ef47ed54247714a451a561425004270a55f7862bf2a061"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000028000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 28000,
+      "blur_score": 77.904,
+      "dhash": "c4e76366acc84f7b",
+      "class_counts": {
+        "person": 6,
+        "helmet": 6,
+        "vest": 7
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000028000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000028000.txt",
+      "image_sha256": "3425d6f3e4debea03172f45773eb7ac51476689ec17c5e3530446f5dea8fe492",
+      "label_sha256": "586df2d1553a15cd7affc16a64276c9c361b5e11aba38609127c23451be5313e"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000029000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 29000,
+      "blur_score": 64.075,
+      "dhash": "f062f324b8ec6427",
+      "class_counts": {
+        "person": 5,
+        "helmet": 5,
+        "vest": 5
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000029000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000029000.txt",
+      "image_sha256": "9eafc0b270641bcc98cc3e0489a77138604b103d3c4c55f2bc21d20f0b0f1364",
+      "label_sha256": "71db76a4431e7dff025a03993ab8630547193793d7089758168b9973b8438564"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000030000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 30000,
+      "blur_score": 122.431,
+      "dhash": "f0627326b4ec6c27",
+      "class_counts": {
+        "person": 5,
+        "helmet": 6,
+        "vest": 4
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000030000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000030000.txt",
+      "image_sha256": "a0d49063f04704826de2c8ddd263c899c195319fcffe35574579ffe6ae640ac9",
+      "label_sha256": "5bee4a149f7c4912a82249974794a1e47684435c85bf4a3d2e90b178dcf23dea"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000031000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 31000,
+      "blur_score": 120.193,
+      "dhash": "e0627322b6ec6467",
+      "class_counts": {
+        "person": 5,
+        "helmet": 5,
+        "vest": 5
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000031000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000031000.txt",
+      "image_sha256": "b87dc06af407f6485ace925b7497df66de7db59f41708728b3b7e84b0fbfd765",
+      "label_sha256": "818ed6359aaf7dc2ca31da4efa8d8a4247b9c081dfe19f6a9829a4d25356ab8b"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000032000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 32000,
+      "blur_score": 110.848,
+      "dhash": "e0c4e72236ad6c67",
+      "class_counts": {
+        "person": 5,
+        "helmet": 5,
+        "vest": 4
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000032000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000032000.txt",
+      "image_sha256": "0ed36b3080cc0bf7c03a8f6bbccff77e91e8b8e77b9785458036d1f5454ff7bd",
+      "label_sha256": "4b8e11e31aa86de207e32fdd67142668f1a72fdcfb687e0e20cb1d7f00bda4ce"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000033000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 33000,
+      "blur_score": 82.648,
+      "dhash": "20aa6a2ba9f19a9a",
+      "class_counts": {
+        "person": 6,
+        "helmet": 7,
+        "vest": 6
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8333333333333334
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000033000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000033000.txt",
+      "image_sha256": "2fa0e0bce4d898821228d04611807fb192e865a5725132a5ef4cb4627b533080",
+      "label_sha256": "91590b5c91ff2b80ae7f5cbb36aa60c6a17ffa59a65bbcf1f7039740867692e9"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000035000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 35000,
+      "blur_score": 106.003,
+      "dhash": "60f07a4c51577446",
+      "class_counts": {
+        "person": 4,
+        "helmet": 5,
+        "vest": 3
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.75
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000035000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000035000.txt",
+      "image_sha256": "ea18762e33c5fe07e75fbcb408fad4a3368b6a7a6a87f4198adc6473fbd337e7",
+      "label_sha256": "2ae1fbfb9128fb2b015f27d44948fbe675798822386ca66348c09f3b1e836946"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000036000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 36000,
+      "blur_score": 110.078,
+      "dhash": "60f06acad0567ece",
+      "class_counts": {
+        "person": 5,
+        "helmet": 6,
+        "vest": 4
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000036000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000036000.txt",
+      "image_sha256": "eda929d3efdf488f08ea65269ebdd926f322d4e87181e8cd987180be4c4f4374",
+      "label_sha256": "549d2466463d9470ff8f71ff1a21e46d6f43db13584cfd0057ad8f758b963770"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000037000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 37000,
+      "blur_score": 108.871,
+      "dhash": "60d02aca545634ce",
+      "class_counts": {
+        "person": 5,
+        "helmet": 5,
+        "vest": 4
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000037000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000037000.txt",
+      "image_sha256": "e4cc8746ae6d4600efe54439239192722c84b5af36ccb383b67f7949beaa1d24",
+      "label_sha256": "f31a225e38a42084da9eb15657861528188c68e85d1554e5c1f2b300b0c8d8c4"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000038000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 38000,
+      "blur_score": 116.639,
+      "dhash": "60d06acad05674ce",
+      "class_counts": {
+        "person": 6,
+        "helmet": 6,
+        "vest": 4
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.6666666666666666
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000038000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000038000.txt",
+      "image_sha256": "c2d7e4eb391094eb3bedd2070c842879bbcd5f24bb971d38d9bc6d5a3531b2b3",
+      "label_sha256": "9f5dedc3c3b3e298f16d9df1c400870b53d549154c14091d46876c8936fbfec6"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000039000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 39000,
+      "blur_score": 98.255,
+      "dhash": "60b07a4ed1535cc6",
+      "class_counts": {
+        "person": 5,
+        "helmet": 5,
+        "vest": 4
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000039000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000039000.txt",
+      "image_sha256": "7e0563068fbc555fc2efb41a361122f36837a15fd24e6aecc3aab79c55e5522c",
+      "label_sha256": "6e6b2df2279433f2ca88bde8921985c81c1a0c3a13e07c80d3f6ff542c180c18"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000040000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 40000,
+      "blur_score": 98.799,
+      "dhash": "e0502acc51527ece",
+      "class_counts": {
+        "person": 6,
+        "helmet": 5,
+        "vest": 5
+      },
+      "coverage": {
+        "helmet_coverage": 0.8333333333333334,
+        "vest_coverage": 0.6666666666666666
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000040000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000040000.txt",
+      "image_sha256": "fbc10d3e3cbff1d04f630f487f29719f20beec84717ff841f787364fd00f8593",
+      "label_sha256": "e4e292e05992bd854031db598600d6d8105d3f71b470d5d54243b781616ba75c"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000041000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 41000,
+      "blur_score": 100.039,
+      "dhash": "e0284ac95356d6c6",
+      "class_counts": {
+        "person": 5,
+        "helmet": 5,
+        "vest": 5
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000041000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000041000.txt",
+      "image_sha256": "e7c4f10d8f0646250ef2d8a0bd0591b1032eacb0d003342d0cef67abf672443a",
+      "label_sha256": "3343f4cc6d37bc7187361cd6d83c2642babfde28828c96cb42ec8984aa0b7855"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000042000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 42000,
+      "blur_score": 98.558,
+      "dhash": "b0784ad55754d6c6",
+      "class_counts": {
+        "person": 5,
+        "helmet": 5,
+        "vest": 5
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000042000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000042000.txt",
+      "image_sha256": "4dd2815183e1e36230b54cf8602524fd12274f75625a587e0c698b85e1b2c063",
+      "label_sha256": "832d77dd2ed61f340966cc0f8f09248b770fde792bf643425175f52c254958e3"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000043000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 43000,
+      "blur_score": 249.283,
+      "dhash": "35f03c1835e5e5a4",
+      "class_counts": {
+        "person": 13,
+        "helmet": 15,
+        "vest": 11
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8461538461538461
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000043000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000043000.txt",
+      "image_sha256": "e3eae4e49f83f29fcf5f319ac4b2f98865f697431279702a31f9677d2892bd58",
+      "label_sha256": "e751ecf468ae2ea88d5da9050e4dc15068044d584bb6dfd684847a582c135f55"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000044000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 44000,
+      "blur_score": 194.317,
+      "dhash": "caaa623070d89894",
+      "class_counts": {
+        "person": 15,
+        "helmet": 14,
+        "vest": 14
+      },
+      "coverage": {
+        "helmet_coverage": 0.9333333333333333,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000044000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000044000.txt",
+      "image_sha256": "fa010b7fac322bd0765c3dfa33ad9692bf1871839eb617421e91863cbd8133c2",
+      "label_sha256": "9e99bb4c486e8ec62cb82efac8dbea6270f8551b58e868b8ce19ef883f2cb996"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000045000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 45000,
+      "blur_score": 178.849,
+      "dhash": "eff2a2929c5cccad",
+      "class_counts": {
+        "person": 13,
+        "helmet": 12,
+        "vest": 14
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000045000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000045000.txt",
+      "image_sha256": "b4078d97492afebc8ff38804d1abf46a12ba6e3b9805fcff4964f98efdb76d74",
+      "label_sha256": "5438ac5ff4e4036b8b2aed7e3b5ae7c06ec749b7f64319d8d0c59cf5dc84a6fc"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000046000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 46000,
+      "blur_score": 190.734,
+      "dhash": "e5e9b1aa2ca0d2d3",
+      "class_counts": {
+        "person": 13,
+        "helmet": 12,
+        "vest": 13
+      },
+      "coverage": {
+        "helmet_coverage": 0.7692307692307693,
+        "vest_coverage": 0.7692307692307693
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000046000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000046000.txt",
+      "image_sha256": "0086d6b147cee686f1adbb5482a1b758de94f93a12dee61386efebf02404ff12",
+      "label_sha256": "330ee01284d22218d384defc640638db90e2c846fd476e7e6bce34fe794da938"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000047000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 47000,
+      "blur_score": 202.68,
+      "dhash": "e2f9eaaa9a085853",
+      "class_counts": {
+        "person": 12,
+        "helmet": 12,
+        "vest": 11
+      },
+      "coverage": {
+        "helmet_coverage": 0.9166666666666666,
+        "vest_coverage": 0.9166666666666666
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000047000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000047000.txt",
+      "image_sha256": "04a14f24112b730c5de5872efea748d62d30c0effd52c3cd5441881db9779168",
+      "label_sha256": "d06c576043167f475031bca879a91764820535390577dd513fc52d36ffb3139d"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000048000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 48000,
+      "blur_score": 206.347,
+      "dhash": "f3f9d79a2aaac494",
+      "class_counts": {
+        "person": 17,
+        "helmet": 14,
+        "vest": 14
+      },
+      "coverage": {
+        "helmet_coverage": 0.8235294117647058,
+        "vest_coverage": 0.8823529411764706
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000048000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000048000.txt",
+      "image_sha256": "57c3581d4f41436f2075395a7fdca21e5b03efd4fd0f190aeadbc31ea5e57a3a",
+      "label_sha256": "3d06cd7fd09881e40f245acadd8c332055c8ea0499e830734bdfc219a09d6af5"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000049000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 49000,
+      "blur_score": 242.645,
+      "dhash": "f1fdc7bdd5545868",
+      "class_counts": {
+        "person": 17,
+        "helmet": 17,
+        "vest": 16
+      },
+      "coverage": {
+        "helmet_coverage": 0.8235294117647058,
+        "vest_coverage": 0.9411764705882353
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000049000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000049000.txt",
+      "image_sha256": "f3ca769f6a8cb762ecd4719f7ce8086be2570804858b68fb23cf8e408342adb7",
+      "label_sha256": "aad73ba809ea3820b8171efdd95766f3a8b52b04892307d6be7d7593495590b8"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000050000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 50000,
+      "blur_score": 222.028,
+      "dhash": "f87cdf7c8627ab2b",
+      "class_counts": {
+        "person": 16,
+        "helmet": 18,
+        "vest": 17
+      },
+      "coverage": {
+        "helmet_coverage": 0.875,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000050000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000050000.txt",
+      "image_sha256": "544409ffc42d68c3767286c3a8627534aa5506a940749e70e28f13fbf5b2109f",
+      "label_sha256": "a895de98b4f489caf4e922e873ae29e9883304b0276e1aaa11df094b19eb31a7"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000051000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 51000,
+      "blur_score": 219.024,
+      "dhash": "787cdd6ca4624a22",
+      "class_counts": {
+        "person": 18,
+        "helmet": 16,
+        "vest": 16
+      },
+      "coverage": {
+        "helmet_coverage": 0.8888888888888888,
+        "vest_coverage": 0.9444444444444444
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000051000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000051000.txt",
+      "image_sha256": "7ec39464b2979aa5a5cbf4e5f43d41aea03206b4ceb652dbdec70d14c697f397",
+      "label_sha256": "9dc8a9928e19605c6be838b8b2b977fd30646b9ebfb9d82f306c50948d8e8ea4"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000052000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 52000,
+      "blur_score": 226.974,
+      "dhash": "787cdd6c2226ca52",
+      "class_counts": {
+        "person": 18,
+        "helmet": 20,
+        "vest": 15
+      },
+      "coverage": {
+        "helmet_coverage": 0.8888888888888888,
+        "vest_coverage": 0.9444444444444444
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000052000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000052000.txt",
+      "image_sha256": "482ed44adcfdea0d0a4b9366967175904ce8553a19c097d1b195993b09186409",
+      "label_sha256": "ee7692457ec92952f2527922745bce14ca1841b04d6bd461a89976e1c2f85912"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000053000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 53000,
+      "blur_score": 210.667,
+      "dhash": "f1fd9da4d455492d",
+      "class_counts": {
+        "person": 17,
+        "helmet": 20,
+        "vest": 17
+      },
+      "coverage": {
+        "helmet_coverage": 0.9411764705882353,
+        "vest_coverage": 0.9411764705882353
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000053000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000053000.txt",
+      "image_sha256": "60045c70bef91f1ae026aeb3ccab4098ad61ad4c40e06c5782c19b233817c0ac",
+      "label_sha256": "d9222433fb9ee25a278f90b081e43092269a30c5e5c4802d1d48a29c155cb138"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000054000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 54000,
+      "blur_score": 227.089,
+      "dhash": "f3f9e76c49a525a4",
+      "class_counts": {
+        "person": 16,
+        "helmet": 15,
+        "vest": 16
+      },
+      "coverage": {
+        "helmet_coverage": 0.9375,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000054000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000054000.txt",
+      "image_sha256": "9ffc602cc7734bb29ccb1d7712a1687df177ce54eafe587aa58f4b7625320613",
+      "label_sha256": "c4cd85a150937ecd52cd8026b8436c922f1e10ba66f0bd5bb71a3fdadddee2d6"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000055000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 55000,
+      "blur_score": 196.549,
+      "dhash": "f3f9f39e14d464a2",
+      "class_counts": {
+        "person": 15,
+        "helmet": 14,
+        "vest": 16
+      },
+      "coverage": {
+        "helmet_coverage": 0.8666666666666667,
+        "vest_coverage": 0.9333333333333333
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000055000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000055000.txt",
+      "image_sha256": "23aa17f309680b0169580cc3e3ec72e2e1e0c79149d66c96fdcfac7c39aa26c8",
+      "label_sha256": "e27c7e1b5496279225759be0e599b066a604f2a6ee3ac831459e1dcae32beaac"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000056000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 56000,
+      "blur_score": 178.924,
+      "dhash": "f3f97923899094c4",
+      "class_counts": {
+        "person": 13,
+        "helmet": 16,
+        "vest": 11
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.9230769230769231
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000056000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000056000.txt",
+      "image_sha256": "0f80d97ffa8b8575ace84502f500bdae7f422480a2bee152e3c8bc489ccc0bad",
+      "label_sha256": "108b35e15cdda8436cab6c068703634071eac1cf659c65e7f7949bf4bdb9dd22"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000057000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 57000,
+      "blur_score": 191.141,
+      "dhash": "f3f58c8c49b195b0",
+      "class_counts": {
+        "person": 13,
+        "helmet": 11,
+        "vest": 11
+      },
+      "coverage": {
+        "helmet_coverage": 0.7692307692307693,
+        "vest_coverage": 0.8461538461538461
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000057000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000057000.txt",
+      "image_sha256": "06583c0e3eea1abbf6f35ca356ba39ae902e529ebea8545862e5d74170d6c250",
+      "label_sha256": "a26c3216f20effb9c5c4565aaaf2b5ea9213bf5fa805e450066621c49a6299ac"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000058000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 58000,
+      "blur_score": 184.764,
+      "dhash": "f2f460e6b7a6a2e2",
+      "class_counts": {
+        "person": 12,
+        "helmet": 11,
+        "vest": 11
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000058000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000058000.txt",
+      "image_sha256": "3b50ed9f31d1076255f7c17135d6569813b8d879457e31fd130afdbbb1064195",
+      "label_sha256": "90cf64a7ab811dd427f76c02a8af96a53794c2925a4da6c2ebfd096bd58558be"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000059000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 59000,
+      "blur_score": 215.959,
+      "dhash": "f6ec8a9bcbeded69",
+      "class_counts": {
+        "person": 14,
+        "helmet": 12,
+        "vest": 15
+      },
+      "coverage": {
+        "helmet_coverage": 0.8571428571428571,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000059000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000059000.txt",
+      "image_sha256": "5b913d22956052423657f08e9c69018fd83aa79892cd65c98a0c8b949c4e4477",
+      "label_sha256": "ad6fb47ba37696fa3c371127b29763860c12e577bf23360cfb0309e1835820ea"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000060000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 60000,
+      "blur_score": 215.579,
+      "dhash": "e5dc948c4ee3a3a3",
+      "class_counts": {
+        "person": 13,
+        "helmet": 10,
+        "vest": 10
+      },
+      "coverage": {
+        "helmet_coverage": 0.8461538461538461,
+        "vest_coverage": 0.8461538461538461
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000060000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000060000.txt",
+      "image_sha256": "00ff777b9ba5309688c287aeb1badffc39a3da3a94ef2738f2cd06ca7747e04e",
+      "label_sha256": "35eca81cec78a54b28ab26635cc1459080d2381ccc078fbbb9382a912acaf07a"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000061000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 61000,
+      "blur_score": 221.786,
+      "dhash": "ead8b595cd9d607c",
+      "class_counts": {
+        "person": 13,
+        "helmet": 10,
+        "vest": 11
+      },
+      "coverage": {
+        "helmet_coverage": 0.8461538461538461,
+        "vest_coverage": 0.8461538461538461
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000061000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000061000.txt",
+      "image_sha256": "554c189a12c245e7070b3c21f5e5e63a6f9c6bf743a87c90a56567a65f588eed",
+      "label_sha256": "86f9a4df7bf2893c631fb7b87b46bdfe47472278778651c2a36d1d3c3630dd04"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000062000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 62000,
+      "blur_score": 232.778,
+      "dhash": "9ad09887cfcbd232",
+      "class_counts": {
+        "person": 12,
+        "helmet": 10,
+        "vest": 10
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000062000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000062000.txt",
+      "image_sha256": "e4125c1f4b269ac38cd4d2588922f5a04d4be8804e309e9c85a7cb849acb74d1",
+      "label_sha256": "a2ce8e5009ee44a01f518ac747f1496781dbe7a7676260412d96906ebcdf49ea"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000063000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 63000,
+      "blur_score": 247.467,
+      "dhash": "9af98d85cdcbc2d2",
+      "class_counts": {
+        "person": 10,
+        "helmet": 11,
+        "vest": 10
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000063000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000063000.txt",
+      "image_sha256": "edcf202afeab665aa08e68f02754839ce06deb6214effbe90cf075b3baed2f6a",
+      "label_sha256": "dd028d404be7bf79b0c64c472d74cbec78e26a2856f00684cc0f9c232bf9eca7"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000064000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 64000,
+      "blur_score": 249.378,
+      "dhash": "9ad09495cdcdc2da",
+      "class_counts": {
+        "person": 14,
+        "helmet": 10,
+        "vest": 10
+      },
+      "coverage": {
+        "helmet_coverage": 0.8571428571428571,
+        "vest_coverage": 0.8571428571428571
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000064000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000064000.txt",
+      "image_sha256": "da4eacdadccf344d299a18e2ae4eac5b388fa6f692ca5e6a6841f9e16cc01712",
+      "label_sha256": "0a4cf0710d2c8039a7b7eadd263b1abd9658f4a4a73951e39fa5d3518dabbff5"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000065000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 65000,
+      "blur_score": 245.623,
+      "dhash": "caf09595cdecc29a",
+      "class_counts": {
+        "person": 14,
+        "helmet": 11,
+        "vest": 12
+      },
+      "coverage": {
+        "helmet_coverage": 0.8571428571428571,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000065000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000065000.txt",
+      "image_sha256": "27eaffae025a6e20a29c7872cdbfa11a393aa021d3cf2586991a3b10469fbbde",
+      "label_sha256": "092318d7857b902f892268a73fab7fc0d2f2ba8a020c3046fd1ab4cfe5c62acd"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000066000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 66000,
+      "blur_score": 436.193,
+      "dhash": "a2203494d2cebeba",
+      "class_counts": {
+        "person": 18,
+        "helmet": 24,
+        "vest": 19
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000066000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000066000.txt",
+      "image_sha256": "d1d6f33a001564d9cc1f262c9db90a1508e26d0a268ea77dce834c54dd15a0c9",
+      "label_sha256": "91fd7ad753c45b5af20ff137bd382298cc52e23b287b14da287a749ba786e23f"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000067000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 67000,
+      "blur_score": 395.984,
+      "dhash": "20702c681cbeeefa",
+      "class_counts": {
+        "person": 17,
+        "helmet": 24,
+        "vest": 18
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.9411764705882353
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000067000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000067000.txt",
+      "image_sha256": "33a41e71cb99fe3c81458164219d364bf36ac06ff672433745201b2f1bc931f6",
+      "label_sha256": "45decc917e1f52f1872a4f48145f0b820472e3212164d5591468cc943de3165c"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000068000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 68000,
+      "blur_score": 391.722,
+      "dhash": "6030a4d48bb7b5b2",
+      "class_counts": {
+        "person": 21,
+        "helmet": 24,
+        "vest": 19
+      },
+      "coverage": {
+        "helmet_coverage": 0.9523809523809523,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000068000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000068000.txt",
+      "image_sha256": "8d9efc21943c0a748a662697af3e359fd781cc4ad7707c61ef5f3baa2768ebf1",
+      "label_sha256": "622a4bcbc5bb50256e7720f252ceb79d7bce4656a93946d0950d5404fc9e6ff8"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000069000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 69000,
+      "blur_score": 390.283,
+      "dhash": "6034a494abbbb9f9",
+      "class_counts": {
+        "person": 18,
+        "helmet": 22,
+        "vest": 18
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.9444444444444444
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000069000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000069000.txt",
+      "image_sha256": "0f58a5fed5bba7771db8b54f6682d11f557cbbd3e32239ad1be761e02de18097",
+      "label_sha256": "05b9bc7be991723168189352ee6a581e19358073b9ba78ea3036a786bbcb4594"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000070000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 70000,
+      "blur_score": 374.485,
+      "dhash": "603494d2acbaf8f8",
+      "class_counts": {
+        "person": 17,
+        "helmet": 23,
+        "vest": 21
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000070000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000070000.txt",
+      "image_sha256": "f2c5452456c062deb08b0d9a8d15aebb13c1d9e9bb079842cf61511aecdbfd55",
+      "label_sha256": "c75b46aeb8127e6373e2213654bf5f63f76603927038205f3d5ca50fe1642dd2"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000071000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 71000,
+      "blur_score": 365.609,
+      "dhash": "603456d28da9aafa",
+      "class_counts": {
+        "person": 15,
+        "helmet": 21,
+        "vest": 17
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000071000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000071000.txt",
+      "image_sha256": "c529aa4cf543ec9a63d0a89cf1a3cf2101c0cc79ff247e3540b9ef69bf5bd451",
+      "label_sha256": "80ad79e4b46a5ced7b8bad133e6a36281163b913c329451a41b99b8b2d863413"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000072000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 72000,
+      "blur_score": 102.666,
+      "dhash": "f8f098b29154544c",
+      "class_counts": {
+        "person": 8,
+        "helmet": 7,
+        "vest": 8
+      },
+      "coverage": {
+        "helmet_coverage": 0.75,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000072000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000072000.txt",
+      "image_sha256": "f1ec5cd5b08910107ec9e28048e4e80e9203c4a99d3b756ed678c162b7d28077",
+      "label_sha256": "82fd85cfd36f4d167a6f4a5426dd0dad87a162c1ca8eb9c4a9445d412b298474"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000073000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 73000,
+      "blur_score": 95.982,
+      "dhash": "fcf4e4f5f5b4a4ac",
+      "class_counts": {
+        "person": 7,
+        "helmet": 7,
+        "vest": 6
+      },
+      "coverage": {
+        "helmet_coverage": 0.8571428571428571,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000073000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000073000.txt",
+      "image_sha256": "4b2e814ffc56615ffd6831577e189fe36bdde499665d9ba38667083f1fc9c250",
+      "label_sha256": "0edf416829bee36a204338ba080451c31a7e2f6004245beee5ba8c07da024e15"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000075000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 75000,
+      "blur_score": 117.797,
+      "dhash": "2c7c6e6664323606",
+      "class_counts": {
+        "person": 6,
+        "helmet": 4,
+        "vest": 6
+      },
+      "coverage": {
+        "helmet_coverage": 0.8333333333333334,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000075000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000075000.txt",
+      "image_sha256": "04e5e02fa3150a1254152ed1217331152fb980994b1336f2aa24a0ef4f5e404d",
+      "label_sha256": "dedcb21c113748e7d50820f2b8a44942e1d46534f4727d045758e09681475280"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000076000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 76000,
+      "blur_score": 138.862,
+      "dhash": "2d3c666434121216",
+      "class_counts": {
+        "person": 5,
+        "helmet": 4,
+        "vest": 6
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000076000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000076000.txt",
+      "image_sha256": "88adbc16798c30684e5a97dea1608d1cf7b3949001a9e8d8c395047ef6e39928",
+      "label_sha256": "6984e13b19a94a44d893997c8024d41aedf4805b2b367dfe610c59d35f8e7154"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000077000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 77000,
+      "blur_score": 133.505,
+      "dhash": "2c7c727674121212",
+      "class_counts": {
+        "person": 4,
+        "helmet": 5,
+        "vest": 6
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000077000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000077000.txt",
+      "image_sha256": "23d85973e808225f64b2013f0b775af3c328f8c1ddf9b279fd760329fd52e030",
+      "label_sha256": "2415ded87865896e29cace86040f84f0923b93196163e8c5a671b01f0a3d03c9"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000078000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 78000,
+      "blur_score": 122.729,
+      "dhash": "7e346ced74301216",
+      "class_counts": {
+        "person": 5,
+        "helmet": 7,
+        "vest": 5
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000078000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000078000.txt",
+      "image_sha256": "d30cd4e528e5247c63a19a13d6226188bdd7e773e94422c6de4774416d7665dd",
+      "label_sha256": "2eedb59578a37d9e3ed1648fc98b50f0fb28ae22a1b03d905af49eceba494d29"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000079000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 79000,
+      "blur_score": 110.274,
+      "dhash": "7e78ece9f5351414",
+      "class_counts": {
+        "person": 5,
+        "helmet": 6,
+        "vest": 4
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000079000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000079000.txt",
+      "image_sha256": "13d47b5ecc2360df27d66f301b44bc13a57905cd2b9c9e0462d032d49a526126",
+      "label_sha256": "283c7648553b49d0961997b375f15e7ad1837c036cbad375fd8f1aec912053bd"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000080000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 80000,
+      "blur_score": 63.924,
+      "dhash": "1c9c1cb85535958b",
+      "class_counts": {
+        "person": 4,
+        "helmet": 4,
+        "vest": 4
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000080000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000080000.txt",
+      "image_sha256": "779ccfd3b09bf951b66b2dbdd127955be075a885902c01b430e569fa01786bad",
+      "label_sha256": "42946b6e0d3f5a14ad1c18194d1415cbb42a824db1c2d555d0a33deb5c1cc3a5"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000081000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 81000,
+      "blur_score": 134.452,
+      "dhash": "1c9c94bc5535958b",
+      "class_counts": {
+        "person": 5,
+        "helmet": 7,
+        "vest": 4
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000081000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000081000.txt",
+      "image_sha256": "a6c5d6874b726e47804c112b18c15d87934a826fa44a304f5f9673332165891e",
+      "label_sha256": "84fb684a9186fde6863cf3cc53f6ccc1970a57a146aff95854265da68a34983b"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000082000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 82000,
+      "blur_score": 144.142,
+      "dhash": "1c9cb48c5535958b",
+      "class_counts": {
+        "person": 4,
+        "helmet": 4,
+        "vest": 4
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000082000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000082000.txt",
+      "image_sha256": "984abb55fdb7c8df15bd0df13ffc9ad29431c5e747df4bf6d04057a95f7a10c4",
+      "label_sha256": "44158704a623f73b3d417aed6338d0744a8e3c494255524f7718cc778f07d08f"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000084000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 84000,
+      "blur_score": 114.113,
+      "dhash": "3a386419b82c2316",
+      "class_counts": {
+        "person": 4,
+        "helmet": 3,
+        "vest": 5
+      },
+      "coverage": {
+        "helmet_coverage": 0.75,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000084000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000084000.txt",
+      "image_sha256": "a299ed021d667243ec28a9747687645e33269e007f417b980385fb71b9c86aee",
+      "label_sha256": "f2ec39588eb884d4390aa1addeacbaf5f72f67519829ad3ac931cf39e5864d16"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000085000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 85000,
+      "blur_score": 129.529,
+      "dhash": "717b6a7a8aeb6616",
+      "class_counts": {
+        "person": 5,
+        "helmet": 5,
+        "vest": 5
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000085000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000085000.txt",
+      "image_sha256": "0ad17018d38dbc0bfd5bee89e2510dcc5b468f7a41243a0f7ffd885367db8833",
+      "label_sha256": "af82ef3c821414515be9e9fb9c17caaafd01e23b6ffd057c50914f4c916d3687"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000086000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 86000,
+      "blur_score": 191.291,
+      "dhash": "1c26a792923a3af0",
+      "class_counts": {
+        "person": 9,
+        "helmet": 9,
+        "vest": 8
+      },
+      "coverage": {
+        "helmet_coverage": 0.7777777777777778,
+        "vest_coverage": 0.8888888888888888
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000086000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000086000.txt",
+      "image_sha256": "929f89cc8baff85b7d9bf8eeeda59af33e42352089a09494dd6771f09314cca7",
+      "label_sha256": "360d533a64a7e1e263d950b931b1b46b904dd77068afcf8798d83f1992ff0f6e"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000087000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 87000,
+      "blur_score": 146.908,
+      "dhash": "0e9b93c9c99999f8",
+      "class_counts": {
+        "person": 8,
+        "helmet": 9,
+        "vest": 7
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.875
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000087000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000087000.txt",
+      "image_sha256": "75fcf5fb803f46ad8e48fc90a47bb9a0701e35b8a8b21782e9cba90ffb39fdb6",
+      "label_sha256": "4cdce9c976ff634491dcf6da0cc3abf62043ce5b13bc23886c64b027a593d66d"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000088000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 88000,
+      "blur_score": 151.431,
+      "dhash": "07cb91caa88c9c7d",
+      "class_counts": {
+        "person": 8,
+        "helmet": 8,
+        "vest": 7
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.875
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000088000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000088000.txt",
+      "image_sha256": "004128fdf0a91ab3f08bd4c129c23a3990c2b4660f33a8ec7cf4dae055c1e4ee",
+      "label_sha256": "c393058356dea70966c7a53eb19ffbbe7eb1be9604f06e2c7460c2032d2df27d"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000089000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 89000,
+      "blur_score": 162.776,
+      "dhash": "87c9a94c648c8c7c",
+      "class_counts": {
+        "person": 8,
+        "helmet": 8,
+        "vest": 9
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000089000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000089000.txt",
+      "image_sha256": "3f6415412d152142014a927c3cffb863cd3cdeaa3ed30935cc8b93f7bc4af921",
+      "label_sha256": "e89d0e8f131c26491de98af3cbb3c26aa713c0e8474a6291e9080dcfaf2ab9ed"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000090000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 90000,
+      "blur_score": 165.181,
+      "dhash": "87cd5964e48caebc",
+      "class_counts": {
+        "person": 8,
+        "helmet": 9,
+        "vest": 9
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000090000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000090000.txt",
+      "image_sha256": "7e687e1997a454288b5d01b086682c74eb36d06cd4fd8af7971e804cd56d0887",
+      "label_sha256": "a217b4229f228367c0efd62429a9f94e456b94c1dc3df54697a8df53ccc27593"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000091000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 91000,
+      "blur_score": 100.989,
+      "dhash": "876d5924b4ce8eb8",
+      "class_counts": {
+        "person": 9,
+        "helmet": 7,
+        "vest": 8
+      },
+      "coverage": {
+        "helmet_coverage": 0.7777777777777778,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000091000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000091000.txt",
+      "image_sha256": "44193f750bf84ec778123058ba95d158392febf37146dd29324653796ec9afde",
+      "label_sha256": "0bde3a494776f4f254368f21f5e2f80b3c0cfd164ef8fb0e68c89b3a33458fe6"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000092000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 92000,
+      "blur_score": 100.123,
+      "dhash": "8fcbb96e64ac9c79",
+      "class_counts": {
+        "person": 8,
+        "helmet": 8,
+        "vest": 8
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000092000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000092000.txt",
+      "image_sha256": "0caf7ccd47d1958fe51ae54b9cbee8e51e0448ff34c9f5b44e5eeca68ae7bb47",
+      "label_sha256": "e3051878118144c4b9d02c00204b075d0953d3022f21da1d2afbe1597f2419c3"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000093000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 93000,
+      "blur_score": 100.036,
+      "dhash": "0eda92494124bc78",
+      "class_counts": {
+        "person": 9,
+        "helmet": 7,
+        "vest": 8
+      },
+      "coverage": {
+        "helmet_coverage": 0.8888888888888888,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000093000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000093000.txt",
+      "image_sha256": "f3636685b81f61a16fb50c04caef89a9935cd3e1dd18557f7a4b0026ec367988",
+      "label_sha256": "0866f171ca1cb13ec7f2d678fd69eef3e4c1b8658f5eb261b615085fbb39fffc"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000094000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 94000,
+      "blur_score": 78.47,
+      "dhash": "9db570918bd8597a",
+      "class_counts": {
+        "person": 8,
+        "helmet": 9,
+        "vest": 8
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000094000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000094000.txt",
+      "image_sha256": "39d96c7fea5909378b0363533d2b2b7c2a7cd2cc9481f16efdea652f4582f40a",
+      "label_sha256": "70e98aa2f6ac6db1298ed4e50ec5d58ca20204ec93daef1947eb749c548719c9"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000095000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 95000,
+      "blur_score": 178.82,
+      "dhash": "7a68ea6604357575",
+      "class_counts": {
+        "person": 9,
+        "helmet": 9,
+        "vest": 9
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000095000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000095000.txt",
+      "image_sha256": "3d6b5645a9498ca084cb85c7a071f7e8210c47f69e4264d1ce82366204dbb197",
+      "label_sha256": "85e706911f5fa20381f9a7e75c358d75bdecde285d394ee8a0a2eb865c43def7"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000096000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 96000,
+      "blur_score": 186.254,
+      "dhash": "fcd89ccc892aaaea",
+      "class_counts": {
+        "person": 9,
+        "helmet": 8,
+        "vest": 10
+      },
+      "coverage": {
+        "helmet_coverage": 0.8888888888888888,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000096000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000096000.txt",
+      "image_sha256": "01925c423e70ffc7a8c6ea3b14c7e5c4a52b7a925a7a9fac40907fccdfe1dd66",
+      "label_sha256": "f895e653426fefb7f7aa08e722ac160451675cebccc25911e01ac0bff7fa553f"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000097000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 97000,
+      "blur_score": 158.831,
+      "dhash": "f9b05999574d54d4",
+      "class_counts": {
+        "person": 9,
+        "helmet": 7,
+        "vest": 9
+      },
+      "coverage": {
+        "helmet_coverage": 0.8888888888888888,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000097000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000097000.txt",
+      "image_sha256": "5b0fae283e0b82ee406f31c80360dbc702b7cf64f03233f3fda01788567b439c",
+      "label_sha256": "a1747755d6ef0da19c8d0e6b6be144b11c30f27f608f01bbe91b39d3bdfc2161"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000098000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 98000,
+      "blur_score": 161.017,
+      "dhash": "f2405210afa9b9b9",
+      "class_counts": {
+        "person": 9,
+        "helmet": 9,
+        "vest": 9
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000098000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000098000.txt",
+      "image_sha256": "731f86262f82801b3d8bdd3e4a535cc15af9d35d6d20ff23ea36fe80d56c1df2",
+      "label_sha256": "583e7b97f70b5a2cf0c7ec385cce915b03a8796580bcd4eea016cafb14063882"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000099000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 99000,
+      "blur_score": 91.544,
+      "dhash": "e0c1e1c4656b5670",
+      "class_counts": {
+        "person": 10,
+        "helmet": 10,
+        "vest": 8
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000099000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000099000.txt",
+      "image_sha256": "c70805c9e2f7d47c589d24f52a8e5f2fabf91ea324bf8f5189884f1335ef05ca",
+      "label_sha256": "d58ba352037c5c41330da209d1ba8f1cfb691c0e9bc8fd38221e3e3c7e1742ab"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000110000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 110000,
+      "blur_score": 151.738,
+      "dhash": "7c7cd08a46e561e5",
+      "class_counts": {
+        "person": 8,
+        "helmet": 8,
+        "vest": 8
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000110000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000110000.txt",
+      "image_sha256": "73ad97523f71661b67e129e38212a9eb8ff1660204fe3ff8040ad73dd75d6072",
+      "label_sha256": "656db1edb04518d207be8bcb0c790df50d6372b71e12dccecfc7e4ce2feaeb79"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000111000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 111000,
+      "blur_score": 92.886,
+      "dhash": "1c15b471b18a5a3a",
+      "class_counts": {
+        "person": 8,
+        "helmet": 9,
+        "vest": 8
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000111000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000111000.txt",
+      "image_sha256": "bea0a7947ffc787b2f390fb0aa3ae9a78dc5928b9249a7dcca0b573791b6667f",
+      "label_sha256": "dc5e8f6c215736d673b9f342f9e8be4ce6c2bf4633ad5e92bcf1883a67893d38"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000112000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 112000,
+      "blur_score": 160.432,
+      "dhash": "0e9adaf959c494b8",
+      "class_counts": {
+        "person": 9,
+        "helmet": 10,
+        "vest": 8
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8888888888888888
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000112000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000112000.txt",
+      "image_sha256": "97fe43ce070c9c5ef1532deb697311c5d0e018ea121af47cda20253b65f5aeb7",
+      "label_sha256": "ccc618bb854fc98d733983483248e3cb1dac820bdc3e45922dc6baeb1cd8ee1e"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000113000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 113000,
+      "blur_score": 155.154,
+      "dhash": "0e9a92f84945949c",
+      "class_counts": {
+        "person": 9,
+        "helmet": 8,
+        "vest": 8
+      },
+      "coverage": {
+        "helmet_coverage": 0.8888888888888888,
+        "vest_coverage": 0.8888888888888888
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000113000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000113000.txt",
+      "image_sha256": "d0f81266f9fad3be268428cb17b7fa19e000d7b7f4d1d28ea99a1cfcbc7d90c7",
+      "label_sha256": "3abd11d8d9a4936b393aaa55e1a8957e746435368c192936e8b79b456e625c02"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000114000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 114000,
+      "blur_score": 155.49,
+      "dhash": "c880ad6a6269cc4e",
+      "class_counts": {
+        "person": 9,
+        "helmet": 11,
+        "vest": 8
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000114000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000114000.txt",
+      "image_sha256": "80c73dd59412f220d21f4644f6c5e5976c9bc083f6f8fa5d0deb8be8130f38c2",
+      "label_sha256": "722909327fc4631ad7aa2bbc697735bc3dddf98c48e36d2f2bed639275f2b7dc"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000115000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 115000,
+      "blur_score": 156.12,
+      "dhash": "8080adeaf24cccc6",
+      "class_counts": {
+        "person": 10,
+        "helmet": 11,
+        "vest": 9
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.9
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000115000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000115000.txt",
+      "image_sha256": "97b364bee64c93956088019e6cb2ea5615a5ca42b9353a5be93ee6067208dc12",
+      "label_sha256": "a214e4bad5e7db2797a19a65e4aa6823d678ccce1e82ba5a03c9e804d272f9a6"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000116000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 116000,
+      "blur_score": 164.617,
+      "dhash": "8080adeaf3c9c9c9",
+      "class_counts": {
+        "person": 9,
+        "helmet": 11,
+        "vest": 9
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8888888888888888
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000116000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000116000.txt",
+      "image_sha256": "4343dd675b85d723e6a41788d08521d3a5efc85a807974bda3f9e71c1aa61d6c",
+      "label_sha256": "7bd86a994532c5986c240bcadb0ee2bfba88e66702e52e72de6fa960be45d9b8"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000117000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 117000,
+      "blur_score": 155.229,
+      "dhash": "8080ade9d3d9d9cd",
+      "class_counts": {
+        "person": 13,
+        "helmet": 13,
+        "vest": 10
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8461538461538461
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000117000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000117000.txt",
+      "image_sha256": "1f35974c96a8bcd03af73a9e8a7702ab4ad03ac4b33d895afe9718b23dd5fffb",
+      "label_sha256": "fc8ed5d5e4a6c0885de001bfb2e02c61d23b1d801b19a6b739cd153dbe800ff4"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000118000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 118000,
+      "blur_score": 160.629,
+      "dhash": "80a0edcaf349cdc6",
+      "class_counts": {
+        "person": 13,
+        "helmet": 14,
+        "vest": 10
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.9230769230769231
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000118000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000118000.txt",
+      "image_sha256": "5f50ce2c63412c47bb459092b8045aa55d2c8e5a93e28f352f8455f4973c8340",
+      "label_sha256": "10110da338c0a1534484f5475c9df9266883629412bddaadaee42a8fe21ea3bf"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000119000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 119000,
+      "blur_score": 164.857,
+      "dhash": "8080adeaa36d4cc4",
+      "class_counts": {
+        "person": 12,
+        "helmet": 12,
+        "vest": 10
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000119000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000119000.txt",
+      "image_sha256": "463b47aff05b428fe1931f35a430b7ee6f7449dcf9699485126dcb2a069c6271",
+      "label_sha256": "f141e16142150c5890578688d63503c3b152f94aad83e4c836f304dd94d24a97"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000120000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 120000,
+      "blur_score": 317.169,
+      "dhash": "9a9a9a989cfb5485",
+      "class_counts": {
+        "person": 14,
+        "helmet": 11,
+        "vest": 12
+      },
+      "coverage": {
+        "helmet_coverage": 0.7857142857142857,
+        "vest_coverage": 0.8571428571428571
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000120000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000120000.txt",
+      "image_sha256": "9efa98dd22ed900b3f23b7ed0622e9aef6029861f28c98d8e8ee3299621de963",
+      "label_sha256": "74ce5950b6b0de5e0eb94e0cd5df28a4aa7f5f7dea562d5137f6e5c9d4e987c1"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000121000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 121000,
+      "blur_score": 309.729,
+      "dhash": "9a9a9a989cfb7445",
+      "class_counts": {
+        "person": 12,
+        "helmet": 12,
+        "vest": 11
+      },
+      "coverage": {
+        "helmet_coverage": 0.9166666666666666,
+        "vest_coverage": 0.9166666666666666
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000121000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000121000.txt",
+      "image_sha256": "12a3cc633624caed6bbc9565d1a535866178c056048e392922a5739a721647c2",
+      "label_sha256": "5580d3f27b685c0d7a6cda7d27e542f1e5bb38420c854febb924722744e291bb"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000123000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 123000,
+      "blur_score": 307.748,
+      "dhash": "da9a9a989df37445",
+      "class_counts": {
+        "person": 14,
+        "helmet": 13,
+        "vest": 10
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8571428571428571
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000123000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000123000.txt",
+      "image_sha256": "e7b8575138ad15c899f34f668f2ff0c67f9ae4fd799211996e75a7dc62076ca5",
+      "label_sha256": "a7da0e8f965677787d3812489bbced54d81da825dde3171989887a22ab8923b2"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000124000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 124000,
+      "blur_score": 68.213,
+      "dhash": "792c8e8bc5adfd94",
+      "class_counts": {
+        "person": 1,
+        "helmet": 1,
+        "vest": 1
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000124000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000124000.txt",
+      "image_sha256": "4eaa8f1636e1beb86d62e301715168750e7804412fbdf589d026bfb36ba95da0",
+      "label_sha256": "b04ffa1b9abce2d79915068093f93095a9572fe30b3e91385a4c325b5189ff94"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000128000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 128000,
+      "blur_score": 48.535,
+      "dhash": "dbea2e496ce4e5a6",
+      "class_counts": {
+        "person": 1,
+        "helmet": 3,
+        "vest": 3
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000128000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000128000.txt",
+      "image_sha256": "476f5ad86293f60ec98a4d1de08a7f8af266852995cbe065f8495cee4a46cdeb",
+      "label_sha256": "e98fa87c5361fa69c0e0bccbd2c2d93764c5922620da2ed5f499a635763380f8"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000134000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 134000,
+      "blur_score": 32.029,
+      "dhash": "9f9a9b5bcdada935",
+      "class_counts": {
+        "person": 6,
+        "helmet": 7,
+        "vest": 5
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8333333333333334
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000134000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000134000.txt",
+      "image_sha256": "35d54c6c48d69b40ec894b1d7dc4f5f5cb48243cfbb7825e49a8126bb73575e6",
+      "label_sha256": "ad7f92a64435ca43a81629e5f9b0da21792577cf354e15891c7d471172db1399"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000135000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 135000,
+      "blur_score": 36.083,
+      "dhash": "8f89cb4d4facba32",
+      "class_counts": {
+        "person": 5,
+        "helmet": 5,
+        "vest": 6
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000135000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000135000.txt",
+      "image_sha256": "21f8b33ce57261916bafb2ec2902b5b0341039513726a97f61682aae592a1aa6",
+      "label_sha256": "795f0109abae3be67f41a815e35d003d68570eaed1e0ac68be3fab38dc8ab18f"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000136000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 136000,
+      "blur_score": 35.42,
+      "dhash": "8faacf4fadadb836",
+      "class_counts": {
+        "person": 5,
+        "helmet": 6,
+        "vest": 4
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000136000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000136000.txt",
+      "image_sha256": "316098997228a1096f24cdb03a1f84a653b23eb7930d92c6833289e490886aa9",
+      "label_sha256": "9306b218f454e58b3482dc403276b2096bec3ded975830975332fe1e95e029f4"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000137000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 137000,
+      "blur_score": 32.7,
+      "dhash": "8f8bcb4fcd2d3575",
+      "class_counts": {
+        "person": 5,
+        "helmet": 7,
+        "vest": 6
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000137000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000137000.txt",
+      "image_sha256": "05c7c1fc427b16a13f9b3ec5200bb28868fc4347b88fb3f4d803f839fcc15d90",
+      "label_sha256": "9ef9b303668f94ba6aa4edeac74ca6bffc009cb0cbc35f7ade251b41df6080ce"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000141000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 141000,
+      "blur_score": 30.72,
+      "dhash": "ebd3dfd5e7e7c28a",
+      "class_counts": {
+        "person": 12,
+        "helmet": 9,
+        "vest": 9
+      },
+      "coverage": {
+        "helmet_coverage": 0.75,
+        "vest_coverage": 0.8333333333333334
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000141000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000141000.txt",
+      "image_sha256": "16569b32150915c928aea05901796bc6144ec611b18175f0f7b743e6b828dfc4",
+      "label_sha256": "c9612aba1fdc196016d548b79bac32b067df4b09eb73f3300d50ed5438d7bf1f"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000142000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 142000,
+      "blur_score": 32.371,
+      "dhash": "eb539ff5e7c7ca8e",
+      "class_counts": {
+        "person": 11,
+        "helmet": 10,
+        "vest": 11
+      },
+      "coverage": {
+        "helmet_coverage": 0.8181818181818182,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000142000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000142000.txt",
+      "image_sha256": "58c78bb3fae658c52edf94dbf158cb3923df01035f3c6a8007cc70db618463a9",
+      "label_sha256": "290381b191381838a01a4be264cafe9c2a43759aecc09053d48d8a7895ef5680"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000143000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 143000,
+      "blur_score": 34.085,
+      "dhash": "fbdfd7f7e7c38acc",
+      "class_counts": {
+        "person": 11,
+        "helmet": 9,
+        "vest": 8
+      },
+      "coverage": {
+        "helmet_coverage": 0.9090909090909091,
+        "vest_coverage": 0.8181818181818182
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000143000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000143000.txt",
+      "image_sha256": "2d24eaa35e1052e5ed0f25c03397c83d2878f44f70bcb40c918ed5335c7e8f2b",
+      "label_sha256": "680c1933ec21d111ad50ba7635d0518b4f742f624afd58cfb27595b5be5e869a"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000144000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 144000,
+      "blur_score": 29.092,
+      "dhash": "e7bde5c5c7d3cd0c",
+      "class_counts": {
+        "person": 12,
+        "helmet": 9,
+        "vest": 7
+      },
+      "coverage": {
+        "helmet_coverage": 0.8333333333333334,
+        "vest_coverage": 0.9166666666666666
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000144000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000144000.txt",
+      "image_sha256": "373fdf0dd3bc5559749e55e8f0e850ecefd555896e6cb2918bb60f5cf8755468",
+      "label_sha256": "7db718f69890287ca4f862992094e79fda71afd04351f94daa3d4f90e01aff97"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000145000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 145000,
+      "blur_score": 114.163,
+      "dhash": "d1d96baa2810481b",
+      "class_counts": {
+        "person": 7,
+        "helmet": 10,
+        "vest": 6
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.7142857142857143
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000145000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000145000.txt",
+      "image_sha256": "09c813552f8df8132e37a55d91da67b98b8c11b3a6509c11a5c0581f9225583f",
+      "label_sha256": "333f940e534fcebca1d654ef4ce05d899b974f8f91113d52ae6d906cc89f6b7b"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000146000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 146000,
+      "blur_score": 91.889,
+      "dhash": "c9ede9a9206648c8",
+      "class_counts": {
+        "person": 7,
+        "helmet": 10,
+        "vest": 7
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000146000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000146000.txt",
+      "image_sha256": "9d7b99a904c0c382a83d8c429f88736af6906e54fc67a4c42eea39aff5b595a8",
+      "label_sha256": "b5f0bc7524d6ac5ee0cbe45d4bdede4d6d162ba0c0f7f32da26cd0ef73b1b294"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000147000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 147000,
+      "blur_score": 85.153,
+      "dhash": "c969e1e9e1e1e9c8",
+      "class_counts": {
+        "person": 8,
+        "helmet": 9,
+        "vest": 9
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000147000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000147000.txt",
+      "image_sha256": "e1e5ad7289d9797f18c0bab4c671962f9663d36fa82f641f74737faac70f7b90",
+      "label_sha256": "bff9dab33ae0fd7ddccaf512c7e70087c73dd1294272b5eb56c3d66b0cdd4d73"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000148000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 148000,
+      "blur_score": 80.025,
+      "dhash": "caca8b88c1c2c8c9",
+      "class_counts": {
+        "person": 7,
+        "helmet": 8,
+        "vest": 7
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000148000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000148000.txt",
+      "image_sha256": "5bb451d91501badf604ee7b891ec68cf0ad22eb05dade9f952e5fdae8d0a2949",
+      "label_sha256": "8d7df6ea7edd56791ddbcf1cef4a62b208dc9a28d50916e8be73399330b48df5"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000149000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 149000,
+      "blur_score": 75.439,
+      "dhash": "95914a4242c2c8c8",
+      "class_counts": {
+        "person": 9,
+        "helmet": 11,
+        "vest": 9
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8888888888888888
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000149000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000149000.txt",
+      "image_sha256": "9d10bb03c30ed546421c2c00eba60f464551f499b8b6b805f793883e7f6daab0",
+      "label_sha256": "2f408b98288add671623ac8466c3cbe555a079961b4e6b4e4bdf23421f688b70"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000150000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 150000,
+      "blur_score": 127.497,
+      "dhash": "8a0aa2878282d292",
+      "class_counts": {
+        "person": 9,
+        "helmet": 11,
+        "vest": 9
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8888888888888888
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000150000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000150000.txt",
+      "image_sha256": "74a82a6c1b6bdfe283dfcdb1e25edd9f255b5359c8c46da6a45d9f796128af6b",
+      "label_sha256": "0e3324b02ca0439c860cf027200b6b4b28025c2bf885d504a936aa64ce587ebb"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000151000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 151000,
+      "blur_score": 158.048,
+      "dhash": "4dc545460611939b",
+      "class_counts": {
+        "person": 7,
+        "helmet": 8,
+        "vest": 6
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8571428571428571
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000151000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000151000.txt",
+      "image_sha256": "3cea67577a2844a1f635162e4c9ec410e94527014186110591470fef1401f275",
+      "label_sha256": "c1f7c9d1951cb4b4914b8fbd6750362be596607df3bdb2cdad1ed5e1079f2ff3"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000152000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 152000,
+      "blur_score": 153.758,
+      "dhash": "8c82a39393928a8a",
+      "class_counts": {
+        "person": 8,
+        "helmet": 8,
+        "vest": 5
+      },
+      "coverage": {
+        "helmet_coverage": 0.875,
+        "vest_coverage": 0.75
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000152000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000152000.txt",
+      "image_sha256": "37c76fc50be5ccb1454d16e4bc0e597265e835ad92d52d10b2621b09b0478d90",
+      "label_sha256": "a367be67b3d9f9f7b24ceb05b5282e38cf364dbd997fe44d2a10c08236f3dda2"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000153000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 153000,
+      "blur_score": 165.968,
+      "dhash": "0a446070d090858d",
+      "class_counts": {
+        "person": 9,
+        "helmet": 9,
+        "vest": 8
+      },
+      "coverage": {
+        "helmet_coverage": 0.8888888888888888,
+        "vest_coverage": 0.6666666666666666
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000153000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000153000.txt",
+      "image_sha256": "7ea32f432a68ee665160cea5c70884ae8fa9d1cb9bf56c9a8f1bbfd15085525f",
+      "label_sha256": "b6a5180a5814e4c5c2905ac775130ae87351c17dff3d580f44c8ec9e202abfac"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000154000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 154000,
+      "blur_score": 136.989,
+      "dhash": "088ad8d9c9999892",
+      "class_counts": {
+        "person": 9,
+        "helmet": 10,
+        "vest": 10
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.7777777777777778
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000154000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000154000.txt",
+      "image_sha256": "24f85d6ddf68f152bf6462abe3465982dab71ef3773025759af9a29a336e250c",
+      "label_sha256": "4f324d34b2d54503d9afc9c70091d1e8ed47a2f26c5c1e4dc88a1e03ca7c76b5"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000155000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 155000,
+      "blur_score": 109.956,
+      "dhash": "a0216cacaca4949c",
+      "class_counts": {
+        "person": 6,
+        "helmet": 6,
+        "vest": 5
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.8333333333333334
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000155000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000155000.txt",
+      "image_sha256": "e89af40661e1abe2243d92de1e4141ba2247144d1ce19ba904d438f987809ae2",
+      "label_sha256": "f547e615ff4ce3feb797d86d2ec75d560e8bab0aa3f31a0af5d4b2cc2023b6bb"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_nasa_artemis_iii_ksc_ppe_000156000.jpg",
+      "source_video": "nasa_artemis_iii_ksc_ppe.webm",
+      "source_group": "nasa-ksc-artemis-iii-2026",
+      "timestamp_ms": 156000,
+      "blur_score": 136.329,
+      "dhash": "81c663a7a525a3ca",
+      "class_counts": {
+        "person": 4,
+        "helmet": 6,
+        "vest": 6
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_nasa_artemis_iii_ksc_ppe_000156000.jpg",
+      "label": "labels/train/video_nasa_artemis_iii_ksc_ppe_000156000.txt",
+      "image_sha256": "b3ed600a0fb78cce4c2b26bf333531bc4e6ee68380e267ca554dfffd4402d1ac",
+      "label_sha256": "2bbe10c9a58e8ab6b5712c918d23ccf71cb180faa758c85a2d0008ec02fb7865"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_japan_road_jackhammer_000002200.jpg",
+      "source_video": "japan_road_jackhammer.webm",
+      "source_group": "nesnad-japan-jackhammer",
+      "timestamp_ms": 2200,
+      "blur_score": 92.606,
+      "dhash": "c6c6c084cc40e8fc",
+      "class_counts": {
+        "person": 3,
+        "helmet": 2,
+        "vest": 2
+      },
+      "coverage": {
+        "helmet_coverage": 0.6666666666666666,
+        "vest_coverage": 0.6666666666666666
+      },
+      "image": "images/train/video_japan_road_jackhammer_000002200.jpg",
+      "label": "labels/train/video_japan_road_jackhammer_000002200.txt",
+      "image_sha256": "1ceddc2f76467e4c5a759633de59c7cd5fe4c8ff280187807015a9d5bafb5335",
+      "label_sha256": "65c76f1fe6f113b5812c86149479a27b159cf03102e781ebfbe3512132fb2ca8"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_japan_road_jackhammer_000003000.jpg",
+      "source_video": "japan_road_jackhammer.webm",
+      "source_group": "nesnad-japan-jackhammer",
+      "timestamp_ms": 3000,
+      "blur_score": 79.865,
+      "dhash": "c6c6c084c8e8e8fc",
+      "class_counts": {
+        "person": 2,
+        "helmet": 2,
+        "vest": 1
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.5
+      },
+      "image": "images/train/video_japan_road_jackhammer_000003000.jpg",
+      "label": "labels/train/video_japan_road_jackhammer_000003000.txt",
+      "image_sha256": "d4b999f3878a2c7917a8808bc39e81be3bd97698d7d208db015e42efe10d2562",
+      "label_sha256": "7d4ab3d1a887dd3b527cbb1839941db99148060ea84af1e5584e6d78f39cea9e"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_japan_road_jackhammer_000004200.jpg",
+      "source_video": "japan_road_jackhammer.webm",
+      "source_group": "nesnad-japan-jackhammer",
+      "timestamp_ms": 4200,
+      "blur_score": 63.695,
+      "dhash": "c6c4c280c8ececfc",
+      "class_counts": {
+        "person": 2,
+        "helmet": 2,
+        "vest": 1
+      },
+      "coverage": {
+        "helmet_coverage": 1.0,
+        "vest_coverage": 0.5
+      },
+      "image": "images/train/video_japan_road_jackhammer_000004200.jpg",
+      "label": "labels/train/video_japan_road_jackhammer_000004200.txt",
+      "image_sha256": "2bec60c074f99cfa24b2988fb41ec067c20ac44b7f2ced659d5bfd195d8d8f2d",
+      "label_sha256": "6f64d76495d6eb9d0b6aa5443fcb8b214b9541b20ee5085f80a2e60d0c984360"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_moira_construction_2025_13_000058500.jpg",
+      "source_video": "moira_construction_2025_13.webm",
+      "source_group": "acabashi-moira-close-2025",
+      "timestamp_ms": 58500,
+      "blur_score": 844.54,
+      "dhash": "7d3abbe175c68555",
+      "class_counts": {
+        "person": 2,
+        "helmet": 1,
+        "vest": 1
+      },
+      "coverage": {
+        "helmet_coverage": 0.5,
+        "vest_coverage": 0.5
+      },
+      "image": "images/train/video_moira_construction_2025_13_000058500.jpg",
+      "label": "labels/train/video_moira_construction_2025_13_000058500.txt",
+      "image_sha256": "16c968c95979fa6c2ea92f937633b4edbc7302d0155e7ed3e545c4659341ebea",
+      "label_sha256": "3e1e147ea8a8739f81fbfbc51db1fca7cf53bcd3fe32fddc66e8428ec85265ff"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_moira_construction_2025_13_000063500.jpg",
+      "source_video": "moira_construction_2025_13.webm",
+      "source_group": "acabashi-moira-close-2025",
+      "timestamp_ms": 63500,
+      "blur_score": 831.354,
+      "dhash": "7d3abbe255c68454",
+      "class_counts": {
+        "person": 5,
+        "helmet": 3,
+        "vest": 2
+      },
+      "coverage": {
+        "helmet_coverage": 0.6,
+        "vest_coverage": 0.4
+      },
+      "image": "images/train/video_moira_construction_2025_13_000063500.jpg",
+      "label": "labels/train/video_moira_construction_2025_13_000063500.txt",
+      "image_sha256": "8206f4bbbbcfd5970348330bb5e3ccb7b64de9303f4b231c8d8362fa5ec351c5",
+      "label_sha256": "4ea9bd673a88df3d3542872b357399762a175b9807d3ea3c2f9be4b77e7163ff"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_moira_construction_2025_13_000073500.jpg",
+      "source_video": "moira_construction_2025_13.webm",
+      "source_group": "acabashi-moira-close-2025",
+      "timestamp_ms": 73500,
+      "blur_score": 1002.381,
+      "dhash": "6d3abbe255c68555",
+      "class_counts": {
+        "person": 5,
+        "helmet": 1,
+        "vest": 1
+      },
+      "coverage": {
+        "helmet_coverage": 0.2,
+        "vest_coverage": 0.2
+      },
+      "image": "images/train/video_moira_construction_2025_13_000073500.jpg",
+      "label": "labels/train/video_moira_construction_2025_13_000073500.txt",
+      "image_sha256": "96e00f879a156c64056e619fc1b60a1962edba032322c5393bdef1920a717a13",
+      "label_sha256": "92d8aff5e1c5f9866c2fe7cb749e73f2811278474b97677d92a9dd5c0a8f4e90"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_moira_construction_2025_13_000076000.jpg",
+      "source_video": "moira_construction_2025_13.webm",
+      "source_group": "acabashi-moira-close-2025",
+      "timestamp_ms": 76000,
+      "blur_score": 929.679,
+      "dhash": "7d3abbe265c68555",
+      "class_counts": {
+        "person": 4,
+        "helmet": 2,
+        "vest": 1
+      },
+      "coverage": {
+        "helmet_coverage": 0.5,
+        "vest_coverage": 0.25
+      },
+      "image": "images/train/video_moira_construction_2025_13_000076000.jpg",
+      "label": "labels/train/video_moira_construction_2025_13_000076000.txt",
+      "image_sha256": "143a2ca613becfd8def1a633205b1056da1724801eba06c3a2b3f4b88e84b998",
+      "label_sha256": "4b4085919d2dbfb3de5cf2e275e4ebd8e506f0f1a97e0544711279a1f05631ab"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_moira_construction_2025_13_000083500.jpg",
+      "source_video": "moira_construction_2025_13.webm",
+      "source_group": "acabashi-moira-close-2025",
+      "timestamp_ms": 83500,
+      "blur_score": 1059.783,
+      "dhash": "7d3abbeb55c68555",
+      "class_counts": {
+        "person": 6,
+        "helmet": 2,
+        "vest": 2
+      },
+      "coverage": {
+        "helmet_coverage": 0.3333333333333333,
+        "vest_coverage": 0.3333333333333333
+      },
+      "image": "images/train/video_moira_construction_2025_13_000083500.jpg",
+      "label": "labels/train/video_moira_construction_2025_13_000083500.txt",
+      "image_sha256": "597b28d29010924c00a141b47c55732cf23ddde4da42bdc4c56ab4174f1b4441",
+      "label_sha256": "dfa4e418c4b27358a87a493d5587158cf1ecdd1e527842a00bbae9a221cddc0d"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_moira_construction_2025_13_000086000.jpg",
+      "source_video": "moira_construction_2025_13.webm",
+      "source_group": "acabashi-moira-close-2025",
+      "timestamp_ms": 86000,
+      "blur_score": 1025.388,
+      "dhash": "7d3abbea75c68656",
+      "class_counts": {
+        "person": 3,
+        "helmet": 2,
+        "vest": 1
+      },
+      "coverage": {
+        "helmet_coverage": 0.6666666666666666,
+        "vest_coverage": 0.3333333333333333
+      },
+      "image": "images/train/video_moira_construction_2025_13_000086000.jpg",
+      "label": "labels/train/video_moira_construction_2025_13_000086000.txt",
+      "image_sha256": "a0f6a07a58672f153f5a26504ee43d0c942aeb0b9362ee3d0a84209dce89715d",
+      "label_sha256": "c29949706bfbec22e693f4a5b82c959c62045a6b1f3e50bb775f029bc2e82145"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_moira_construction_2025_13_000103500.jpg",
+      "source_video": "moira_construction_2025_13.webm",
+      "source_group": "acabashi-moira-close-2025",
+      "timestamp_ms": 103500,
+      "blur_score": 1221.746,
+      "dhash": "89e585052d65a535",
+      "class_counts": {
+        "person": 3,
+        "helmet": 1,
+        "vest": 1
+      },
+      "coverage": {
+        "helmet_coverage": 0.3333333333333333,
+        "vest_coverage": 0.3333333333333333
+      },
+      "image": "images/train/video_moira_construction_2025_13_000103500.jpg",
+      "label": "labels/train/video_moira_construction_2025_13_000103500.txt",
+      "image_sha256": "71ea35bb7ec06f68ec98257bf1adc1ab335f81e61679409154d5744a51c5bd36",
+      "label_sha256": "ebda21ba3af618b3b7cc072c3fa8d471138eb7c4a181e8fc6505f90f1104d833"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_moira_construction_2025_13_000116000.jpg",
+      "source_video": "moira_construction_2025_13.webm",
+      "source_group": "acabashi-moira-close-2025",
+      "timestamp_ms": 116000,
+      "blur_score": 1190.772,
+      "dhash": "89e5a5250d45a627",
+      "class_counts": {
+        "person": 3,
+        "helmet": 5,
+        "vest": 1
+      },
+      "coverage": {
+        "helmet_coverage": 0.6666666666666666,
+        "vest_coverage": 0.3333333333333333
+      },
+      "image": "images/train/video_moira_construction_2025_13_000116000.jpg",
+      "label": "labels/train/video_moira_construction_2025_13_000116000.txt",
+      "image_sha256": "d1b6f8cd8dcef469faf0de1741e42e97a54b509ec5c99c7b98dab5d4d635a07e",
+      "label_sha256": "e946d4ea6e9052f3501588008446d064c4b08154251e1e5315744874f25a92cd"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_moira_construction_2025_13_000118500.jpg",
+      "source_video": "moira_construction_2025_13.webm",
+      "source_group": "acabashi-moira-close-2025",
+      "timestamp_ms": 118500,
+      "blur_score": 1093.702,
+      "dhash": "89a585250555b535",
+      "class_counts": {
+        "person": 4,
+        "helmet": 2,
+        "vest": 2
+      },
+      "coverage": {
+        "helmet_coverage": 0.5,
+        "vest_coverage": 0.75
+      },
+      "image": "images/train/video_moira_construction_2025_13_000118500.jpg",
+      "label": "labels/train/video_moira_construction_2025_13_000118500.txt",
+      "image_sha256": "f1f16e65166a2a6c70d2d2ed6d93b74fb665c97d8bc392ea9ddc1ffd6832ca3e",
+      "label_sha256": "d608f66d7d0b02011b1dc48e6aa1e7da4353a0fe88654e7cca3e80f3d61e909d"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_moira_construction_2025_13_000121000.jpg",
+      "source_video": "moira_construction_2025_13.webm",
+      "source_group": "acabashi-moira-close-2025",
+      "timestamp_ms": 121000,
+      "blur_score": 964.01,
+      "dhash": "89e5a5252d45a535",
+      "class_counts": {
+        "person": 3,
+        "helmet": 2,
+        "vest": 3
+      },
+      "coverage": {
+        "helmet_coverage": 0.6666666666666666,
+        "vest_coverage": 0.6666666666666666
+      },
+      "image": "images/train/video_moira_construction_2025_13_000121000.jpg",
+      "label": "labels/train/video_moira_construction_2025_13_000121000.txt",
+      "image_sha256": "b61931951f58c92e0f62e5c91a85afbf92066ceff190d466f98d156499e46fe5",
+      "label_sha256": "fdb9e4db4d1afe38f0f580f1ec54cbd6aa78802b3247ac8bb8bb5b135defdf95"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_moira_construction_2025_13_000231000.jpg",
+      "source_video": "moira_construction_2025_13.webm",
+      "source_group": "acabashi-moira-close-2025",
+      "timestamp_ms": 231000,
+      "blur_score": 306.292,
+      "dhash": "3b3ef3d5dc9cd186",
+      "class_counts": {
+        "person": 6,
+        "helmet": 4,
+        "vest": 5
+      },
+      "coverage": {
+        "helmet_coverage": 0.6666666666666666,
+        "vest_coverage": 0.8333333333333334
+      },
+      "image": "images/train/video_moira_construction_2025_13_000231000.jpg",
+      "label": "labels/train/video_moira_construction_2025_13_000231000.txt",
+      "image_sha256": "fcf488f3c3ada604d64d294278a2d74913163d7e3cf9ad8d2ac39df36038e388",
+      "label_sha256": "1e556d9d8e752a401473f6c30f11793ad005a53f20301f4a003e1214178c01e2"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_moira_construction_2025_13_000236000.jpg",
+      "source_video": "moira_construction_2025_13.webm",
+      "source_group": "acabashi-moira-close-2025",
+      "timestamp_ms": 236000,
+      "blur_score": 50.157,
+      "dhash": "fd3afa9a1a5a4a18",
+      "class_counts": {
+        "person": 3,
+        "helmet": 2,
+        "vest": 2
+      },
+      "coverage": {
+        "helmet_coverage": 0.6666666666666666,
+        "vest_coverage": 1.0
+      },
+      "image": "images/train/video_moira_construction_2025_13_000236000.jpg",
+      "label": "labels/train/video_moira_construction_2025_13_000236000.txt",
+      "image_sha256": "5ff07a2eda8d9dfc6d2c60ecdf0aa226edf8d120230eef5fca9ad82e17df0b0f",
+      "label_sha256": "642a9a6c60e6946a13a4e09214c256a18a2897f384576fb709c45c5ce9a94014"
+    },
+    {
+      "kind": "pseudo_positive",
+      "file": "video_moira_construction_2025_13_000246000.jpg",
+      "source_video": "moira_construction_2025_13.webm",
+      "source_group": "acabashi-moira-close-2025",
+      "timestamp_ms": 246000,
+      "blur_score": 1267.862,
+      "dhash": "82092168569bd1d1",
+      "class_counts": {
+        "person": 3,
+        "helmet": 1,
+        "vest": 2
+      },
+      "coverage": {
+        "helmet_coverage": 0.3333333333333333,
+        "vest_coverage": 0.6666666666666666
+      },
+      "image": "images/train/video_moira_construction_2025_13_000246000.jpg",
+      "label": "labels/train/video_moira_construction_2025_13_000246000.txt",
+      "image_sha256": "730f3a8d5b1303245badc206325321cdb4114a6c93f43104c2b1a4375bd7b0ad",
+      "label_sha256": "58c9e0f742d4417a9efcccf8cd7b12182d4ec78da81be516b03a526a4caf3f98"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000013000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 13000,
+      "blur_score": 87.747,
+      "dhash": "0818985f3b3a9bfa",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000013000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000013000.txt",
+      "image_sha256": "22cf9a9606dd635f893ffcf1928f47601d47ef9299150e9b041dd61895eba269",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000017000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 17000,
+      "blur_score": 33.364,
+      "dhash": "df5f7cfcabcfdf7f",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000017000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000017000.txt",
+      "image_sha256": "d3094f3bc1d76b92aea6638be8756d4e31ec2da34aa0a2da9a6652123cccf343",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000019000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 19000,
+      "blur_score": 47.472,
+      "dhash": "7fbf5cfcabc6bfef",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000019000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000019000.txt",
+      "image_sha256": "06a9f7d56fc29e722b0062b95c7d6a1c3356182d364dec4c9ca66d3676198744",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000021000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 21000,
+      "blur_score": 28.396,
+      "dhash": "bf7fdcd8abceffff",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000021000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000021000.txt",
+      "image_sha256": "bb4ab40a04c80d718a95382a3ad03bb3d2e73f08ae545b2db659bcd5a14e8c30",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000023000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 23000,
+      "blur_score": 39.369,
+      "dhash": "bf7fdcd82bc6dfff",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000023000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000023000.txt",
+      "image_sha256": "bf47338b62381812b2c135c61997cfa0df46be9a1f9c8cd2db7d756cd344f82a",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000025000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 25000,
+      "blur_score": 45.532,
+      "dhash": "5fbf9c982bc6dfff",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000025000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000025000.txt",
+      "image_sha256": "48020affe83852db459393d36a1258e7bf64b4deeeff4831b0f064c1c131f137",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000033000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 33000,
+      "blur_score": 93.206,
+      "dhash": "fffff8f8a8ecf674",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000033000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000033000.txt",
+      "image_sha256": "0e0edaf47c71718a0baa7eeecfa8f5c103509ee240b90c05014143f1817d6c45",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000035000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 35000,
+      "blur_score": 90.221,
+      "dhash": "fffffedcdcecf674",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000035000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000035000.txt",
+      "image_sha256": "a4038344b718a5c8fbccb9114b8718b1f3b319369377aae86980a809cf5410a7",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000037000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 37000,
+      "blur_score": 76.679,
+      "dhash": "fffffcdcd4e6f674",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000037000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000037000.txt",
+      "image_sha256": "de186cc21d51e216fa5aa2fd3455e3c076ef1b6a86bdc2fa72a8ab9e647548f6",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000039000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 39000,
+      "blur_score": 31.261,
+      "dhash": "ff1e5edcdccbe6f5",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000039000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000039000.txt",
+      "image_sha256": "5838bed7016bf7338db503df69043c4f729d9cc0dafdce31d1e8466537207f41",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000041000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 41000,
+      "blur_score": 30.704,
+      "dhash": "ff1e5cdcdcd3f6f5",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000041000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000041000.txt",
+      "image_sha256": "dae8bb037be98094d7298dddd07f378323f621c0c0fbea7de7b48467aa011d9d",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000049000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 49000,
+      "blur_score": 40.982,
+      "dhash": "f8fcfce0e0c09100",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000049000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000049000.txt",
+      "image_sha256": "ba20fa4deeb0d5760fbfdb6c164e2c3f8cac47131d7e951ffee9acecccb1c67c",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000051000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 51000,
+      "blur_score": 47.636,
+      "dhash": "e0e0e0020c018e07",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000051000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000051000.txt",
+      "image_sha256": "fab9e7bfcb8bbbed8ada75f7c3e7ee6edd2d7d16c55930e0647d0d5fa1b5b40a",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000063000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 63000,
+      "blur_score": 117.939,
+      "dhash": "effffce9f97c3cbf",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000063000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000063000.txt",
+      "image_sha256": "ba6a3c9f1cae377f0588adbb41c113c7b3782f76c8f7b07f2dee2b1182210a4c",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000065000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 65000,
+      "blur_score": 38.957,
+      "dhash": "00e4e498c0e2e130",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000065000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000065000.txt",
+      "image_sha256": "7fcce3ec16373cc2baaa347c3cec6cbca6ca7165c662511ee0863f31a6d67eca",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000069000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 69000,
+      "blur_score": 75.208,
+      "dhash": "00800081812133c7",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000069000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000069000.txt",
+      "image_sha256": "f2ffe6844d8c0b4596999439d195415dcb33d2010fbf581cdcde21389f6f76b9",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000071000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 71000,
+      "blur_score": 85.572,
+      "dhash": "2101221036133d74",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000071000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000071000.txt",
+      "image_sha256": "f533115b3678694227d036bdfc9f49e82e3305e23df3ab2338fa83ca7dd70225",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "hard_negative",
+      "file": "video_cerro_armazones_heavy_machinery_000073000.jpg",
+      "source_video": "cerro_armazones_heavy_machinery.webm",
+      "source_group": "eso-cerro-armazones",
+      "timestamp_ms": 73000,
+      "blur_score": 69.781,
+      "dhash": "1f2d273cd07950e8",
+      "class_counts": {
+        "person": 0,
+        "helmet": 0,
+        "vest": 0
+      },
+      "coverage": {},
+      "image": "images/train/video_cerro_armazones_heavy_machinery_000073000.jpg",
+      "label": "labels/train/video_cerro_armazones_heavy_machinery_000073000.txt",
+      "image_sha256": "db980fd2bc38ca0206446ef923cefd708ffc1f899674e0068bfb3569ec05169c",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

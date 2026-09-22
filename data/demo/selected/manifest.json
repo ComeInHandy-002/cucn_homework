@@ -1,0 +1,78 @@
+{
+  "created_at": "2026-09-15",
+  "purpose": "Local classroom demonstration for industrial PPE detection and tracking",
+  "images": [
+    {"file": "images/01_光伏作业_安全帽背心.jpeg", "original": "image1.jpeg", "size": "640x640", "sha256": "fc1c0ef16712655f3eda7f709141d980b7e1deab06c18b4a4cea51eff7a403db"},
+    {"file": "images/02_多人施工_PPE识别.jpg", "original": "image1037.jpeg", "size": "640x640", "sha256": "6c450b2f0d7642b79f95f1568c6699242e5541a3ef666bd2569a609178f5c070"},
+    {"file": "images/03_施工团队_安全帽.jpg", "original": "image541.jpg", "size": "640x640", "sha256": "cbb5d98b6d11aafcd5ed6d1b5044ae597b5f2ca02fea1fa06c76ef50a5785565"},
+    {"file": "images/04_多人近景_混合PPE.jpg", "original": "image548.jpg", "size": "640x640", "sha256": "c021147be3bac51ab4b170af7340551e96bbd4ad4f6f7d278a7d515c29ffb5b4"},
+    {"file": "images/05_缺少安全帽_有背心.jpg", "original": "image708.jpg", "size": "640x640", "sha256": "169e2eca47acc9fcfa05815d738a1ccd3e0317dd346897c98c933216df68236a"},
+    {"file": "images/06_双人场景_混合穿戴.jpg", "original": "image696.jpg", "size": "640x640", "sha256": "9975dcef1740385700230e05915d2b8f4a09a92f6ed7576188ab55f48ae25896"},
+    {"file": "images/07_工厂人员_缺安全帽.jpg", "original": "image633.jpg", "size": "640x640", "sha256": "a34105b62fd6d4e7dc022909742ecf59b852f0c5d76243e8605a0ed1a9601ac8"},
+    {"file": "images/08_单人PPE参考.jpg", "original": "image180.jpg", "size": "640x640", "sha256": "3ba0b07055376f71e0a3b15e2c1fd2e02ceadbc664d20313f178ebd73918057f"}
+  ],
+  "image_source": {
+    "name": "Ultralytics Construction-PPE test split",
+    "url": "https://github.com/ultralytics/assets/releases/download/v0.0.0/construction-ppe.zip",
+    "license_note": "See dataset package and docs/DATASET.md"
+  },
+  "videos": [
+    {
+      "file": "videos/01_工程师安全帽背心_合规.mp4",
+      "source_page": "https://mixkit.co/free-stock-video/engineers-talking-in-front-of-the-electrical-towers-23407/",
+      "download_url": "https://assets.mixkit.co/videos/23407/23407-360.mp4",
+      "license": "https://mixkit.co/license/#videoFree",
+      "size": "640x360",
+      "duration_seconds": 28.48,
+      "sha256": "01925eaca64eb5449be608269fd3be802b44ff2136b4dbba72a5f8f77d42723c"
+    },
+    {
+      "file": "videos/02_施工人员缺安全帽_违规.mp4",
+      "source_page": "https://github.com/Morteza-Asadi-Shalmaiy/PPE-Detection-YOLOv8",
+      "download_url": "https://raw.githubusercontent.com/Morteza-Asadi-Shalmaiy/PPE-Detection-YOLOv8/main/assets/test-video.mp4",
+      "license": "MIT repository; original clip attribution not separately documented",
+      "size": "1920x1080",
+      "duration_seconds": 5.07,
+      "sha256": "12e9c8d27f904c18aa834c49de5dc402c12fbdcafb8448443a5610c4c11668a4"
+    },
+    {
+      "file": "videos/03_施工人员行走_跟踪.mp4",
+      "source_page": "https://coverr.co/videos/construction-worker-walking-7ncoblajs8",
+      "download_url": "https://cdn.coverr.co/videos/coverr-construction-worker-walking-6415/360p.mp4",
+      "license": "https://coverr.co/license",
+      "size": "640x360",
+      "duration_seconds": 9.97,
+      "sha256": "4274ab1c59cb180abfae6d14656f4a35375ae393c08335f72f1c54a635088c0b"
+    },
+    {
+      "file": "videos/04_城市施工人员_PPE.mp4",
+      "source_page": "https://coverr.co/videos/construction-workers-in-the-city-hmisd9bkec",
+      "download_url": "https://cdn.coverr.co/videos/coverr-construction-workers-in-the-city-5507/360p.mp4",
+      "license": "https://coverr.co/license",
+      "size": "640x360",
+      "duration_seconds": 12.97,
+      "sha256": "87fd46ea42af7cba7f88b396ae16fad2238d1e7c8d09d7a75d0831b0fe5af00d"
+    },
+    {
+      "file": "videos/05_混凝土作业_缺PPE.mp4",
+      "source_page": "https://mixkit.co/free-stock-video/working-with-concrete-14729/",
+      "download_url": "https://assets.mixkit.co/videos/14729/14729-360.mp4",
+      "license": "https://mixkit.co/license/#videoFree",
+      "size": "640x360",
+      "duration_seconds": 13.28,
+      "sha256": "c0db986f76bad74d469511e249eb5a36a304c3268cdeef3e9ba51935fb9abf66"
+    }
+  ],
+  "model_sample_observation": {
+    "weights": "models/construction-ppe-yolov8s.pt",
+    "confidence": 0.25,
+    "method": "Five evenly distributed frames per video",
+    "videos": {
+      "01": {"Person": 15, "helmet": 15, "vest": 11},
+      "02": {"Person": 9, "helmet": 1, "vest": 6},
+      "03": {"Person": 11, "helmet": 1, "vest": 2},
+      "04": {"Person": 14, "helmet": 8, "vest": 6},
+      "05": {"Person": 13, "helmet": 0, "vest": 0}
+    }
+  }
+}

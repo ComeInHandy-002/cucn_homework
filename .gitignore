@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+.uv-cache/
+wandb/
+runs/
+weights/
+.env
+*.db
+*.sqlite
+uploads/*
+results/*
+models/*
+data/*
+!uploads/.gitkeep
+!results/.gitkeep
+!models/.gitkeep
+!data/.gitkeep
+
+# Local diagnostics and editor/runtime metadata.
+*.log
+.codex/
+route_scan_findings.txt

@@ -1,0 +1,24 @@
+{
+  "dataset": "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\data\\hard_cases",
+  "class_count": 3,
+  "splits": {
+    "train": {
+      "images": 183,
+      "labels": 183,
+      "boxes": 1037,
+      "errors": []
+    },
+    "val": {
+      "images": 0,
+      "labels": 0,
+      "boxes": 0,
+      "errors": []
+    },
+    "test": {
+      "images": 0,
+      "labels": 0,
+      "boxes": 0,
+      "errors": []
+    }
+  }
+}

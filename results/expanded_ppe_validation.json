@@ -1,0 +1,24 @@
+{
+  "dataset": "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\data\\expanded_ppe",
+  "class_count": 3,
+  "splits": {
+    "train": {
+      "images": 6802,
+      "labels": 6802,
+      "boxes": 17731,
+      "errors": []
+    },
+    "val": {
+      "images": 1762,
+      "labels": 1762,
+      "boxes": 4318,
+      "errors": []
+    },
+    "test": {
+      "images": 951,
+      "labels": 951,
+      "boxes": 2667,
+      "errors": []
+    }
+  }
+}

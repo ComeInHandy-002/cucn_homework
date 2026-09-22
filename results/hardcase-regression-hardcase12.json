@@ -1,0 +1,436 @@
+{
+  "report_type": "targeted_image_regression",
+  "evaluation_scope": {
+    "kind": "targeted_regression_only",
+    "independent_generalization_metrics": false,
+    "statement": "This report checks selected known image cases only. It is not an independent precision/recall/mAP evaluation and must not be used as a generalization claim."
+  },
+  "weights": "runs\\train\\expanded-ppe-yolov8s-hardcase12\\weights\\best.pt",
+  "images": "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\data\\hard_cases\\images\\train",
+  "pattern": "hard_??.jpg",
+  "imgsz": 640,
+  "device": "0",
+  "evaluated_at": "2026-09-20T01:47:52.720967+00:00",
+  "image_count": 3,
+  "totals": {
+    "helmet": 6,
+    "person": 6,
+    "vest": 5
+  },
+  "images_detail": [
+    {
+      "file": "hard_01.jpg",
+      "detections": [
+        {
+          "class_name": "person",
+          "confidence": 0.930148,
+          "bbox": {
+            "x1": 606.70654296875,
+            "y1": 140.93466186523438,
+            "x2": 775.7506103515625,
+            "y2": 663.614990234375
+          },
+          "track_id": 1
+        },
+        {
+          "class_name": "person",
+          "confidence": 0.880695,
+          "bbox": {
+            "x1": 405.13671875,
+            "y1": 146.85430908203125,
+            "x2": 583.5631103515625,
+            "y2": 659.5577392578125
+          },
+          "track_id": 2
+        },
+        {
+          "class_name": "helmet",
+          "confidence": 0.87668,
+          "bbox": {
+            "x1": 799.56640625,
+            "y1": 154.80752563476562,
+            "x2": 874.7392578125,
+            "y2": 210.05908203125
+          },
+          "track_id": null
+        },
+        {
+          "class_name": "helmet",
+          "confidence": 0.873986,
+          "bbox": {
+            "x1": 463.2779541015625,
+            "y1": 147.6390380859375,
+            "x2": 538.161865234375,
+            "y2": 202.42709350585938
+          },
+          "track_id": null
+        },
+        {
+          "class_name": "person",
+          "confidence": 0.87128,
+          "bbox": {
+            "x1": 772.8540649414062,
+            "y1": 149.82427978515625,
+            "x2": 922.8161010742188,
+            "y2": 672.3826293945312
+          },
+          "track_id": 3
+        },
+        {
+          "class_name": "vest",
+          "confidence": 0.871138,
+          "bbox": {
+            "x1": 788.8011474609375,
+            "y1": 225.78428649902344,
+            "x2": 913.4134521484375,
+            "y2": 419.88916015625
+          },
+          "track_id": null
+        },
+        {
+          "class_name": "vest",
+          "confidence": 0.859572,
+          "bbox": {
+            "x1": 613.5814208984375,
+            "y1": 221.85592651367188,
+            "x2": 745.173095703125,
+            "y2": 408.2979431152344
+          },
+          "track_id": null
+        },
+        {
+          "class_name": "helmet",
+          "confidence": 0.849863,
+          "bbox": {
+            "x1": 652.52783203125,
+            "y1": 144.58905029296875,
+            "x2": 725.97216796875,
+            "y2": 204.497802734375
+          },
+          "track_id": null
+        }
+      ],
+      "counts": {
+        "helmet": 3,
+        "person": 3,
+        "vest": 2
+      },
+      "events": [
+        "no_vest"
+      ]
+    },
+    {
+      "file": "hard_02.jpg",
+      "detections": [
+        {
+          "class_name": "vest",
+          "confidence": 0.900681,
+          "bbox": {
+            "x1": 116.45710754394531,
+            "y1": 141.16131591796875,
+            "x2": 274.43988037109375,
+            "y2": 386.92706298828125
+          },
+          "track_id": null
+        },
+        {
+          "class_name": "vest",
+          "confidence": 0.877037,
+          "bbox": {
+            "x1": 296.07049560546875,
+            "y1": 245.370361328125,
+            "x2": 366.38726806640625,
+            "y2": 354.95880126953125
+          },
+          "track_id": null
+        },
+        {
+          "class_name": "person",
+          "confidence": 0.818678,
+          "bbox": {
+            "x1": 68.98285675048828,
+            "y1": 29.6185302734375,
+            "x2": 314.03509521484375,
+            "y2": 635.3467407226562
+          },
+          "track_id": 1
+        },
+        {
+          "class_name": "person",
+          "confidence": 0.803233,
+          "bbox": {
+            "x1": 292.3805236816406,
+            "y1": 217.21267700195312,
+            "x2": 370.9021911621094,
+            "y2": 422.6053161621094
+          },
+          "track_id": 2
+        },
+        {
+          "class_name": "helmet",
+          "confidence": 0.705747,
+          "bbox": {
+            "x1": 133.1829376220703,
+            "y1": 51.325531005859375,
+            "x2": 235.0419464111328,
+            "y2": 144.93292236328125
+          },
+          "track_id": null
+        },
+        {
+          "class_name": "helmet",
+          "confidence": 0.610275,
+          "bbox": {
+            "x1": 300.62567138671875,
+            "y1": 223.0836181640625,
+            "x2": 337.67388916015625,
+            "y2": 264.00042724609375
+          },
+          "track_id": null
+        }
+      ],
+      "counts": {
+        "helmet": 2,
+        "person": 2,
+        "vest": 2
+      },
+      "events": []
+    },
+    {
+      "file": "hard_03.jpg",
+      "detections": [
+        {
+          "class_name": "vest",
+          "confidence": 0.890518,
+          "bbox": {
+            "x1": 365.7850341796875,
+            "y1": 164.1422119140625,
+            "x2": 406.9664306640625,
+            "y2": 216.68963623046875
+          },
+          "track_id": null
+        },
+        {
+          "class_name": "person",
+          "confidence": 0.888031,
+          "bbox": {
+            "x1": 358.51971435546875,
+            "y1": 139.37258911132812,
+            "x2": 422.0426025390625,
+            "y2": 278.90216064453125
+          },
+          "track_id": 1
+        },
+        {
+          "class_name": "helmet",
+          "confidence": 0.725101,
+          "bbox": {
+            "x1": 372.2089538574219,
+            "y1": 142.36668395996094,
+            "x2": 401.7215881347656,
+            "y2": 167.9883270263672
+          },
+          "track_id": null
+        }
+      ],
+      "counts": {
+        "helmet": 1,
+        "person": 1,
+        "vest": 1
+      },
+      "events": []
+    }
+  ],
+  "gate_enabled": true,
+  "expectations": "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\data\\hard_cases\\regression_expectations.json",
+  "assertions": [
+    {
+      "id": "hard_01.jpg:image-present",
+      "file": "hard_01.jpg",
+      "subject": "image",
+      "operator": "present",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "id": "hard_01.jpg:count:person:exact",
+      "file": "hard_01.jpg",
+      "subject": "counts.person",
+      "operator": "exact",
+      "expected": 3,
+      "actual": 3,
+      "passed": true
+    },
+    {
+      "id": "hard_01.jpg:count:helmet:exact",
+      "file": "hard_01.jpg",
+      "subject": "counts.helmet",
+      "operator": "exact",
+      "expected": 3,
+      "actual": 3,
+      "passed": true
+    },
+    {
+      "id": "hard_01.jpg:count:vest:exact",
+      "file": "hard_01.jpg",
+      "subject": "counts.vest",
+      "operator": "exact",
+      "expected": 2,
+      "actual": 2,
+      "passed": true
+    },
+    {
+      "id": "hard_01.jpg:events:allowed",
+      "file": "hard_01.jpg",
+      "subject": "events",
+      "operator": "subset_of",
+      "expected": [
+        "no_vest"
+      ],
+      "actual": [
+        "no_vest"
+      ],
+      "unexpected_events": [],
+      "passed": true
+    },
+    {
+      "id": "hard_01.jpg:events:forbidden",
+      "file": "hard_01.jpg",
+      "subject": "events",
+      "operator": "disjoint_from",
+      "expected": [
+        "intrusion",
+        "no_helmet"
+      ],
+      "actual": [
+        "no_vest"
+      ],
+      "violating_events": [],
+      "passed": true
+    },
+    {
+      "id": "hard_02.jpg:image-present",
+      "file": "hard_02.jpg",
+      "subject": "image",
+      "operator": "present",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "id": "hard_02.jpg:count:person:exact",
+      "file": "hard_02.jpg",
+      "subject": "counts.person",
+      "operator": "exact",
+      "expected": 2,
+      "actual": 2,
+      "passed": true
+    },
+    {
+      "id": "hard_02.jpg:count:helmet:exact",
+      "file": "hard_02.jpg",
+      "subject": "counts.helmet",
+      "operator": "exact",
+      "expected": 2,
+      "actual": 2,
+      "passed": true
+    },
+    {
+      "id": "hard_02.jpg:count:vest:exact",
+      "file": "hard_02.jpg",
+      "subject": "counts.vest",
+      "operator": "exact",
+      "expected": 2,
+      "actual": 2,
+      "passed": true
+    },
+    {
+      "id": "hard_02.jpg:events:allowed",
+      "file": "hard_02.jpg",
+      "subject": "events",
+      "operator": "subset_of",
+      "expected": [],
+      "actual": [],
+      "unexpected_events": [],
+      "passed": true
+    },
+    {
+      "id": "hard_02.jpg:events:forbidden",
+      "file": "hard_02.jpg",
+      "subject": "events",
+      "operator": "disjoint_from",
+      "expected": [
+        "intrusion",
+        "no_helmet",
+        "no_vest"
+      ],
+      "actual": [],
+      "violating_events": [],
+      "passed": true
+    },
+    {
+      "id": "hard_03.jpg:image-present",
+      "file": "hard_03.jpg",
+      "subject": "image",
+      "operator": "present",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "id": "hard_03.jpg:count:person:exact",
+      "file": "hard_03.jpg",
+      "subject": "counts.person",
+      "operator": "exact",
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    {
+      "id": "hard_03.jpg:count:helmet:exact",
+      "file": "hard_03.jpg",
+      "subject": "counts.helmet",
+      "operator": "exact",
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    {
+      "id": "hard_03.jpg:count:vest:exact",
+      "file": "hard_03.jpg",
+      "subject": "counts.vest",
+      "operator": "exact",
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    {
+      "id": "hard_03.jpg:events:allowed",
+      "file": "hard_03.jpg",
+      "subject": "events",
+      "operator": "subset_of",
+      "expected": [],
+      "actual": [],
+      "unexpected_events": [],
+      "passed": true
+    },
+    {
+      "id": "hard_03.jpg:events:forbidden",
+      "file": "hard_03.jpg",
+      "subject": "events",
+      "operator": "disjoint_from",
+      "expected": [
+        "intrusion",
+        "no_helmet",
+        "no_vest"
+      ],
+      "actual": [],
+      "violating_events": [],
+      "passed": true
+    }
+  ],
+  "assertions_passed": true,
+  "passed": true,
+  "operational_errors": []
+}

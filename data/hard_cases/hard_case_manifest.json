@@ -1,0 +1,1110 @@
+{
+  "dataset": "user hard cases",
+  "seed": 20260920,
+  "variants_per_case": 60,
+  "classes": [
+    "person",
+    "helmet",
+    "vest"
+  ],
+  "samples": [
+    {
+      "file": "hard_01.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": "original",
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_00.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 0,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_01.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 1,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_02.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 2,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_03.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 3,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_04.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 4,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_05.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 0,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_06.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 1,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_07.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 2,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_08.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 3,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_09.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 4,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_10.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 0,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_11.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 1,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_12.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 2,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_13.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 3,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_14.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 4,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_15.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 0,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_16.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 1,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_17.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 2,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_18.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 3,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_19.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 4,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_20.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 0,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_21.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 1,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_22.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 2,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_23.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 3,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_24.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 4,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_25.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 0,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_26.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 1,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_27.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 2,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_28.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 3,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_29.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 4,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_30.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 0,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_31.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 1,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_32.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 2,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_33.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 3,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_34.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 4,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_35.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 0,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_36.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 1,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_37.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 2,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_38.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 3,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_39.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 4,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_40.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 0,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_41.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 1,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_42.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 2,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_43.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 3,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_44.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 4,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_45.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 0,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_46.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 1,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_47.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 2,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_48.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 3,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_49.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 4,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_50.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 0,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_51.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 1,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_52.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 2,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_53.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 3,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_54.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 4,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_55.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 0,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_56.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 1,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_57.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 2,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_58.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 3,
+      "boxes": 8
+    },
+    {
+      "file": "hard_01_aug_59.jpg",
+      "source": "uploads/adc6cc3e035f4948bf11d0b616bffaca.jpg",
+      "variant": 4,
+      "boxes": 8
+    },
+    {
+      "file": "hard_02.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": "original",
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_00.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 0,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_01.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 1,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_02.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 2,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_03.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 3,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_04.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 4,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_05.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 0,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_06.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 1,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_07.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 2,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_08.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 3,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_09.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 4,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_10.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 0,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_11.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 1,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_12.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 2,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_13.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 3,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_14.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 4,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_15.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 0,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_16.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 1,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_17.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 2,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_18.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 3,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_19.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 4,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_20.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 0,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_21.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 1,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_22.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 2,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_23.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 3,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_24.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 4,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_25.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 0,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_26.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 1,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_27.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 2,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_28.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 3,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_29.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 4,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_30.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 0,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_31.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 1,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_32.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 2,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_33.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 3,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_34.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 4,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_35.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 0,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_36.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 1,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_37.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 2,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_38.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 3,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_39.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 4,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_40.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 0,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_41.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 1,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_42.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 2,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_43.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 3,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_44.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 4,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_45.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 0,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_46.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 1,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_47.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 2,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_48.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 3,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_49.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 4,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_50.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 0,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_51.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 1,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_52.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 2,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_53.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 3,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_54.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 4,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_55.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 0,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_56.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 1,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_57.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 2,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_58.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 3,
+      "boxes": 6
+    },
+    {
+      "file": "hard_02_aug_59.jpg",
+      "source": "uploads/45e2ac329e5b480abfc5bec52ca4ca98.jpg",
+      "variant": 4,
+      "boxes": 6
+    },
+    {
+      "file": "hard_03.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": "original",
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_00.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 0,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_01.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 1,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_02.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 2,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_03.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 3,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_04.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 4,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_05.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 0,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_06.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 1,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_07.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 2,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_08.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 3,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_09.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 4,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_10.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 0,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_11.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 1,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_12.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 2,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_13.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 3,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_14.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 4,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_15.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 0,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_16.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 1,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_17.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 2,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_18.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 3,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_19.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 4,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_20.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 0,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_21.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 1,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_22.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 2,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_23.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 3,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_24.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 4,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_25.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 0,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_26.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 1,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_27.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 2,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_28.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 3,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_29.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 4,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_30.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 0,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_31.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 1,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_32.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 2,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_33.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 3,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_34.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 4,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_35.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 0,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_36.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 1,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_37.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 2,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_38.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 3,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_39.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 4,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_40.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 0,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_41.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 1,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_42.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 2,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_43.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 3,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_44.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 4,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_45.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 0,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_46.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 1,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_47.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 2,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_48.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 3,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_49.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 4,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_50.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 0,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_51.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 1,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_52.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 2,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_53.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 3,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_54.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 4,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_55.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 0,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_56.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 1,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_57.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 2,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_58.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 3,
+      "boxes": 3
+    },
+    {
+      "file": "hard_03_aug_59.jpg",
+      "source": "uploads/9d806c26de5b4602936b1567cf68469d.jpg",
+      "variant": 4,
+      "boxes": 3
+    }
+  ]
+}

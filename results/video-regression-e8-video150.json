@@ -1,0 +1,889 @@
+{
+  "report_type": "targeted_video_regression",
+  "evaluation_scope": {
+    "kind": "targeted_regression_only",
+    "independent_generalization_metrics": false,
+    "statement": "This report checks selected known video cases only. It is not an independent precision/recall/mAP evaluation and must not be used as a generalization claim."
+  },
+  "evaluated_at": "2026-09-22T02:16:13.479233+00:00",
+  "weights": {
+    "path": "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\runs\\train\\expanded-ppe-yolov8s-e8-video150\\weights\\best.pt",
+    "sha256": "fd853116d0ed24791b7f78e0195ddbaf540a9b62712105c2d59b5b4168eafd42"
+  },
+  "runtime": {
+    "device": "0",
+    "imgsz": 640,
+    "confidence": 0.25,
+    "detector_backend": "ultralytics"
+  },
+  "pipeline_settings": {
+    "tracker": {
+      "min_confirmed_hits": 3
+    },
+    "rules": {
+      "confirmation_frames": 3,
+      "cooldown_seconds": 10.0,
+      "ppe_grace_frames": 15,
+      "ppe_warmup_frames": 15
+    }
+  },
+  "videos": [
+    {
+      "video": "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\uploads\\9dd0c7b9ae444314a01de70e3c3f5468.mp4",
+      "file_name": "9dd0c7b9ae444314a01de70e3c3f5468.mp4",
+      "sha256": "4274ab1c59cb180abfae6d14656f4a35375ae393c08335f72f1c54a635088c0b",
+      "metadata": {
+        "reported_frame_count": 239,
+        "processed_frame_count": 239,
+        "fps": 23.97601771240848,
+        "width": 640,
+        "height": 360,
+        "duration_seconds": 9.968294,
+        "frame_index_base": 0
+      },
+      "raw_detection_counts": {
+        "helmet": 239,
+        "person": 239,
+        "vest": 239
+      },
+      "confirmed_detection_counts": {
+        "helmet": 237,
+        "person": 237,
+        "vest": 237
+      },
+      "confirmed_tracks": [
+        {
+          "track_id": 1,
+          "first_confirmed_frame": 2,
+          "last_confirmed_frame": 238,
+          "confirmed_observations": 237,
+          "max_confidence": 0.955687
+        }
+      ],
+      "event_counts": {},
+      "events": [],
+      "key_frames": [
+        {
+          "frame_index": 0,
+          "available": true,
+          "confirmed_detection_counts": {},
+          "confirmed_person_count": 0,
+          "confirmed_person_track_ids": [],
+          "detections": [],
+          "events": []
+        },
+        {
+          "frame_index": 119,
+          "available": true,
+          "confirmed_detection_counts": {
+            "helmet": 1,
+            "person": 1,
+            "vest": 1
+          },
+          "confirmed_person_count": 1,
+          "confirmed_person_track_ids": [
+            1
+          ],
+          "detections": [
+            {
+              "class_name": "vest",
+              "confidence": 0.94206,
+              "bbox": {
+                "x1": 365.43841552734375,
+                "y1": 163.24050903320312,
+                "x2": 408.60003662109375,
+                "y2": 219.60946655273438
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "person",
+              "confidence": 0.925101,
+              "bbox": {
+                "x1": 356.05816650390625,
+                "y1": 136.26083374023438,
+                "x2": 419.93707275390625,
+                "y2": 279.1987609863281
+              },
+              "track_id": 1
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.871047,
+              "bbox": {
+                "x1": 377.640380859375,
+                "y1": 143.12582397460938,
+                "x2": 404.6898193359375,
+                "y2": 166.53842163085938
+              },
+              "track_id": null
+            }
+          ],
+          "events": []
+        },
+        {
+          "frame_index": 238,
+          "available": true,
+          "confirmed_detection_counts": {
+            "helmet": 1,
+            "person": 1,
+            "vest": 1
+          },
+          "confirmed_person_count": 1,
+          "confirmed_person_track_ids": [
+            1
+          ],
+          "detections": [
+            {
+              "class_name": "vest",
+              "confidence": 0.940709,
+              "bbox": {
+                "x1": 354.8503112792969,
+                "y1": 166.71099853515625,
+                "x2": 400.1696472167969,
+                "y2": 226.93893432617188
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "person",
+              "confidence": 0.939232,
+              "bbox": {
+                "x1": 345.3017578125,
+                "y1": 135.24148559570312,
+                "x2": 415.2333984375,
+                "y2": 293.1935729980469
+              },
+              "track_id": 1
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.760578,
+              "bbox": {
+                "x1": 361.5450439453125,
+                "y1": 142.76087951660156,
+                "x2": 391.98291015625,
+                "y2": 169.63987731933594
+              },
+              "track_id": null
+            }
+          ],
+          "events": []
+        }
+      ],
+      "assertions": [],
+      "assertions_passed": true
+    },
+    {
+      "video": "D:\\UserData\\19505\\Documents\\ChatGPT\\cucn_homework\\uploads\\7894c9c171c6449194fcc8d5f0235cc4.mp4",
+      "file_name": "7894c9c171c6449194fcc8d5f0235cc4.mp4",
+      "sha256": "01925eaca64eb5449be608269fd3be802b44ff2136b4dbba72a5f8f77d42723c",
+      "metadata": {
+        "reported_frame_count": 712,
+        "processed_frame_count": 712,
+        "fps": 25.0,
+        "width": 640,
+        "height": 360,
+        "duration_seconds": 28.48,
+        "frame_index_base": 0
+      },
+      "raw_detection_counts": {
+        "helmet": 2294,
+        "person": 2136,
+        "vest": 1435
+      },
+      "confirmed_detection_counts": {
+        "helmet": 2286,
+        "person": 2130,
+        "vest": 1431
+      },
+      "confirmed_tracks": [
+        {
+          "track_id": 1,
+          "first_confirmed_frame": 2,
+          "last_confirmed_frame": 711,
+          "confirmed_observations": 710,
+          "max_confidence": 0.962884
+        },
+        {
+          "track_id": 2,
+          "first_confirmed_frame": 2,
+          "last_confirmed_frame": 711,
+          "confirmed_observations": 710,
+          "max_confidence": 0.963548
+        },
+        {
+          "track_id": 3,
+          "first_confirmed_frame": 2,
+          "last_confirmed_frame": 711,
+          "confirmed_observations": 710,
+          "max_confidence": 0.944029
+        }
+      ],
+      "event_counts": {
+        "no_vest": 3
+      },
+      "events": [
+        {
+          "id": null,
+          "event_type": "no_vest",
+          "severity": "medium",
+          "camera_id": null,
+          "track_id": 2,
+          "timestamp": "2000-01-01T00:00:00.760000Z",
+          "evidence_path": null,
+          "status": "open",
+          "zone_id": null,
+          "message": "Worker is missing a reflective vest",
+          "metadata": {
+            "confirmation_frames": 3
+          },
+          "frame_index": 19
+        },
+        {
+          "id": null,
+          "event_type": "no_vest",
+          "severity": "medium",
+          "camera_id": null,
+          "track_id": 2,
+          "timestamp": "2000-01-01T00:00:10.760000Z",
+          "evidence_path": null,
+          "status": "open",
+          "zone_id": null,
+          "message": "Worker is missing a reflective vest",
+          "metadata": {
+            "confirmation_frames": 197
+          },
+          "frame_index": 269
+        },
+        {
+          "id": null,
+          "event_type": "no_vest",
+          "severity": "medium",
+          "camera_id": null,
+          "track_id": 2,
+          "timestamp": "2000-01-01T00:00:20.760000Z",
+          "evidence_path": null,
+          "status": "open",
+          "zone_id": null,
+          "message": "Worker is missing a reflective vest",
+          "metadata": {
+            "confirmation_frames": 447
+          },
+          "frame_index": 519
+        }
+      ],
+      "key_frames": [
+        {
+          "frame_index": 0,
+          "available": true,
+          "confirmed_detection_counts": {},
+          "confirmed_person_count": 0,
+          "confirmed_person_track_ids": [],
+          "detections": [],
+          "events": []
+        },
+        {
+          "frame_index": 198,
+          "available": true,
+          "confirmed_detection_counts": {
+            "helmet": 3,
+            "person": 3,
+            "vest": 2
+          },
+          "confirmed_person_count": 3,
+          "confirmed_person_track_ids": [
+            1,
+            2,
+            3
+          ],
+          "detections": [
+            {
+              "class_name": "person",
+              "confidence": 0.945759,
+              "bbox": {
+                "x1": 367.58514404296875,
+                "y1": 65.05014038085938,
+                "x2": 450.95245361328125,
+                "y2": 324.57366943359375
+              },
+              "track_id": 1
+            },
+            {
+              "class_name": "person",
+              "confidence": 0.899188,
+              "bbox": {
+                "x1": 450.33038330078125,
+                "y1": 70.27764892578125,
+                "x2": 527.0524291992188,
+                "y2": 324.658935546875
+              },
+              "track_id": 3
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.898591,
+              "bbox": {
+                "x1": 463.66143798828125,
+                "y1": 76.63548278808594,
+                "x2": 500.6070556640625,
+                "y2": 102.11628723144531
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.895161,
+              "bbox": {
+                "x1": 381.5406494140625,
+                "y1": 65.07354736328125,
+                "x2": 416.3385009765625,
+                "y2": 93.70950317382812
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "person",
+              "confidence": 0.892513,
+              "bbox": {
+                "x1": 294.3858642578125,
+                "y1": 62.627777099609375,
+                "x2": 372.9088134765625,
+                "y2": 323.99072265625
+              },
+              "track_id": 2
+            },
+            {
+              "class_name": "vest",
+              "confidence": 0.858794,
+              "bbox": {
+                "x1": 369.68389892578125,
+                "y1": 101.87322998046875,
+                "x2": 433.33892822265625,
+                "y2": 191.65670776367188
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.85143,
+              "bbox": {
+                "x1": 323.75836181640625,
+                "y1": 62.733375549316406,
+                "x2": 359.86187744140625,
+                "y2": 91.20832061767578
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "vest",
+              "confidence": 0.837654,
+              "bbox": {
+                "x1": 460.80853271484375,
+                "y1": 107.18544006347656,
+                "x2": 522.0628051757812,
+                "y2": 199.9584197998047
+              },
+              "track_id": null
+            }
+          ],
+          "events": []
+        },
+        {
+          "frame_index": 356,
+          "available": true,
+          "confirmed_detection_counts": {
+            "helmet": 3,
+            "person": 3,
+            "vest": 2
+          },
+          "confirmed_person_count": 3,
+          "confirmed_person_track_ids": [
+            1,
+            2,
+            3
+          ],
+          "detections": [
+            {
+              "class_name": "person",
+              "confidence": 0.940511,
+              "bbox": {
+                "x1": 332.8394775390625,
+                "y1": 68.21875,
+                "x2": 413.3609619140625,
+                "y2": 325.65155029296875
+              },
+              "track_id": 1
+            },
+            {
+              "class_name": "person",
+              "confidence": 0.924167,
+              "bbox": {
+                "x1": 250.6977996826172,
+                "y1": 69.04684448242188,
+                "x2": 323.88519287109375,
+                "y2": 325.7424011230469
+              },
+              "track_id": 2
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.876833,
+              "bbox": {
+                "x1": 351.7027587890625,
+                "y1": 68.54429626464844,
+                "x2": 389.4315185546875,
+                "y2": 97.15614318847656
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "person",
+              "confidence": 0.860202,
+              "bbox": {
+                "x1": 413.97637939453125,
+                "y1": 79.22161865234375,
+                "x2": 498.2662353515625,
+                "y2": 327.1244812011719
+              },
+              "track_id": 3
+            },
+            {
+              "class_name": "vest",
+              "confidence": 0.857514,
+              "bbox": {
+                "x1": 334.45123291015625,
+                "y1": 104.78302001953125,
+                "x2": 402.21136474609375,
+                "y2": 196.0096435546875
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.804295,
+              "bbox": {
+                "x1": 264.1263427734375,
+                "y1": 69.1033935546875,
+                "x2": 303.9375,
+                "y2": 96.48971557617188
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.796606,
+              "bbox": {
+                "x1": 423.48028564453125,
+                "y1": 80.0907211303711,
+                "x2": 465.36492919921875,
+                "y2": 108.8468246459961
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "vest",
+              "confidence": 0.746708,
+              "bbox": {
+                "x1": 439.9630126953125,
+                "y1": 106.78804779052734,
+                "x2": 493.56109619140625,
+                "y2": 199.99209594726562
+              },
+              "track_id": null
+            }
+          ],
+          "events": []
+        },
+        {
+          "frame_index": 475,
+          "available": true,
+          "confirmed_detection_counts": {
+            "helmet": 3,
+            "person": 3,
+            "vest": 2
+          },
+          "confirmed_person_count": 3,
+          "confirmed_person_track_ids": [
+            1,
+            2,
+            3
+          ],
+          "detections": [
+            {
+              "class_name": "person",
+              "confidence": 0.9064,
+              "bbox": {
+                "x1": 325.08526611328125,
+                "y1": 75.07278442382812,
+                "x2": 401.71624755859375,
+                "y2": 324.3555908203125
+              },
+              "track_id": 1
+            },
+            {
+              "class_name": "person",
+              "confidence": 0.882538,
+              "bbox": {
+                "x1": 392.645263671875,
+                "y1": 87.55062103271484,
+                "x2": 452.03228759765625,
+                "y2": 325.0274963378906
+              },
+              "track_id": 3
+            },
+            {
+              "class_name": "person",
+              "confidence": 0.87866,
+              "bbox": {
+                "x1": 249.24423217773438,
+                "y1": 75.28158569335938,
+                "x2": 330.0784606933594,
+                "y2": 322.9962158203125
+              },
+              "track_id": 2
+            },
+            {
+              "class_name": "vest",
+              "confidence": 0.863254,
+              "bbox": {
+                "x1": 340.36285400390625,
+                "y1": 105.95674896240234,
+                "x2": 398.52557373046875,
+                "y2": 195.60995483398438
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.826959,
+              "bbox": {
+                "x1": 392.9990234375,
+                "y1": 88.21493530273438,
+                "x2": 428.95166015625,
+                "y2": 111.12086486816406
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.769251,
+              "bbox": {
+                "x1": 360.1873779296875,
+                "y1": 73.21046447753906,
+                "x2": 396.275390625,
+                "y2": 99.12242126464844
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "vest",
+              "confidence": 0.768016,
+              "bbox": {
+                "x1": 398.7095947265625,
+                "y1": 116.19131469726562,
+                "x2": 449.30224609375,
+                "y2": 205.0809326171875
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.737947,
+              "bbox": {
+                "x1": 290.8349609375,
+                "y1": 76.78118896484375,
+                "x2": 330.1456298828125,
+                "y2": 104.01730346679688
+              },
+              "track_id": null
+            }
+          ],
+          "events": []
+        },
+        {
+          "frame_index": 476,
+          "available": true,
+          "confirmed_detection_counts": {
+            "helmet": 3,
+            "person": 3,
+            "vest": 2
+          },
+          "confirmed_person_count": 3,
+          "confirmed_person_track_ids": [
+            1,
+            2,
+            3
+          ],
+          "detections": [
+            {
+              "class_name": "person",
+              "confidence": 0.906893,
+              "bbox": {
+                "x1": 324.8941650390625,
+                "y1": 75.02542114257812,
+                "x2": 401.4490966796875,
+                "y2": 324.3336181640625
+              },
+              "track_id": 1
+            },
+            {
+              "class_name": "person",
+              "confidence": 0.878634,
+              "bbox": {
+                "x1": 392.8920593261719,
+                "y1": 87.51913452148438,
+                "x2": 452.3000793457031,
+                "y2": 324.8717041015625
+              },
+              "track_id": 3
+            },
+            {
+              "class_name": "person",
+              "confidence": 0.873612,
+              "bbox": {
+                "x1": 250.272216796875,
+                "y1": 74.79949951171875,
+                "x2": 330.0020751953125,
+                "y2": 323.30157470703125
+              },
+              "track_id": 2
+            },
+            {
+              "class_name": "vest",
+              "confidence": 0.847062,
+              "bbox": {
+                "x1": 340.21295166015625,
+                "y1": 105.85443115234375,
+                "x2": 398.49127197265625,
+                "y2": 195.70257568359375
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.815834,
+              "bbox": {
+                "x1": 393.1112365722656,
+                "y1": 88.19020080566406,
+                "x2": 428.9162292480469,
+                "y2": 111.18692016601562
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.745243,
+              "bbox": {
+                "x1": 360.54754638671875,
+                "y1": 73.06990051269531,
+                "x2": 395.83148193359375,
+                "y2": 99.09519958496094
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.738967,
+              "bbox": {
+                "x1": 291.1230773925781,
+                "y1": 75.8116455078125,
+                "x2": 330.4450378417969,
+                "y2": 103.6851806640625
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "vest",
+              "confidence": 0.71399,
+              "bbox": {
+                "x1": 398.49188232421875,
+                "y1": 116.78997802734375,
+                "x2": 450.35540771484375,
+                "y2": 205.4111328125
+              },
+              "track_id": null
+            }
+          ],
+          "events": []
+        },
+        {
+          "frame_index": 711,
+          "available": true,
+          "confirmed_detection_counts": {
+            "helmet": 3,
+            "person": 3,
+            "vest": 2
+          },
+          "confirmed_person_count": 3,
+          "confirmed_person_track_ids": [
+            1,
+            2,
+            3
+          ],
+          "detections": [
+            {
+              "class_name": "person",
+              "confidence": 0.922745,
+              "bbox": {
+                "x1": 293.13983154296875,
+                "y1": 66.91943359375,
+                "x2": 375.55548095703125,
+                "y2": 325.89306640625
+              },
+              "track_id": 1
+            },
+            {
+              "class_name": "person",
+              "confidence": 0.904287,
+              "bbox": {
+                "x1": 202.48800659179688,
+                "y1": 70.43252563476562,
+                "x2": 298.8236999511719,
+                "y2": 324.402587890625
+              },
+              "track_id": 2
+            },
+            {
+              "class_name": "vest",
+              "confidence": 0.85015,
+              "bbox": {
+                "x1": 297.5159912109375,
+                "y1": 104.28832244873047,
+                "x2": 369.556640625,
+                "y2": 197.92987060546875
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "person",
+              "confidence": 0.840305,
+              "bbox": {
+                "x1": 370.57318115234375,
+                "y1": 80.3957290649414,
+                "x2": 434.11871337890625,
+                "y2": 326.9589538574219
+              },
+              "track_id": 3
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.834795,
+              "bbox": {
+                "x1": 295.7786865234375,
+                "y1": 68.29193115234375,
+                "x2": 338.28631591796875,
+                "y2": 96.85842895507812
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.794849,
+              "bbox": {
+                "x1": 376.09918212890625,
+                "y1": 82.18197631835938,
+                "x2": 419.52056884765625,
+                "y2": 108.76156616210938
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "helmet",
+              "confidence": 0.746788,
+              "bbox": {
+                "x1": 233.22622680664062,
+                "y1": 70.25257110595703,
+                "x2": 270.0210876464844,
+                "y2": 96.73856353759766
+              },
+              "track_id": null
+            },
+            {
+              "class_name": "vest",
+              "confidence": 0.733092,
+              "bbox": {
+                "x1": 381.68951416015625,
+                "y1": 115.93399047851562,
+                "x2": 430.38189697265625,
+                "y2": 209.28732299804688
+              },
+              "track_id": null
+            }
+          ],
+          "events": []
+        }
+      ],
+      "assertions": [
+        {
+          "id": "7894c9c171c6449194fcc8d5f0235cc4.mp4:frame-198:confirmed-person-count-lte-3",
+          "frame_index": 198,
+          "subject": "confirmed_person_count",
+          "operator": "less_than_or_equal",
+          "expected_maximum": 3,
+          "actual": 3,
+          "frame_available": true,
+          "passed": true
+        },
+        {
+          "id": "7894c9c171c6449194fcc8d5f0235cc4.mp4:frame-475:confirmed-person-count-lte-3",
+          "frame_index": 475,
+          "subject": "confirmed_person_count",
+          "operator": "less_than_or_equal",
+          "expected_maximum": 3,
+          "actual": 3,
+          "frame_available": true,
+          "passed": true
+        },
+        {
+          "id": "7894c9c171c6449194fcc8d5f0235cc4.mp4:frame-476:confirmed-person-count-lte-3",
+          "frame_index": 476,
+          "subject": "confirmed_person_count",
+          "operator": "less_than_or_equal",
+          "expected_maximum": 3,
+          "actual": 3,
+          "frame_available": true,
+          "passed": true
+        }
+      ],
+      "assertions_passed": true
+    }
+  ],
+  "assertions": [
+    {
+      "video": "7894c9c171c6449194fcc8d5f0235cc4.mp4",
+      "id": "7894c9c171c6449194fcc8d5f0235cc4.mp4:frame-198:confirmed-person-count-lte-3",
+      "frame_index": 198,
+      "subject": "confirmed_person_count",
+      "operator": "less_than_or_equal",
+      "expected_maximum": 3,
+      "actual": 3,
+      "frame_available": true,
+      "passed": true
+    },
+    {
+      "video": "7894c9c171c6449194fcc8d5f0235cc4.mp4",
+      "id": "7894c9c171c6449194fcc8d5f0235cc4.mp4:frame-475:confirmed-person-count-lte-3",
+      "frame_index": 475,
+      "subject": "confirmed_person_count",
+      "operator": "less_than_or_equal",
+      "expected_maximum": 3,
+      "actual": 3,
+      "frame_available": true,
+      "passed": true
+    },
+    {
+      "video": "7894c9c171c6449194fcc8d5f0235cc4.mp4",
+      "id": "7894c9c171c6449194fcc8d5f0235cc4.mp4:frame-476:confirmed-person-count-lte-3",
+      "frame_index": 476,
+      "subject": "confirmed_person_count",
+      "operator": "less_than_or_equal",
+      "expected_maximum": 3,
+      "actual": 3,
+      "frame_available": true,
+      "passed": true
+    }
+  ],
+  "assertions_passed": true,
+  "operational_errors": []
+}
