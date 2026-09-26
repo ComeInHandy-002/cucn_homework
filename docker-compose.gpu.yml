@@ -5,6 +5,8 @@
 
 services:
   api:
+    # Distinct tag so the CPU variant (:latest) is not overwritten by this build.
+    image: cucn_homework-api:gpu
     build:
       dockerfile: Dockerfile.gpu
     environment:
