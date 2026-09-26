@@ -28,6 +28,19 @@
 
 默认开发账号：`admin` / `admin123`。生产或答辩部署前必须修改 `.env` 中的 `SECRET_KEY` 和默认密码逻辑。
 
+## 前端工程（Vue3）
+
+`app/static/` 下的原生 JS 工作台保留为旧版回退（`/static/index.html`）；主工作台是 `frontend/` 的 Vue3 + Vite 工程，构建产物由 FastAPI 直接伺服：
+
+```powershell
+cd frontend
+npm install          # 已配置 npmmirror 镜像时无需代理
+npm run build        # 产物输出到 app/static/dist/，重启 FastAPI 后生效
+npm run dev          # 开发模式：5173 端口，/api 等前缀自动代理到 8000
+```
+
+技术栈：Vue3 组合式 API、Vue Router、Pinia、Element Plus、ECharts；六页面路由为 `/overview /detection /jobs /experiments /alerts /configuration`。服务端以 SPA catch-all 兜底 history 路由，API 与静态挂载优先匹配。
+
 ## 模型权重
 
 当前仓库保留多个可回滚权重。服务实际使用哪一个以 `.env` 的 `MODEL_PATH` 和

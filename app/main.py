@@ -22,6 +22,7 @@ from app.services.inference import reset_stale_video_jobs
 
 BASE_DIR = Path(__file__).resolve().parent
 STATIC_DIR = BASE_DIR / "static"
+SPA_DIST = STATIC_DIR / "dist"
 DEMO_DIR = BASE_DIR.parent / "data" / "demo" / "selected"
 
 
@@ -55,6 +56,8 @@ app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 app.mount("/results", StaticFiles(directory=str(settings.result_dir)), name="results")
 if DEMO_DIR.exists():
     app.mount("/demo", StaticFiles(directory=str(DEMO_DIR)), name="demo")
+if (SPA_DIST / "assets").exists():
+    app.mount("/assets", StaticFiles(directory=str(SPA_DIST / "assets")), name="spa-assets")
 
 
 @app.get("/health", response_model=HealthResponse)
@@ -84,7 +87,17 @@ def health() -> HealthResponse:
     )
 
 
-@app.get("/", include_in_schema=False)
-def index() -> Any:
-    index_path = STATIC_DIR / "index.html"
-    return FileResponse(index_path)
+@app.get("/{spa_path:path}", include_in_schema=False)
+def spa(spa_path: str = "") -> FileResponse:
+    """Serve the Vue3 SPA build, falling back to the legacy workbench.
+
+    API routes and static mounts register before this catch-all, so only
+    unmatched paths reach the SPA entry document.
+    """
+
+    if (SPA_DIST / "index.html").is_file():
+        candidate = (SPA_DIST / spa_path).resolve() if spa_path else None
+        if candidate and candidate.is_relative_to(SPA_DIST.resolve()) and candidate.is_file():
+            return FileResponse(candidate)
+        return FileResponse(SPA_DIST / "index.html")
+    return FileResponse(STATIC_DIR / "index.html")
