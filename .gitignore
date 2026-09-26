@@ -23,4 +23,8 @@ data/*
 # Local diagnostics and editor/runtime metadata.
 *.log
 .codex/
+.zcodeignore
 route_scan_findings.txt
+.docx_task3_inspect/
+.docx_task3_work/
+*.db.bak*
