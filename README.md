@@ -121,10 +121,25 @@ Kaggle 文件会单独保存到 `data/downloads/kaggle/`，归一化结果默认
 ## Docker
 
 ```powershell
-docker compose up --build
+docker compose up --build -d
 ```
 
-Compose 默认连接 PostgreSQL，并将 `models/`、`uploads/`、`results/`、`data/` 作为 volume 保存。
+全栈拓扑：`web`（nginx，伺服 Vue3 SPA 构建产物并反代 API/WS/媒体，公开 8000 端口）+ `api`（FastAPI，默认 CPU 推理镜像，调试直连 8010）+ `db`（PostgreSQL 16）。`models/ uploads/ results/ data/` 为宿主机卷挂载，PostgreSQL 数据保存在命名卷 `postgres_data`。验收路径：浏览器访问 `http://127.0.0.1:8000` 登录后上传图片/视频完成推理；`GET /health` 与 WebSocket 均经 nginx 代理。
+
+镜像拉取受限时先用镜像源补齐基础镜像（DaoCloud 源已验证可用），compose 检测到本地镜像后不再访问 Docker Hub：
+
+```powershell
+foreach ($img in "library/postgres:16", "library/python:3.12-slim", "library/node:20-alpine", "library/nginx:1.27-alpine") {
+  docker pull "docker.m.daocloud.io/$img"
+  docker tag "docker.m.daocloud.io/$img" ($img -replace "library/", "")
+}
+```
+
+NVIDIA 主机启用容器内 GPU 推理（要求 WSL2 内 `nvidia-smi` 可用，基础镜像约 3 GB）：
+
+```powershell
+docker compose -f docker-compose.yml -f docker-compose.gpu.yml up --build
+```
 
 ## API 概览
 
