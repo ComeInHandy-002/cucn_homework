@@ -19,6 +19,9 @@ data/*
 !results/.gitkeep
 !models/.gitkeep
 !data/.gitkeep
+# Demo media (~6 MB) is part of the reproducible demo contract and the
+# curation tests fetch it from a fresh clone.
+!data/demo
 
 # Local diagnostics and editor/runtime metadata.
 *.log
