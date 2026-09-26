@@ -80,6 +80,7 @@ def zone_to_response(record: DangerZoneRecord) -> ZoneResponse:
         camera_id=record.camera_id,
         name=record.name,
         polygon=record.polygon,
+        coordinate_space=record.coordinate_space or "pixel",
         enabled=record.enabled,
         created_at=record.created_at,
     )
@@ -484,11 +485,36 @@ def create_zone(
     if camera is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Camera not found")
     polygon = [point.model_dump() for point in payload.polygon]
-    record = DangerZoneRecord(camera_id=camera_id, name=payload.name, polygon=polygon, enabled=payload.enabled)
+    record = DangerZoneRecord(
+        camera_id=camera_id,
+        name=payload.name,
+        polygon=polygon,
+        coordinate_space=payload.coordinate_space,
+        enabled=payload.enabled,
+    )
     db.add(record)
     db.commit()
     db.refresh(record)
     return zone_to_response(record)
+
+
+@router.get("/zones", response_model=list[ZoneResponse])
+def list_zones(db: Session = Depends(get_db), _: User = Depends(get_current_user)) -> list[ZoneResponse]:
+    records = db.query(DangerZoneRecord).order_by(DangerZoneRecord.id.asc()).all()
+    return [zone_to_response(record) for record in records]
+
+
+@router.delete("/zones/{zone_id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_zone(
+    zone_id: int,
+    db: Session = Depends(get_db),
+    _: User = Depends(require_roles("admin")),
+) -> None:
+    record = db.get(DangerZoneRecord, zone_id)
+    if record is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Zone not found")
+    db.delete(record)
+    db.commit()
 
 
 @router.get("/metrics/summary", response_model=MetricsResponse)
@@ -528,19 +554,35 @@ async def events_ws(websocket: WebSocket) -> None:
             return
         await websocket.accept()
         await websocket.send_json({"type": "connected", "message": "Safety event websocket is ready"})
+        sent_ids: set[str] = set()
         last_timestamp: datetime | None = None
-        last_ids: set[str] = set()
+        # Seed from the newest events.  With more events than the window an
+        # ascending-only scan would never reach fresh rows again.
+        seed = (
+            db.query(SafetyEventRecord)
+            .order_by(SafetyEventRecord.timestamp.desc(), SafetyEventRecord.id.desc())
+            .limit(200)
+            .all()
+        )
+        for record in reversed(seed):
+            sent_ids.add(record.id)
+            last_timestamp = record.timestamp
+            await websocket.send_json({"type": "event", "event": event_to_response(record).model_dump(mode="json")})
         while True:
-            query = db.query(SafetyEventRecord).order_by(SafetyEventRecord.timestamp.asc()).limit(200)
-            records = query.all()
+            query = db.query(SafetyEventRecord)
+            if last_timestamp is not None:
+                query = query.filter(SafetyEventRecord.timestamp >= last_timestamp)
+            records = (
+                query.order_by(SafetyEventRecord.timestamp.asc(), SafetyEventRecord.id.asc())
+                .limit(200)
+                .all()
+            )
             for record in records:
-                if record.id in last_ids:
+                if record.id in sent_ids:
                     continue
-                if last_timestamp is not None and record.timestamp < last_timestamp:
-                    continue
-                await websocket.send_json({"type": "event", "event": event_to_response(record).model_dump(mode="json")})
-                last_ids.add(record.id)
+                sent_ids.add(record.id)
                 last_timestamp = record.timestamp
+                await websocket.send_json({"type": "event", "event": event_to_response(record).model_dump(mode="json")})
             try:
                 message = await asyncio.wait_for(websocket.receive_text(), timeout=1.0)
             except TimeoutError:

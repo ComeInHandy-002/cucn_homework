@@ -175,3 +175,136 @@ def test_frontend_static_content_types(client):
     assert client.get("/static/index.html").headers["content-type"].startswith("text/html")
     assert client.get("/static/styles.css").headers["content-type"].startswith("text/css")
     assert client.get("/static/app.js").headers["content-type"].startswith("text/javascript")
+
+
+def test_event_and_job_timestamps_are_serialized_as_utc(client, auth_headers):
+    """Naive SQLite rows must come back with a UTC marker, not bare wall time."""
+
+    files = {"file": ("demo.jpg", b"fallback", "image/jpeg")}
+    created = client.post("/api/v1/inference/images", headers=auth_headers, files=files)
+    assert created.status_code == 200
+
+    events = client.get("/api/v1/events", headers=auth_headers).json()
+    assert events
+    assert events[0]["timestamp"].endswith(("Z", "+00:00"))
+
+    jobs = client.get("/api/v1/jobs", headers=auth_headers).json()
+    assert jobs
+    assert jobs[0]["created_at"].endswith(("Z", "+00:00"))
+
+
+def test_relative_zone_triggers_intrusion_on_fallback_frame(client, auth_headers):
+    """A 0-1 zone must fire regardless of the frame resolution it is checked against."""
+
+    camera = client.post("/api/v1/cameras", headers=auth_headers, json={"name": "炉区", "source": "local"})
+    camera_id = camera.json()["id"]
+    zone = client.post(
+        f"/api/v1/cameras/{camera_id}/zones",
+        headers=auth_headers,
+        json={
+            "name": "熔炉区",
+            "coordinate_space": "relative",
+            "polygon": [{"x": 0.3, "y": 0.8}, {"x": 0.7, "y": 0.8}, {"x": 0.7, "y": 1.0}, {"x": 0.3, "y": 1.0}],
+        },
+    )
+    assert zone.status_code == 201
+
+    response = client.post(
+        "/api/v1/inference/images",
+        headers=auth_headers,
+        files={"file": ("worker.jpg", b"fallback", "image/jpeg")},
+        data={"camera_id": str(camera_id)},
+    )
+    assert response.status_code == 200
+    intrusion = [event for event in response.json()["events"] if event["event_type"] == "intrusion"]
+    assert intrusion and intrusion[0]["zone_id"] == str(zone.json()["id"])
+
+
+def test_zones_can_be_listed_deleted_and_validated(client, auth_headers):
+    camera = client.post("/api/v1/cameras", headers=auth_headers, json={"name": "车间B", "source": "local"})
+    camera_id = camera.json()["id"]
+    zone = client.post(
+        f"/api/v1/cameras/{camera_id}/zones",
+        headers=auth_headers,
+        json={
+            "name": "切割区",
+            "coordinate_space": "relative",
+            "polygon": [{"x": 0.2, "y": 0.5}, {"x": 0.8, "y": 0.5}, {"x": 0.8, "y": 0.95}],
+        },
+    )
+    assert zone.status_code == 201
+    zone_id = zone.json()["id"]
+    assert zone.json()["coordinate_space"] == "relative"
+
+    assert client.post(
+        f"/api/v1/cameras/{camera_id}/zones",
+        headers=auth_headers,
+        json={
+            "name": "越界区域",
+            "coordinate_space": "relative",
+            "polygon": [{"x": 150, "y": 0.5}, {"x": 300, "y": 0.5}, {"x": 300, "y": 0.9}],
+        },
+    ).status_code == 422
+
+    zones = client.get("/api/v1/zones", headers=auth_headers)
+    assert zones.status_code == 200
+    assert [item["id"] for item in zones.json()] == [zone_id]
+
+    assert client.delete(f"/api/v1/zones/{zone_id}", headers=auth_headers).status_code == 204
+    assert client.get("/api/v1/zones", headers=auth_headers).json() == []
+    assert client.delete(f"/api/v1/zones/{zone_id}", headers=auth_headers).status_code == 404
+
+
+def test_websocket_streams_newest_events_beyond_200_history(client, auth_headers):
+    from datetime import datetime, timedelta, timezone
+
+    from app.db.database import SessionLocal
+    from app.db.models import SafetyEventRecord
+
+    db = SessionLocal()
+    base = datetime.now(timezone.utc) - timedelta(hours=1)
+    newest_id = ""
+    for index in range(250):
+        record = SafetyEventRecord(
+            event_type="no_helmet",
+            severity="high",
+            timestamp=base + timedelta(seconds=index),
+            status="open",
+        )
+        db.add(record)
+        db.commit()
+        db.refresh(record)
+        newest_id = record.id
+    db.close()
+
+    token = auth_headers["Authorization"].split(" ", 1)[1]
+    with client.websocket_connect(f"/api/v1/ws/events?token={token}") as websocket:
+        assert websocket.receive_json()["type"] == "connected"
+        found_newest = False
+        for _ in range(200):
+            message = websocket.receive_json()
+            if message["type"] == "event" and message["event"]["id"] == newest_id:
+                found_newest = True
+                break
+        assert found_newest, "the newest event must be streamed even with 250 stored events"
+
+
+def test_service_restart_marks_stale_jobs_failed(client, auth_headers):
+    from app.db.database import SessionLocal
+    from app.db.models import InferenceJobRecord
+    from app.services.inference import reset_stale_video_jobs
+
+    db = SessionLocal()
+    job = InferenceJobRecord(source_type="video", status="running")
+    db.add(job)
+    db.commit()
+    job_id = job.id
+    db.close()
+
+    assert reset_stale_video_jobs() == 1
+
+    db = SessionLocal()
+    refreshed = db.get(InferenceJobRecord, job_id)
+    assert refreshed.status == "failed"
+    assert refreshed.error_message
+    db.close()

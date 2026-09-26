@@ -5,6 +5,7 @@ const state = {
   demoAssets: [],
   events: [],
   jobs: [],
+  zones: [],
   experimentSummary: null,
   eventStatus: "",
   eventType: "",
@@ -13,6 +14,9 @@ const state = {
   socketPing: null,
   zonePoints: [],
 };
+
+const ZONE_CANVAS_W = 720;
+const ZONE_CANVAS_H = 405;
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
@@ -496,6 +500,28 @@ async function refreshCameras() {
   renderCameras();
 }
 
+async function refreshZones() {
+  if (!state.token) return;
+  state.zones = await api("/api/v1/zones");
+  renderZones();
+}
+
+function renderZones() {
+  const target = $("#zoneList");
+  if (!target) return;
+  $("#zoneCountTag").textContent = `${state.zones.length} 个区域`;
+  if (!state.zones.length) {
+    target.innerHTML = '<div class="empty-state compact"><span>◌</span><p>暂无危险区域</p></div>';
+    return;
+  }
+  target.innerHTML = state.zones.map((zone) => `
+    <div class="camera-item">
+      <div class="camera-item-icon">⬠</div>
+      <div><strong>${escapeHtml(zone.name)}</strong><span>${escapeHtml(cameraName(zone.camera_id))} · ${zone.polygon?.length ?? 0} 个顶点 · ${zone.coordinate_space === "relative" ? "相对坐标" : "像素坐标"}</span></div>
+      <div class="zone-item-actions"><button type="button" class="text-button" data-zone-load="${escapeHtml(zone.id)}">载入画布</button><button type="button" class="icon-text-button danger-text" data-zone-delete="${escapeHtml(zone.id)}">删除</button></div>
+    </div>`).join("");
+}
+
 async function refreshDemoAssets() {
   if (!state.token) return;
   state.demoAssets = await api("/api/v1/demo/assets");
@@ -513,7 +539,7 @@ async function refreshEvents() {
 
 async function refreshAll() {
   await refreshCameras();
-  await Promise.all([refreshMetrics(), refreshEvents(), refreshJobs(), refreshDemoAssets()]);
+  await Promise.all([refreshMetrics(), refreshEvents(), refreshJobs(), refreshDemoAssets(), refreshZones()]);
 }
 
 function updateSocketStatus(online) {
@@ -789,14 +815,24 @@ function drawZoneCanvas() {
 }
 
 function syncZoneTextarea() {
-  $('#zoneForm textarea[name="polygon"]').value = JSON.stringify(state.zonePoints);
+  const relative = state.zonePoints.map((point) => ({
+    x: Number((point.x / ZONE_CANVAS_W).toFixed(3)),
+    y: Number((point.y / ZONE_CANVAS_H).toFixed(3)),
+  }));
+  $('#zoneForm textarea[name="polygon"]').value = JSON.stringify(relative);
 }
 
 function parseZoneTextarea(showError = false) {
   try {
     const points = JSON.parse($('#zoneForm textarea[name="polygon"]').value || "[]");
     if (!Array.isArray(points)) throw new Error("坐标必须是数组");
-    state.zonePoints = points.map((point) => ({ x: Number(point.x), y: Number(point.y) })).filter((point) => Number.isFinite(point.x) && Number.isFinite(point.y));
+    const isRelative = points.every((point) => Math.abs(Number(point.x)) <= 1 && Math.abs(Number(point.y)) <= 1);
+    state.zonePoints = points
+      .map((point) => (isRelative
+        ? { x: Math.round(Number(point.x) * ZONE_CANVAS_W), y: Math.round(Number(point.y) * ZONE_CANVAS_H) }
+        : { x: Number(point.x), y: Number(point.y) }))
+      .filter((point) => Number.isFinite(point.x) && Number.isFinite(point.y));
+    syncZoneTextarea();
     drawZoneCanvas();
   } catch (error) {
     if (showError) showToast("坐标格式错误", error.message, "error");
@@ -811,21 +847,23 @@ async function handleZoneCreate(event) {
     showToast("请选择监控点", "危险区域必须绑定一个监控点。", "warning");
     return;
   }
-  let polygon;
-  try {
-    polygon = JSON.parse(form.get("polygon"));
-    if (!Array.isArray(polygon) || polygon.length < 3) throw new Error("危险区域至少需要 3 个顶点");
-  } catch (error) {
-    showToast("危险区域无效", error.message, "error");
+  parseZoneTextarea(false);
+  if (state.zonePoints.length < 3) {
+    showToast("危险区域无效", "危险区域至少需要 3 个顶点。", "error");
     return;
   }
+  const polygon = state.zonePoints.map((point) => ({
+    x: Number((point.x / ZONE_CANVAS_W).toFixed(3)),
+    y: Number((point.y / ZONE_CANVAS_H).toFixed(3)),
+  }));
   try {
     await api(`/api/v1/cameras/${cameraId}/zones`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: form.get("name"), polygon, enabled: true }),
+      body: JSON.stringify({ name: form.get("name"), polygon, coordinate_space: "relative", enabled: true }),
     });
-    showToast("危险区域已启用", `“${form.get("name")}”已写入规则引擎配置。`, "success");
+    showToast("危险区域已启用", `“${form.get("name")}”已按相对坐标写入规则引擎配置。`, "success");
+    await refreshZones();
   } catch (error) {
     showToast("危险区域保存失败", error.message, "error");
   }
@@ -868,6 +906,32 @@ function bindInteractions() {
   });
   $("#cameraForm").addEventListener("submit", handleCameraCreate);
   $("#zoneForm").addEventListener("submit", handleZoneCreate);
+  $("#zoneList").addEventListener("click", async (event) => {
+    const load = event.target.closest("[data-zone-load]");
+    if (load) {
+      const zone = state.zones.find((item) => String(item.id) === load.dataset.zoneLoad);
+      if (!zone) return;
+      const relative = zone.coordinate_space !== "pixel";
+      state.zonePoints = (zone.polygon || []).map((point) => ({
+        x: Math.round(relative ? Number(point.x) * ZONE_CANVAS_W : Number(point.x)),
+        y: Math.round(relative ? Number(point.y) * ZONE_CANVAS_H : Number(point.y)),
+      }));
+      syncZoneTextarea();
+      drawZoneCanvas();
+      showToast("危险区域已载入", `“${zone.name}”的顶点已绘制到画布。`, "info");
+      return;
+    }
+    const remove = event.target.closest("[data-zone-delete]");
+    if (remove) {
+      try {
+        await api(`/api/v1/zones/${remove.dataset.zoneDelete}`, { method: "DELETE" });
+        await refreshZones();
+        showToast("危险区域已删除", "该区域不再参与越界判断。", "success");
+      } catch (error) {
+        showToast("删除失败", error.message, "error");
+      }
+    }
+  });
   $("#refreshCameras").addEventListener("click", () => refreshCameras().then(() => showToast("设备列表已刷新", `当前共 ${state.cameras.length} 个监控点。`, "info")).catch((error) => showToast("刷新失败", error.message, "error")));
   $("#refreshEvents").addEventListener("click", () => refreshEvents().then(() => showToast("告警数据已刷新", `已加载 ${state.events.length} 条事件。`, "info")).catch((error) => showToast("刷新失败", error.message, "error")));
   $("#refreshJobs").addEventListener("click", () => refreshJobs().then(() => showToast("任务列表已刷新", `已加载 ${state.jobs.length} 条任务。`, "info")).catch((error) => showToast("刷新失败", error.message, "error")));

@@ -167,7 +167,12 @@ class Detection(BaseModel):
 
 
 class DangerZone(BaseModel):
-    """A configurable polygon in source-image coordinates."""
+    """A configurable polygon in source-image coordinates.
+
+    ``coordinate_space`` selects how ``polygon`` is interpreted: ``pixel``
+    values are absolute frame pixels, ``relative`` values are 0-1 fractions
+    of the frame and are scaled to the actual resolution before evaluation.
+    """
 
     model_config = ConfigDict(extra="allow")
 
@@ -175,6 +180,7 @@ class DangerZone(BaseModel):
     name: str = "Danger zone"
     camera_id: str | None = None
     polygon: list[Point] = Field(min_length=3)
+    coordinate_space: str = "pixel"
     enabled: bool = True
 
     @field_validator("polygon", mode="before")

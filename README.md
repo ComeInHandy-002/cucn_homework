@@ -128,6 +128,8 @@ Compose 默认连接 PostgreSQL，并将 `models/`、`uploads/`、`results/`、`
 - `POST /api/v1/cameras`
 - `GET /api/v1/cameras`
 - `POST /api/v1/cameras/{camera_id}/zones`
+- `GET /api/v1/zones`
+- `DELETE /api/v1/zones/{zone_id}`
 - `GET /api/v1/metrics/summary`
 - `WS /api/v1/ws/events`
 

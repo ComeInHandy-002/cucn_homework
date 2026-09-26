@@ -44,6 +44,27 @@ def point_in_polygon(point: Point | Sequence[float], polygon: Iterable[Point | S
     return inside
 
 
+def scale_zones_to_frame(
+    zones: Iterable[DangerZone],
+    frame_width: float,
+    frame_height: float,
+) -> list[DangerZone]:
+    """Resolve stored zone polygons into the current frame's pixel space.
+
+    Relative polygons are stored in 0-1 coordinates so one zone works for
+    every resolution; legacy ``pixel`` zones are already absolute.
+    """
+
+    scaled: list[DangerZone] = []
+    for zone in zones:
+        if getattr(zone, "coordinate_space", "pixel") != "relative":
+            scaled.append(zone)
+            continue
+        polygon = [Point(x=point.x * frame_width, y=point.y * frame_height) for point in zone.polygon]
+        scaled.append(zone.model_copy(update={"polygon": polygon}))
+    return scaled
+
+
 def associate_ppe(
     persons: Iterable[Detection],
     detections: Iterable[Detection],
@@ -79,7 +100,7 @@ def associate_ppe(
             relative_y = (center.y - person.bbox.y1) / max(person.bbox.height, 1e-9)
             if kind == "helmet" and relative_y > 0.40:
                 continue
-            if kind == "vest" and not 0.20 <= relative_y <= 0.85:
+            if kind == "vest" and not 0.20 <= relative_y <= 0.90:
                 continue
             person_key = person.track_id if person.track_id is not None else -(index + 1)
             # IoU is the primary signal; distance to the person centre breaks

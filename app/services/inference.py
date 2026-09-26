@@ -16,8 +16,8 @@ from uuid import uuid4
 from sqlalchemy.orm import Session
 
 from app.config import settings
-from app.core.detector import FallbackDetector, YOLODetector
-from app.core.rules import SafetyRuleEngine
+from app.core.detector import FallbackDetector, YOLODetector, _frame_size
+from app.core.rules import SafetyRuleEngine, scale_zones_to_frame
 from app.core.schemas import DangerZone, Detection, FrameResult, InferenceResult, JobStatus, SafetyEvent, SourceType
 from app.core.tracker import ByteTrackTracker
 from app.db.database import SessionLocal
@@ -31,6 +31,27 @@ def enum_value(value: Any) -> str:
 
 def utc_now() -> datetime:
     return datetime.now(timezone.utc)
+
+
+def reset_stale_video_jobs() -> int:
+    """Mark queued/running jobs as failed after a service restart."""
+
+    db = SessionLocal()
+    try:
+        stale = (
+            db.query(InferenceJobRecord)
+            .filter(InferenceJobRecord.status.in_([JobStatus.QUEUED.value, JobStatus.RUNNING.value]))
+            .all()
+        )
+        for job in stale:
+            job.status = JobStatus.FAILED.value
+            job.error_message = "Service restarted before this job finished"
+            job.updated_at = utc_now()
+        if stale:
+            db.commit()
+        return len(stale)
+    finally:
+        db.close()
 
 
 @dataclass
@@ -145,8 +166,9 @@ class InferenceService:
         db.refresh(job)
         try:
             frame = self._load_image(source_path)
+            frame_width, frame_height = _frame_size(frame)
             tracker = ByteTrackTracker()
-            zones = self._zones_for_camera(db, camera_id)
+            zones = scale_zones_to_frame(self._zones_for_camera(db, camera_id), frame_width, frame_height)
             # A single image has no temporal sequence, so image mode confirms on one frame.
             rules = SafetyRuleEngine(zones=zones, confirmation_frames=1, cooldown_seconds=10.0)
             # Still images have no temporal confirmation, so use the stricter
@@ -280,7 +302,11 @@ class InferenceService:
         runtime_info = {"half": False, "tensorrt": False, "detector_backend": "unknown"}
 
         tracker = ByteTrackTracker(min_confirmed_hits=3)
-        zones = self._zones_for_camera(db, job.camera_id)
+        zones = scale_zones_to_frame(
+            self._zones_for_camera(db, job.camera_id),
+            metadata.width,
+            metadata.height,
+        )
         rules = SafetyRuleEngine(
             zones=zones,
             confirmation_frames=3,
@@ -525,6 +551,7 @@ class InferenceService:
                 name=record.name,
                 camera_id=str(record.camera_id) if record.camera_id is not None else None,
                 polygon=record.polygon,
+                coordinate_space=record.coordinate_space or "pixel",
                 enabled=record.enabled,
             )
             for record in records

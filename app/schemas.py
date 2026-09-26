@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any
+from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from app.core.schemas import BoundingBox, EventStatus, EventType, JobStatus, Point, Severity, SourceType
 
@@ -46,8 +46,19 @@ class CameraResponse(CameraCreate):
 
 class ZoneCreate(BaseModel):
     name: str = Field(default="Danger zone", min_length=1, max_length=120)
+    # ``relative`` polygons use 0-1 fractions and survive any video
+    # resolution; ``pixel`` values are absolute frame pixels.
+    coordinate_space: Literal["pixel", "relative"] = "pixel"
     polygon: list[Point] = Field(min_length=3)
     enabled: bool = True
+
+    @model_validator(mode="after")
+    def validate_relative_polygon(self) -> "ZoneCreate":
+        if self.coordinate_space == "relative":
+            for point in self.polygon:
+                if not (0.0 <= point.x <= 1.0 and 0.0 <= point.y <= 1.0):
+                    raise ValueError("relative polygon coordinates must be within [0, 1]")
+        return self
 
 
 class ZoneResponse(ZoneCreate):
@@ -56,6 +67,12 @@ class ZoneResponse(ZoneCreate):
     id: int
     camera_id: int | None
     created_at: datetime
+
+    @model_validator(mode="after")
+    def keep_response_lenient(self) -> "ZoneResponse":
+        # Stored rows must survive listing even if a legacy value drifted out
+        # of the 0-1 input contract; validation belongs to the write path.
+        return self
 
 
 class JobResponse(BaseModel):

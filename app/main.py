@@ -17,6 +17,7 @@ from app.config import settings
 from app.db.database import SessionLocal, init_db
 from app.schemas import HealthResponse
 from app.services import inference_service
+from app.services.inference import reset_stale_video_jobs
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -36,6 +37,8 @@ async def lifespan(_: FastAPI):
         ensure_default_admin(db)
     finally:
         db.close()
+    # Jobs interrupted by a previous process must not stay "running" forever.
+    reset_stale_video_jobs()
     yield
 
 

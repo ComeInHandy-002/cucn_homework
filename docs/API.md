@@ -106,13 +106,24 @@
 
 `POST /api/v1/cameras/{camera_id}/zones`
 
+`coordinate_space` 决定多边形坐标的解释方式：`relative`（工作台默认）使用 0–1 相对值，同一区域适配任意分辨率的图片或视频；`pixel` 使用当前帧的绝对像素值。
+
 ```json
 {
   "name": "主危险区",
   "enabled": true,
-  "polygon": [{"x": 160, "y": 260}, {"x": 500, "y": 260}, {"x": 500, "y": 470}, {"x": 160, "y": 470}]
+  "coordinate_space": "relative",
+  "polygon": [{"x": 0.222, "y": 0.543}, {"x": 0.75, "y": 0.543}, {"x": 0.847, "y": 0.901}, {"x": 0.146, "y": 0.901}]
 }
 ```
+
+`GET /api/v1/zones`
+
+返回全部危险区域（含 `camera_id`、名称、多边形、坐标空间和启用状态）。
+
+`DELETE /api/v1/zones/{zone_id}`
+
+删除危险区域（仅管理员），成功返回 204。
 
 ## 指标
 

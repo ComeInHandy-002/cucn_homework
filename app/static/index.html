@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#07111f" />
     <title>工业安全智能监测系统</title>
-    <link rel="stylesheet" href="/static/styles.css?v=20260920-e7-current" />
+    <link rel="stylesheet" href="/static/styles.css?v=20260926-zone-relative" />
   </head>
   <body>
     <div class="app-shell">
@@ -216,9 +216,10 @@
                 <div id="cameraList" class="camera-list"><div class="empty-state compact"><span>⌁</span><p>暂无监控点配置</p></div></div>
               </article>
               <article class="panel zone-config">
-                <div class="panel-heading"><div><span class="section-label">DANGER ZONE</span><h3>危险区域绘制</h3></div><div class="canvas-actions"><button id="undoZonePoint" class="icon-text-button" type="button">↶ 撤销</button><button id="clearZonePoints" class="icon-text-button danger-text" type="button">× 清空</button></div></div>
-                <div class="zone-canvas-wrap"><canvas id="zoneCanvas" width="720" height="405"></canvas><div class="canvas-tip"><span>＋</span> 点击画面依次添加多边形顶点，至少 3 个点</div></div>
-                <form id="zoneForm" class="zone-form"><label><span>绑定监控点</span><select name="camera_id" id="zoneCamera"></select></label><label><span>区域名称</span><input name="name" value="主危险区" required /></label><label class="advanced-json"><span>坐标数据</span><textarea name="polygon" rows="3">[{"x":160,"y":220},{"x":540,"y":220},{"x":610,"y":365},{"x":105,"y":365}]</textarea></label><button class="primary" type="submit">保存并启用危险区域</button></form>
+                <div class="panel-heading"><div><span class="section-label">DANGER ZONE</span><h3>危险区域绘制</h3></div><div class="canvas-actions"><span id="zoneCountTag" class="count-tag">0 个区域</span><button id="undoZonePoint" class="icon-text-button" type="button">↶ 撤销</button><button id="clearZonePoints" class="icon-text-button danger-text" type="button">× 清空</button></div></div>
+                <div class="zone-canvas-wrap"><canvas id="zoneCanvas" width="720" height="405"></canvas><div class="canvas-tip"><span>＋</span> 点击画面依次添加多边形顶点（至少 3 个）；坐标按 0–1 相对值保存，适配任意分辨率视频</div></div>
+                <form id="zoneForm" class="zone-form"><label><span>绑定监控点</span><select name="camera_id" id="zoneCamera"></select></label><label><span>区域名称</span><input name="name" value="主危险区" required /></label><label class="advanced-json"><span>坐标数据（0–1 相对值）</span><textarea name="polygon" rows="3">[{"x":0.222,"y":0.543},{"x":0.75,"y":0.543},{"x":0.847,"y":0.901},{"x":0.146,"y":0.901}]</textarea></label><button class="primary" type="submit">保存并启用危险区域</button></form>
+                <div id="zoneList" class="camera-list"><div class="empty-state compact"><span>◌</span><p>暂无危险区域</p></div></div>
               </article>
             </div>
           </section>
@@ -236,6 +237,6 @@
     <div class="evidence-modal hidden" id="evidenceModal" role="dialog" aria-modal="true" aria-label="告警证据"><div class="modal-card"><div class="modal-heading"><div><span class="section-label">EVENT EVIDENCE</span><h3 id="evidenceTitle">告警证据</h3></div><button id="closeEvidence" class="modal-close" type="button">×</button></div><img id="evidenceImage" alt="告警证据截图" /><p id="evidenceMeta"></p></div></div>
     <div class="job-result-modal hidden" id="jobResultModal" role="dialog" aria-modal="true" aria-label="推理任务结果"><div class="job-result-card"><div class="modal-heading"><div><span class="section-label">INFERENCE RESULT</span><h3 id="jobResultTitle">任务结果详情</h3></div><button id="closeJobResult" class="modal-close" type="button">×</button></div><div class="job-result-body"><div id="jobResultPreview" class="job-result-preview"><div class="empty-state compact"><span>◌</span><p>暂无可视化预览</p></div></div><div class="job-result-side"><div id="jobResultSummary" class="job-result-summary"></div><div id="jobResultEvents" class="job-result-events"></div><div class="job-result-actions"><a id="jobResultMedia" class="primary hidden" target="_blank" rel="noopener">打开结果媒体</a><a id="jobResultJson" class="outline-button" target="_blank" rel="noopener">查看原始 JSON</a></div></div></div></div></div>
     <div class="toast-stack" id="toastStack" aria-live="polite"></div>
-    <script src="/static/app.js?v=20260920-e7-current"></script>
+    <script src="/static/app.js?v=20260926-zone-relative"></script>
   </body>
 </html>

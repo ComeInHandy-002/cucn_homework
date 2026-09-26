@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime, timedelta, timezone
 
 from app.core.detector import FallbackDetector, YOLODetector
-from app.core.rules import SafetyRuleEngine, associate_ppe, point_in_polygon
+from app.core.rules import SafetyRuleEngine, associate_ppe, point_in_polygon, scale_zones_to_frame
 from app.core.schemas import BoundingBox, DangerZone, Detection, EventType, Point
 from app.core.tracker import ByteTrackTracker
 
@@ -480,3 +480,35 @@ def test_danger_zone_intrusion_uses_bottom_center():
     engine = SafetyRuleEngine(zones=[zone], confirmation_frames=1)
     events = engine.evaluate_frame([person(track_id=2)], timestamp=datetime.now(timezone.utc))
     assert any(event.event_type == EventType.INTRUSION and event.zone_id == "z1" for event in events)
+
+
+def test_scale_zones_to_frame_resolves_relative_polygons():
+    relative = DangerZone(
+        id="r",
+        coordinate_space="relative",
+        polygon=[{"x": 0.5, "y": 0.5}, {"x": 0.25, "y": 0.75}, {"x": 0.75, "y": 0.75}],
+    )
+    pixel = DangerZone(id="p", polygon=[{"x": 10, "y": 20}, {"x": 30, "y": 40}, {"x": 50, "y": 60}])
+
+    scaled = scale_zones_to_frame([relative, pixel], 640, 360)
+
+    assert [(point.x, point.y) for point in scaled[0].polygon] == [(320.0, 180.0), (160.0, 270.0), (480.0, 270.0)]
+    assert [(point.x, point.y) for point in scaled[1].polygon] == [(10.0, 20.0), (30.0, 40.0), (50.0, 60.0)]
+
+
+def test_relative_zone_rules_match_across_resolutions():
+    """One relative zone must fire on both a 640x360 and a 1920x1080 frame."""
+
+    zone_data = [{"x": 0.1, "y": 0.7}, {"x": 0.9, "y": 0.7}, {"x": 0.9, "y": 1.0}, {"x": 0.1, "y": 1.0}]
+    for width, height in ((640, 360), (1920, 1080)):
+        zone = DangerZone(id=f"z-{width}", coordinate_space="relative", polygon=zone_data)
+        engine = SafetyRuleEngine(zones=scale_zones_to_frame([zone], width, height), confirmation_frames=1)
+        # A person standing at the frame's bottom centre is inside the zone.
+        worker = Detection(
+            class_name="person",
+            confidence=0.95,
+            bbox=BoundingBox(x1=width * 0.4, y1=height * 0.2, x2=width * 0.6, y2=height * 0.9),
+            track_id=1,
+        )
+        events = engine.evaluate_frame([worker], timestamp=datetime.now(timezone.utc))
+        assert any(event.event_type == EventType.INTRUSION for event in events)
