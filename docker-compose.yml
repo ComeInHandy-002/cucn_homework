@@ -1,31 +1,60 @@
+# Production-style deployment: nginx (SPA + reverse proxy) in front of the
+# FastAPI service and PostgreSQL. Start with:
+#   docker compose up --build
+# The API is CPU-safe by default; for CUDA inference on an NVIDIA host add:
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml up --build
+
 services:
+  web:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "8000:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+
   api:
-    build: .
+    build:
+      context: .
+      args:
+        USE_GPU: "false"
     environment:
       DATABASE_URL: postgresql+psycopg://safety:safety@db:5432/safety_monitor
       SECRET_KEY: change-this-before-production
-      # E7: Expanded PPE + Kaggle PPE with targeted hard-case refinement.
       MODEL_PATH: /app/models/expanded-ppe-yolov8s-hardcase12.pt
       MODEL_IMAGE_SIZE: "640"
-      # Keep the container CPU-safe. Add a CUDA base image/runtime before setting this to 0.
+      # Empty lets Ultralytics auto-select CUDA when the runtime provides it.
       MODEL_DEVICE: ""
       FALLBACK_SCENARIO: compliant
       VIDEO_BATCH_SIZE: "8"
       VIDEO_QUEUE_SIZE: "16"
       VIDEO_DECODE_BACKEND: auto
       VIDEO_ENCODE_BACKEND: auto
-      VIDEO_HALF: "true"
+      VIDEO_HALF: "false"
       QUEUE_WORKERS: "1"
       MAX_VIDEO_WORKERS: "1"
+      ENVIRONMENT: production
     ports:
-      - "8000:8000"
+      # Direct API entry for debugging; the public entry is web:8000.
+      - "8010:8000"
     volumes:
       - ./models:/app/models
       - ./uploads:/app/uploads
       - ./results:/app/results
       - ./data:/app/data
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=8)"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 90s
+    restart: unless-stopped
 
   db:
     image: postgres:16
@@ -37,6 +66,12 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U safety -d safety_monitor"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
 
 volumes:
   postgres_data:

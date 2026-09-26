@@ -1,12 +1,8 @@
-# API service image (CPU-safe). Weights, uploads, results and data are runtime
-# volumes mounted by compose, so the build context stays small.
-# For CUDA inference use Dockerfile.gpu via docker-compose.gpu.yml.
+# API service image (CUDA). Same layout as the CPU Dockerfile but based on
+# the PyTorch runtime image so Ultralytics reuses the preinstalled torch.
+# Selected by docker-compose.gpu.yml; requires NVIDIA GPU passthrough.
 
-FROM python:3.12-slim
-
-# CPU wheels keep the image small; the CUDA-bundled wheels from PyPI would
-# add several gigabytes that CPU deployments never use.
-RUN pip install --no-cache-dir torch torchvision --index-url https://download.pytorch.org/whl/cpu
+FROM pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -19,7 +15,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt ./
-# Torch is already satisfied, so Ultralytics will not pull a second copy.
+# Torch/torchvision are already satisfied by the base image.
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app ./app

@@ -1,0 +1,30 @@
+# Keep the API build context small: models/uploads/results/data are runtime
+# volumes mounted by compose, and node_modules is rebuilt inside its own image.
+.git
+.venv
+venv
+__pycache__
+**/__pycache__
+*.py[cod]
+.pytest_cache
+.ruff_cache
+.uv-cache
+.codex
+.zcode
+.zcodeignore
+.docx_task3_inspect
+.docx_task3_work
+frontend/node_modules
+frontend/dist
+uploads
+results
+models
+data
+runs
+weights
+*.db
+*.db.bak*
+*.log
+.env
+*.docx
+route_scan_findings.txt

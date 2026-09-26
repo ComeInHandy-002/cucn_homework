@@ -1,0 +1,18 @@
+# GPU override: build the CUDA variant of the API image and hand the NVIDIA
+# device to the container. Requires Docker Desktop with WSL2 backend and an
+# NVIDIA driver that exposes the GPU to WSL (wsl nvidia-smi must work).
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml up --build
+
+services:
+  api:
+    build:
+      dockerfile: Dockerfile.gpu
+    environment:
+      VIDEO_HALF: "true"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
