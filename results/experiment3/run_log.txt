@@ -1,0 +1,22 @@
+== 实验三：UCI Adult Income 机器学习算法对比 ==
+[数据] 使用缓存: adult.data (3881 KB)
+[数据] 使用缓存: adult.test (1956 KB)
+[数据] 训练 32561 行 / 测试 16281 行，15 列
+[清洗] 去重 32561 -> 32537 行；缺失填充完成
+[清洗] 去重 16281 -> 16276 行；缺失填充完成
+[特征工程] One-Hot 后特征维数: 98
+[训练] 1 逻辑回归: acc=0.8548 recall=0.6004 f1=0.6615 auc=0.9083 (0.13s)
+[训练] 2 决策树: acc=0.8195 recall=0.6011 f1=0.6115 auc=0.7693 (0.17s)
+[训练] 3 随机森林: acc=0.8518 recall=0.6201 f1=0.6642 auc=0.8963 (0.72s)
+[训练] 4 支持向量机(SVC-RBF): acc=0.8486 recall=0.5484 f1=0.6312 auc=None (1.79s)
+[训练] 5 K近邻(K=21): acc=0.838 recall=0.5868 f1=0.6313 auc=0.8814 (0.0s)
+[训练] 6 朴素贝叶斯: acc=0.8041 recall=0.702 f1=0.6288 auc=0.8691 (0.03s)
+[聚类] k=2 inertia=3091783 silhouette=0.0649
+[聚类] k=3 inertia=3022804 silhouette=0.0792
+[聚类] k=4 inertia=2947017 silhouette=0.0733
+[聚类] k=5 inertia=2911487 silhouette=0.0498
+[聚类] k=6 inertia=2846887 silhouette=0.0879
+[聚类] k=7 inertia=2813854 silhouette=0.0884
+[聚类] k=8 inertia=2753561 silhouette=0.0851
+[训练] 7 K-Means聚类: acc=0.7238 ARI=0.193（无监督基线，仅作对照）
+[完成] 指标与图表已输出到 D:\UserData\19505\Documents\ChatGPT\cucn_homework\results\experiment3
