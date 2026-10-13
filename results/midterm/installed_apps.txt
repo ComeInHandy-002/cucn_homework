@@ -1,0 +1,22 @@
+Cursor (User)  ——  版本 2.6.22
+Docker Desktop  ——  版本 4.88.1
+GitHub CLI  ——  版本 2.93.0
+IntelliJ IDEA  ——  版本 2025.3.3
+IntelliJ IDEA 2025.2.1  ——  版本 252.25557.131
+JetBrains Toolbox  ——  版本 3.4.3.81140
+Microsoft Visual Studio Code (User)  ——  版本 1.140.0
+MySQL Installer  ——  版本 1.6.15.0
+MySQL Server 8.0  ——  版本 8.0.43
+PremiumSoft Navicat Premium 16.3  ——  版本 16.3.7
+Python 3.12.10 (64-bit)  ——  版本 3.12.10150.0
+Python 3.12.10 Add to Path (64-bit)  ——  版本 3.12.10150.0
+Python 3.12.10 Core Interpreter (64-bit)  ——  版本 3.12.10150.0
+Python 3.12.10 Development Libraries (64-bit)  ——  版本 3.12.10150.0
+Python 3.12.10 Documentation (64-bit)  ——  版本 3.12.10150.0
+Python 3.12.10 Executables (64-bit)  ——  版本 3.12.10150.0
+Python 3.12.10 pip Bootstrap (64-bit)  ——  版本 3.12.10150.0
+Python 3.12.10 Standard Library (64-bit)  ——  版本 3.12.10150.0
+Python 3.12.10 Tcl/Tk Support (64-bit)  ——  版本 3.12.10150.0
+Python 3.12.10 Test Suite (64-bit)  ——  版本 3.12.10150.0
+Python 3.14.3  ——  版本 3.14-64
+Python Launcher  ——  版本 3.12.10150.0

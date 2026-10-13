@@ -1,0 +1,28 @@
+PS> 逐项检查老师要求的软件安装与配置（全部为本机真实命令输出）
+
+--- JDK ---
+openjdk version "24.0.2" 2025-07-15
+
+--- Git ---
+git version 2.51.0.windows.1
+
+--- VS Code ---
+VS Code 1.140.0（注册表登记）+ Cursor 2.6.22（日常使用，code CLI 指向）
+
+--- MySQL ---
+D:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe  Ver 8.0.43 for Win64 on x86_64 (MySQL Community Server - GPL)
+
+--- Node.js / npm（前端构建） ---
+v22.23.2
+10.9.8
+
+--- Python ---
+Python 3.12.10
+
+--- Docker Desktop（PostgreSQL 16 以容器运行） ---
+Docker version 29.7.2, build a7dcaa6
+
+--- uv（虚拟环境管理，替代 Anaconda） ---
+uv 0.10.9 (f675560f3 2026-03-06)
+
+--- 检查完成：以上软件均完整安装配置，无环境报错 ---

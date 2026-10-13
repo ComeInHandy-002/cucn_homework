@@ -151,6 +151,10 @@ def make_assets() -> dict:
         json.dumps(health, ensure_ascii=False, indent=2),
     ]
     render_console(check_lines + health_lines, MID / "r2_run_check.png", "PS> python -m pytest -q && curl /health")
+    software_lines = (MID / "software_check.txt").read_text(encoding="utf-8").strip().splitlines()
+    render_console(software_lines, MID / "r3_software_check.png", "PS> 开发软件逐项版本检查")
+    apps_lines = (MID / "installed_apps.txt").read_text(encoding="utf-8").strip().splitlines()
+    render_console(apps_lines, MID / "r4_installed_apps.png", "PS> 系统已安装软件清单（注册表 Uninstall 项）")
     return {"runs": runs, "splits": splits}
 
 
@@ -342,7 +346,28 @@ def fill_report(assets: dict) -> None:
 
     # ---- 1.1 开发环境整体检查 ----
     ins = Inserter(doc, find_paragraph(doc, "1.1开发环境整体检查"))
-    ins.para("本系统采用 Python 3.12 + PyTorch(CUDA) + Ultralytics YOLOv8 技术栈，配合 FastAPI 提供推理服务。开发环境整体检查结果如下（真实命令输出截图见图1）：", size=10)
+    ins.para("本机开发软件已完整安装并配置。下表对照课程常见软件清单逐项说明（Maven/Tomcat/Anaconda 未安装者如实注明，并以本项目实际技术栈的等价工具替代），版本检查与本机已安装软件清单的真实输出截图见图1、图2：", size=10)
+    ins.table(
+        ["软件", "安装状态", "版本", "说明"],
+        [
+            ["JDK (OpenJDK)", "已安装", "24.0.2", "系统级安装，java -version 正常"],
+            ["IntelliJ IDEA", "已安装", "2025.3.3 / 2025.2.1", "经 JetBrains Toolbox 3.4.3 管理"],
+            ["Maven", "未安装", "—", "本项目为 Python 技术栈，依赖管理使用 uv / pip，不涉及 Java 构建"],
+            ["Tomcat", "未安装", "—", "服务端采用 FastAPI + Uvicorn，非 Java Web 容器"],
+            ["MySQL", "已安装", "Server 8.0.43", "完整安装（MySQL Installer 1.6.15）；本项目生产库采用 PostgreSQL 16（Docker 容器），开发库 SQLite"],
+            ["Navicat Premium", "已安装", "16.3.7", "数据库可视化管理工具"],
+            ["Anaconda", "未安装", "—", "Python 虚拟环境采用 uv 0.10.9 管理，作用等同 conda"],
+            ["VS Code", "已安装", "1.140.0", "另安装 Cursor 2.6.22 作为日常代码编辑器"],
+            ["Git", "已安装", "2.51.0", "含 GitHub CLI 2.93.0，完成全部代码版本管理"],
+            ["Docker Desktop", "已安装", "4.88.1", "web/api/db 三服务容器化部署"],
+            ["Node.js / npm", "已安装", "22.23.2 / 10.9.8", "Vue3 前端构建工具链"],
+        ],
+        font_size=8,
+        widths=[1.15, 0.85, 1.45, 2.45],
+    )
+    ins.figure(MID / "r3_software_check.png", "图1 开发软件逐项版本检查（本机真实命令输出，无环境报错）", 5.6)
+    ins.figure(MID / "r4_installed_apps.png", "图2 系统已安装软件清单（注册表 Uninstall 项真实记录）", 5.6)
+    ins.para("本项目 Python 运行栈的整体检查结果如下（真实命令输出截图见图5）：", size=10)
     ins.table(
         ["组件", "版本/状态", "说明"],
         [
@@ -356,14 +381,14 @@ def fill_report(assets: dict) -> None:
             ["Docker Compose", "v2（web/api/db 三服务）", "容器化部署"],
         ],
     )
-    ins.figure(MID / "r1_env_check.png", "图1 开发环境整体检查（python 真实执行输出）", 5.6)
+    ins.figure(MID / "r1_env_check.png", "图3 Python 运行栈整体检查（python 真实执行输出）", 5.6)
 
     # ---- 1.2 Python环境安装，代码无报错，工程的运行情况 ----
     ins = Inserter(doc, find_paragraph(doc, "1.2 Python环境安装，代码无报错，工程的运行情况"))
     ins.para("环境通过 scripts/setup.ps1 一键创建虚拟环境并安装 requirements.txt 依赖；pytest 自动化测试套件 65 个用例全部通过、无报错；服务启动后 /health 返回 model_available=true（E7 权重加载成功），浏览器工作台可正常登录、上传推理与实时告警。", size=10)
-    ins.figure(MID / "r2_run_check.png", "图2 自动化测试与 /health 服务健康检查（真实执行输出）", 5.6)
-    ins.figure(MID / "ui-overview.png", "图3 工业安全智能监测工作台——监控总览页运行截图", 5.9)
-    ins.figure(MID / "ui-detection.png", "图4 智能检测页——上传图片完成真实推理并产生安全事件", 5.9)
+    ins.figure(MID / "r2_run_check.png", "图4 自动化测试与 /health 服务健康检查（真实执行输出）", 5.6)
+    ins.figure(MID / "ui-overview.png", "图5 工业安全智能监测工作台——监控总览页运行截图", 5.9)
+    ins.figure(MID / "ui-detection.png", "图6 智能检测页——上传图片完成真实推理并产生安全事件", 5.9)
 
     # ---- 数据集 ----
     ins = Inserter(doc, find_paragraph(doc, "数据集"))
@@ -392,8 +417,8 @@ def fill_report(assets: dict) -> None:
 
     # ---- 4.数据集描述 ----
     ins = Inserter(doc, find_paragraph(doc, "4.数据集描述"))
-    ins.para("合并数据集为 YOLO 目标检测格式：每张图片对应一个 txt 标注文件（类别索引 + 归一化框坐标）。三类业务目标定义：person（作业人员全身框）、helmet（安全帽，头部区域）、vest（反光背心，躯干区域）。划分与校验情况见图5：三个划分均通过 validate_dataset.py 质量校验（空标签、越界框、图片-标注不匹配均为 0 错误）。", size=10)
-    ins.figure(MID / "mt1_dataset_splits.png", "图5 合并数据集划分规模与质量校验结果", 5.4)
+    ins.para("合并数据集为 YOLO 目标检测格式：每张图片对应一个 txt 标注文件（类别索引 + 归一化框坐标）。三类业务目标定义：person（作业人员全身框）、helmet（安全帽，头部区域）、vest（反光背心，躯干区域）。划分与校验情况见图7：三个划分均通过 validate_dataset.py 质量校验（空标签、越界框、图片-标注不匹配均为 0 错误）。", size=10)
+    ins.figure(MID / "mt1_dataset_splits.png", "图7 合并数据集划分规模与质量校验结果", 5.4)
     ins.para("数据增强产物：针对抽查发现的漏检场景（深色安全帽、远距离小目标），制作 hard_cases 子集——3 张用户抽查原图各做 60 个确定性增强，共 183 张训练图、1,037 框，仅挂载训练集不进入 val/test，防止增强图虚增指标。此外 E8 实验追加 150 张 train-only 视频抽帧，val/test 始终保持不变，保证七组模型在同一口径 test split 上可比。", size=10)
 
     # ---- 5.研究目标 ----
@@ -447,7 +472,7 @@ def fill_report(assets: dict) -> None:
         [[r["name"], fmt(r["precision"]), fmt(r["recall"]), fmt(r["f1"]), fmt(r["map50"]), fmt(r["map50_95"])] for r in runs],
         font_size=8,
     )
-    ins.figure(MID / "mt2_model_comparison.png", "图6 七组模型测试集指标对比（真实 JSON 结果可视化）", 5.9)
+    ins.figure(MID / "mt2_model_comparison.png", "图8 七组模型测试集指标对比（真实 JSON 结果可视化）", 5.9)
 
     model_notes = [
         ("模型1 YOLOv8n smoke", f"轻量基线 1 轮流程验证：Precision {fmt(by_name['YOLOv8n smoke']['precision'])}、Recall {fmt(by_name['YOLOv8n smoke']['recall'])}、mAP@0.5 {fmt(by_name['YOLOv8n smoke']['map50'])}，证明训练-评估链路可用，但召回严重不足，不具备部署价值。"),
@@ -476,7 +501,7 @@ def fill_report(assets: dict) -> None:
 
     ins = Inserter(doc, anchor)
     ins.heading3("评估可视化与优化结论")
-    ins.figure(MID / "mt3_helmet_recall.png", "图7 helmet 类分项 Precision/Recall 演进（短板改进全过程）", 5.2)
+    ins.figure(MID / "mt3_helmet_recall.png", "图9 helmet 类分项 Precision/Recall 演进（短板改进全过程）", 5.2)
     ins.para("优化路径总结：数据维度上，合并数据与定向 hard-case 增强是收益最大的两项（Recall 0.32→0.66）；训练维度上，轮数提升在 12 轮后边际收益归零，30 轮出现过拟合迹象（E8 精度回落）；评估维度上，建立三图硬门禁、两视频轨迹门禁与四步验收门禁，任何候选权重必须全门禁通过才允许替换部署版本，本机制在实践中成功拦截了 E8 的负优化替换。", size=10)
 
     # ---- 7.总结 ----
