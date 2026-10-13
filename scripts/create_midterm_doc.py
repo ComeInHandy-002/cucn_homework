@@ -28,6 +28,12 @@ RESULTS = ROOT / "results"
 MID = RESULTS / "midterm"
 TEMPLATE = Path(r"D:\学号_姓名《基于机器学习的电影票房分析与预测系统》期中报告.docx")
 FINAL = ROOT / "学号_姓名《基于机器学习的工业安全智能监测系统》期中报告_完成版.docx"
+# 学生信息从 results/midterm/student.json 读取（本机私有文件，不入库）；
+# 缺失时保持占位符封面。可传 argv[1] 输出到任意文件名。
+try:
+    STUDENT = json.loads((MID / "student.json").read_text(encoding="utf-8"))
+except FileNotFoundError:
+    STUDENT = {}
 
 OLD_TITLE = "基于机器学习的电影票房分析与预测系统"
 NEW_TITLE = "基于机器学习的工业安全智能监测系统"
@@ -301,7 +307,8 @@ def fmt(value, digits=4):
     return "--" if value is None else f"{float(value):.{digits}f}"
 
 
-def fill_report(assets: dict) -> None:
+def fill_report(assets: dict, final_path: Path | None = None) -> None:
+    final_target = final_path or FINAL
     doc = Document(TEMPLATE)
 
     # 模板自带标题与后文保持同页，避免标题孤悬页底；统一 1.2 编号格式
@@ -315,6 +322,19 @@ def fill_report(assets: dict) -> None:
             keeper.text = full_text
             for run in p.runs[1:]:
                 run.text = ""
+
+    # 封面：专业/学号/姓名填入下划线占位行（"专    业"含全角排版空格，需归一匹配）
+    for p in doc.paragraphs:
+        stripped = p.text.strip()
+        normalized = stripped.replace(" ", "").replace("　", "")
+        for key, value in STUDENT.items():
+            if normalized.startswith(key) and "_" in stripped:
+                prefix = stripped[: stripped.index("_")]
+                for run in p.runs[1:]:
+                    run.text = ""
+                if p.runs:
+                    p.runs[0].text = f"{prefix}  {value}  {'_' * 10}"
+                break
 
     # 封面与正文章节标题：替换为本人课题
     for p in doc.paragraphs:
@@ -523,9 +543,12 @@ def fill_report(assets: dict) -> None:
         set_run_font(r2, size=9.6)
     ins.para("总结：本课题完成了从公开数据整合、模型训练对比、规则引擎到 Web 工作台的完整机器学习系统工程实践，七组真实实验清晰量化了数据、轮数与增强策略的收益边界；评估体系坚持只用真实运行产物，所有指标可通过 results/ 目录 JSON 与脚本复现。当前部署模型 E7 在同口径测试集上取得 Precision 0.7977、Recall 0.6620、F1 0.7235、mAP@0.5 0.7200，服务、前端与容器化部署链路全部实测可用。", size=10)
 
-    doc.save(FINAL)
-    print(FINAL)
+    doc.save(final_target)
+    print(final_target)
 
 
 if __name__ == "__main__":
-    fill_report(make_assets())
+    import sys
+
+    override = Path(sys.argv[1]) if len(sys.argv) > 1 else None
+    fill_report(make_assets(), override)
