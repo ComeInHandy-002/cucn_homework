@@ -1,0 +1,35 @@
+Tables_in_safety_admin
+datasets
+model_train_tasks
+users
+Field	Type	Null	Key	Default	Extra
+id	bigint	NO	PRI	NULL	auto_increment
+created_at	datetime(6)	NO		NULL	
+email	varchar(255)	YES		NULL	
+enabled	bit(1)	NO		NULL	
+password_hash	varchar(100)	NO		NULL	
+real_name	varchar(255)	YES		NULL	
+role	varchar(20)	NO		NULL	
+username	varchar(50)	NO	UNI	NULL	
+Field	Type	Null	Key	Default	Extra
+id	bigint	NO	PRI	NULL	auto_increment
+name	varchar(120)	NO		NULL	
+note	varchar(255)	YES		NULL	
+original_filename	varchar(255)	NO		NULL	
+sha256	varchar(255)	YES		NULL	
+size_bytes	bigint	NO		NULL	
+stored_path	varchar(500)	NO		NULL	
+uploaded_at	datetime(6)	NO		NULL	
+Field	Type	Null	Key	Default	Extra
+id	bigint	NO	PRI	NULL	auto_increment
+best_weights	varchar(300)	YES		NULL	
+created_at	datetime(6)	NO		NULL	
+dataset_tag	varchar(100)	YES		NULL	
+epochs	int	NO		NULL	
+error_message	varchar(500)	YES		NULL	
+finished_at	datetime(6)	YES		NULL	
+log_path	varchar(300)	YES		NULL	
+metrics_json	varchar(1000)	YES		NULL	
+name	varchar(120)	NO		NULL	
+run_dir	varchar(300)	YES		NULL	
+status	varchar(20)	NO		NULL	

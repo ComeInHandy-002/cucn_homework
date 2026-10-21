@@ -1,0 +1,59 @@
+### 注册新用户（正常）
+>> POST http://127.0.0.1:8081/auth/register
+>> body: {"username": "wangwu", "password": "test123456", "realName": "王五"}
+<< 200 {"code": 0, "message": "success", "data": {"id": 3, "username": "wangwu"}}
+
+### 注册重复用户名（异常边界）
+>> POST http://127.0.0.1:8081/auth/register
+>> body: {"username": "wangwu", "password": "test123456"}
+<< 400 {"code": 409, "message": "用户名已存在", "data": null}
+
+### 注册密码过短（参数校验）
+>> POST http://127.0.0.1:8081/auth/register
+>> body: {"username": "lisi", "password": "123"}
+<< 400 {"code": 400, "message": "密码长度需在 6-64 之间", "data": null}
+
+### 登录成功
+>> POST http://127.0.0.1:8081/auth/login
+>> body: {"username": "admin", "password": "admin123"}
+<< 200 {"code": 0, "message": "success", "data": {"user": {"id": 1, "username": "admin", "role": "admin", "realName": "系统管理员", "email": null, "enabled": true, "createdAt": "2026-10-21T22:58:32.664945"
+
+### 登录密码错误（异常）
+>> POST http://127.0.0.1:8081/auth/login
+>> body: {"username": "admin", "password": "wrong"}
+<< 400 {"code": 401, "message": "用户名或密码错误", "data": null}
+
+### operator 登录
+>> POST http://127.0.0.1:8081/auth/login
+>> body: {"username": "zhangsan", "password": "test123456"}
+<< 200 {"code": 0, "message": "success", "data": {"user": {"id": 2, "username": "zhangsan", "role": "operator", "realName": "张三", "email": "zs@test.com", "enabled": true, "createdAt": "2026-10-21T22:58:58.488793"}, "token": "ey
+
+### 无 token 访问管理接口（应 401）
+>> GET http://127.0.0.1:8081/api/users
+<< 401 {"code": 401, "message": "未登录或令牌已过期", "data": null}
+
+### operator 访问管理接口（应 403）
+>> GET http://127.0.0.1:8081/api/users
+<< 403 {"code": 403, "message": "需要管理员权限", "data": null}
+
+### 用户列表（admin）
+>> GET http://127.0.0.1:8081/api/users
+<< 200 {"code": 0, "message": "success", "data": [{"id": 1, "username": "admin", "role": "admin", "realName": "系统管理员", "email": null, "enabled": true, "createdAt": "2026-10-21T22:58:32.664945"}, {"id": 2, "username": "zhangsan"
+
+### 新增用户（admin）
+>> POST http://127.0.0.1:8081/api/users
+>> body: {"username": "lisi", "password": "test123456", "realName": "李四"}
+<< 200 {"code": 0, "message": "success", "data": {"id": 4, "username": "lisi", "role": "operator", "realName": "李四", "email": null, "enabled": true, "createdAt": "2026-10-21T23:18:04.7868329"}}
+
+### 修改用户（admin）
+>> PUT http://127.0.0.1:8081/api/users/3
+>> body: {"role": "operator", "realName": "李四四", "enabled": true}
+<< 200 {"code": 0, "message": "success", "data": {"id": 3, "username": "wangwu", "role": "operator", "realName": "李四四", "email": null, "enabled": true, "createdAt": "2026-10-21T23:18:04.465207"}}
+
+### 删除用户（admin）
+>> DELETE http://127.0.0.1:8081/api/users/3
+<< 200 {"code": 0, "message": "success", "data": null}
+
+### 删除不存在用户（边界 404）
+>> DELETE http://127.0.0.1:8081/api/users/999
+<< 400 {"code": 404, "message": "用户不存在", "data": null}
