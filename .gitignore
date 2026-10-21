@@ -31,3 +31,9 @@ route_scan_findings.txt
 .docx_task3_inspect/
 .docx_task3_work/
 *.db.bak*
+
+# Java 管理后端本地产物与凭据
+backend-java/logs/
+backend-java/target/
+backend-java/start-local.ps1
+data/admin_uploads/

@@ -7,7 +7,9 @@ const routes = [
   { path: '/jobs', name: 'jobs', component: () => import('./views/JobsView.vue'), meta: { title: '任务中心', eyebrow: 'INFERENCE JOBS' } },
   { path: '/experiments', name: 'experiments', component: () => import('./views/ExperimentsView.vue'), meta: { title: '模型实验', eyebrow: 'MODEL & DATA LAB' } },
   { path: '/alerts', name: 'alerts', component: () => import('./views/AlertsView.vue'), meta: { title: '告警中心', eyebrow: 'SAFETY EVENTS' } },
-  { path: '/configuration', name: 'configuration', component: () => import('./views/ConfigurationView.vue'), meta: { title: '设备与区域', eyebrow: 'SYSTEM CONFIGURATION' } }
+  { path: '/configuration', name: 'configuration', component: () => import('./views/ConfigurationView.vue'), meta: { title: '设备与区域', eyebrow: 'SYSTEM CONFIGURATION' } },
+  { path: '/admin/users', name: 'admin-users', component: () => import('./views/AdminUsersView.vue'), meta: { title: '用户管理', eyebrow: 'ADMIN · SPRING BOOT' } },
+  { path: '/admin/models', name: 'admin-models', component: () => import('./views/AdminModelsView.vue'), meta: { title: '数据集与模型管理', eyebrow: 'ADMIN · SPRING BOOT' } }
 ]
 
 export default createRouter({
