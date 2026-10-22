@@ -40,3 +40,7 @@ data/admin_uploads/
 
 # ZCode 本地会话目录
 .zcode/
+
+# 报告类文档只保留本地，不入仓库（实验报告/手册等由各生成脚本本地产出）
+*.docx
+!scripts/docx_common.py

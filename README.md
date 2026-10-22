@@ -1,6 +1,21 @@
 # 工业安全智能监测系统
 
-基于 YOLOv8 与 ByteTrack 思路的工业作业人员安全防护与危险区域智能监测系统。系统面向结课大作业和毕设原型，覆盖模型推理、人员跟踪、PPE 关联、危险区域规则、告警入库、接口服务和最小可用工作台。
+基于 YOLOv8 与 ByteTrack 思路的工业作业人员安全防护与危险区域智能监测系统，为《传媒数据管理与分析》课程大作业项目。系统采用前后端分离的双服务架构：Spring Boot 管理域（用户管理、数据集与模型任务，MySQL）与 Python 算法域（模型推理、人员跟踪、PPE 关联、危险区域规则、告警入库）各自独立部署，Vue3 工作台统一访问。
+
+```text
+                        ┌────────────────────────────┐
+  Vue3 工作台 (8010) ────┤ Python 算法域 FastAPI       │
+  Element Plus+ECharts  │ YOLOv8 · ByteTrack · 规则引擎│
+        │               └────────────────────────────┘
+        │                      ▲ 进程调用训练脚本
+        ├───────────────┐      │
+        ▼               ▼      │
+  ┌──────────────────────────┐ │
+  │ Spring Boot 管理域 (8081) │─┘
+  │ 用户管理 · 数据集/模型任务 │
+  │ JPA · MySQL(safety_admin) │
+  └──────────────────────────┘
+```
 
 ## 功能范围
 
@@ -22,11 +37,11 @@
 .\.venv\Scripts\python.exe -m uvicorn app.main:app --reload
 ```
 
-完整文档索引见 `docs/INDEX.md`，环境说明见 `docs/SETUP.md`。现场演示按 `docs/DEMO_GUIDE.md`，答辩讲解按 `docs/PRESENTATION_SCRIPT.md`，前端逐项校验见 `docs/FRONTEND_VALIDATION.md`。项目固定使用 Python 3.12；没有 NVIDIA GPU 时仍可用 CPU/fallback 完成接口和规则演示。
+完整文档索引见 `docs/INDEX.md`，环境说明见 `docs/SETUP.md`。现场演示按 `docs/DEMO_GUIDE.md`，课堂展示讲解按 `docs/PRESENTATION_SCRIPT.md`，前端逐项校验见 `docs/FRONTEND_VALIDATION.md`。项目固定使用 Python 3.12；没有 NVIDIA GPU 时仍可用 CPU/fallback 完成接口和规则演示。
 
 访问 `http://127.0.0.1:8000/`；若 8000 已被其他程序占用，改用 `--port 8010` 并访问 `http://127.0.0.1:8010/`。
 
-默认开发账号：`admin` / `admin123`。生产或答辩部署前必须修改 `.env` 中的 `SECRET_KEY` 和默认密码逻辑。
+默认开发账号：`admin` / `admin123`。生产或公开演示部署前必须修改 `.env` 中的 `SECRET_KEY` 和默认密码逻辑。
 
 ## 前端工程（Vue3）
 
@@ -161,24 +176,21 @@ docker compose -f docker-compose.yml -f docker-compose.gpu.yml up --build
 - `GET /api/v1/metrics/summary`
 - `WS /api/v1/ws/events`
 
-详细契约见 `docs/API.md`。现场演示按 `docs/DEMO_GUIDE.md`，答辩讲解按 `docs/PRESENTATION_SCRIPT.md`，提交前按 `docs/DELIVERY_CHECKLIST.md`。
+详细契约见 `docs/API.md`。现场演示按 `docs/DEMO_GUIDE.md`，课堂展示讲解按 `docs/PRESENTATION_SCRIPT.md`，提交前按 `docs/DELIVERY_CHECKLIST.md`。
 
 ## 目录结构
 
 ```text
-app/
-  api/          FastAPI routes
-  core/         detector, tracker, rule engine, schemas
-  db/           SQLAlchemy setup and persistence models
-  services/     inference orchestration
-  static/       browser workstation
-data/           dataset notes and local samples
-models/         local YOLO weights
-uploads/        uploaded images/videos
-results/        result JSON, annotated images/videos, evidence screenshots
-tests/          core and API tests
-docs/           API, dataset and experiment documentation
-scripts/        reproducible demo and benchmark helpers
+app/            Python 算法域（FastAPI 路由、检测/跟踪/规则、静态伺服）
+backend-java/   Spring Boot 管理域（用户管理、数据集/模型任务，MySQL）
+frontend/       Vue3 工作台源码（构建产物输出到 app/static/dist）
+data/           数据集与演示素材
+models/         本地 YOLO 权重（不入库）
+uploads/        上传的图片/视频（不入库）
+results/        结果 JSON、标注媒体、实验指标（精选指标入库）
+tests/          Python 算法域测试
+docs/           接口、数据、实验与系统文档
+scripts/        数据、训练、评估与报告生成的可复现脚本
 ```
 
 ## 验证
@@ -188,6 +200,6 @@ scripts/        reproducible demo and benchmark helpers
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-## 毕设材料边界
+## 实验指标边界
 
-当前仓库已提供可运行工程、E1-E7 可复现实验、独立 test 指标与定向图片/视频回归。论文可引用已生成的 Precision、Recall、F1 和 mAP，但必须同时注明数据版本、训练轮数和测试划分；80 epoch 长周期实验、300–500 帧独立自建场景集、正式 720p 性能验收及消融实验仍未完成，不能用 fallback 或计划值替代。
+当前仓库已提供可运行工程、E1-E8 可复现实验、独立 test 指标与定向图片/视频回归。引用指标时必须同时注明数据版本、训练轮数和测试划分；80 epoch 长周期实验、300–500 帧独立自建场景集、正式 720p 性能验收及消融实验仍未完成，不能用 fallback 或计划值替代。实验报告与课程文档由本地脚本生成，`*.docx` 不入仓库。

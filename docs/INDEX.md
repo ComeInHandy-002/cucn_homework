@@ -23,11 +23,10 @@
 - [EXPERIMENTS.md](EXPERIMENTS.md)：YOLOv8n/YOLOv8s 指标和消融实验计划。
 - [TEST_REPORT.md](TEST_REPORT.md)：自动化、接口、视频和前端资源测试结果。
 
-## 论文和答辩
+## 展示与交付
 
-- [PPT_OUTLINE.md](PPT_OUTLINE.md)：答辩 PPT 页面结构和证据对应关系。
+- [PPT_OUTLINE.md](PPT_OUTLINE.md)：展示 PPT 页面结构和证据对应关系。
 - [PRESENTATION_SCRIPT.md](PRESENTATION_SCRIPT.md)：逐页讲解稿、90 秒项目介绍和问答。
-- [THESIS_OUTLINE.md](THESIS_OUTLINE.md)：论文章节提纲。
 - [DELIVERY_CHECKLIST.md](DELIVERY_CHECKLIST.md)：提交前源码、数据、模型、文档和验收清单。
 
 ## 结果文件
