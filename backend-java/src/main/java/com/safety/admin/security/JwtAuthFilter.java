@@ -18,7 +18,7 @@ import java.util.List;
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
 
-    private static final List<String> WHITELIST = List.of("/auth/login", "/auth/register", "/error");
+    private static final List<String> WHITELIST = List.of("/", "/auth/login", "/auth/register", "/error");
 
     private final JwtService jwtService;
 
@@ -30,7 +30,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
         String path = request.getRequestURI();
-        if (WHITELIST.stream().anyMatch(path::startsWith) || "OPTIONS".equalsIgnoreCase(request.getMethod())) {
+        // 白名单必须精确匹配：startsWith("/") 会放行所有路径，导致鉴权整体失效
+        if (WHITELIST.contains(path) || "OPTIONS".equalsIgnoreCase(request.getMethod())) {
             chain.doFilter(request, response);
             return;
         }
