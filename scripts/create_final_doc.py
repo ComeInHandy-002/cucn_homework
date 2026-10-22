@@ -158,17 +158,15 @@ class Inserter:
         if not Path(path).is_file():
             self.para(f"（截图待补：{caption}）", size=9, color="999999")
             return
+        # 图片与图注放入同一段落（run + 换行 + run），结构性保证不跨页分离
         p = self.doc.add_paragraph()
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        p.paragraph_format.keep_with_next = True
+        p.paragraph_format.space_after = Pt(6)
         p.add_run().add_picture(str(path), width=Inches(width))
-        self._attach(p)
-        cap = self.doc.add_paragraph()
-        cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        r = cap.add_run(caption)
+        p.add_run().add_break()
+        r = p.add_run(caption)
         set_run_font(r, size=8.5, color="666666")
-        cap.paragraph_format.space_after = Pt(4)
-        return self._attach(cap)
+        return self._attach(p)
 
 
 def find_paragraph(doc: Document, text: str):
@@ -311,9 +309,11 @@ def fill_report() -> None:
         ],
         font_size=8.8,
     )
+    ins.figure(MID / "final_alert_lifecycle.png", "图2-1 告警事件生命周期（产生→确认→关闭）", 5.9)
 
     ins = Inserter(doc, find_paragraph(doc, "2.2用例分析"))
     ins.para("系统核心用例按角色划分如下：", size=10)
+    ins.figure(MID / "final_usecase.png", "图2-2 系统用例图（操作员 / 系统管理员）", 5.9)
     ins.table(
         ["用例", "参与者", "前置条件", "主要流程"],
         [
@@ -329,24 +329,7 @@ def fill_report() -> None:
 
     ins = Inserter(doc, find_paragraph(doc, "3.1系统总体架构"))
     ins.para("系统采用前后端分离的双服务架构，职责按技术适性划分：Java 擅长业务编排与事务，Python 垄断深度学习生态。两服务各自独立部署、独立鉴权，前端以两套令牌分别访问。", size=10)
-    arch = [
-        "┌─────────────────────────────────────────────────────┐",
-        "│                Vue3 工作台 (FastAPI :8010 伺服)      │",
-        "│  六大监测页面 + 用户管理 + 数据集/模型管理（Axios 双域）│",
-        "└───────────────┬─────────────────────┬───────────────┘",
-        "        Bearer监测域JWT          Bearer管理域JWT",
-        "               ▼                     ▼",
-        "┌──────────────────────────┐  ┌──────────────────────────┐",
-        "│ Python 算法域 FastAPI     │  │ Spring Boot 管理域 :8081  │",
-        "│ YOLOv8·ByteTrack·规则引擎 │◀─│ 用户管理·数据集·训练任务   │",
-        "│ WebSocket 实时告警        │ │ JPA · MySQL(safety_admin) │",
-        "└───────────┬──────────────┘  └──────────────────────────┘",
-        "            ▼ ProcessBuilder（演示级训练子进程）",
-        "   runs/train/…（best.pt + results.csv 真实指标）",
-    ]
-    diagram_path = MID / "final_architecture.png"
-    render_diagram(arch, diagram_path)
-    ins.figure(diagram_path, "图3-1 系统总体架构（双服务职责划分）", 5.8)
+    ins.figure(MID / "final_architecture_v2.png", "图3-1 系统总体架构（双服务职责划分）", 6.1)
 
     ins = Inserter(doc, find_paragraph(doc, "3.2.1数据库设计"))
     ins.para("系统包含两个数据存储：管理域 MySQL 库 safety_admin（业务主库），算法域 SQLite/PostgreSQL（监测业务库，经 SQLAlchemy 抽象可切换）。", size=10)
@@ -399,16 +382,18 @@ def fill_report() -> None:
     ins.para("训练流程：数据下载与校验（validate_dataset.py 0 错误门禁）→ 类别归一与去重 → smoke 链路验证（1 epoch）→ 扩充集对照训练 → 合并集精调 → hard-case 定向增强（3 张漏检原图各 60 个确定性增强，仅挂载训练集）→ 独立 test 同口径评估（evaluate_yolo.py 落盘 JSON）→ 三图两视频定向回归门禁。七组训练的实测结果见第 6 章。", size=10)
 
     ins = Inserter(doc, find_paragraph(doc, "4.3前端详细设计"))
-    ins.figure(E5 / "c1_axios_interceptors.png", "图4-2 Axios 双拦截器核心代码（令牌注入/统一解包/错误通知）", 5.9)
-    ins.figure(E5 / "ui-dashboard.png", "图4-3 监控总览 Dashboard（ECharts 告警环形图/严重度条/七日趋势）", 5.9)
-    ins.figure(E5 / "c3_train_poll.png", "图4-4 训练任务 5 秒自动轮询核心代码", 5.9)
-    ins.figure(E5 / "ui-admin-users.png", "图4-5 用户管理页（Spring Boot 数据真实渲染）", 5.9)
+    ins.figure(MID / "final_frontend.png", "图4-2 前端工程结构（八路由 · 双域支撑体系）", 6.1)
+    ins.figure(E5 / "c1_axios_interceptors.png", "图4-3 Axios 双拦截器核心代码（令牌注入/统一解包/错误通知）", 5.9)
+    ins.figure(E5 / "ui-dashboard.png", "图4-4 监控总览 Dashboard（ECharts 告警环形图/严重度条/七日趋势）", 5.9)
+    ins.figure(E5 / "c3_train_poll.png", "图4-5 训练任务 5 秒自动轮询核心代码", 5.9)
+    ins.figure(E5 / "ui-admin-users.png", "图4-6 用户管理页（Spring Boot 数据真实渲染）", 5.9)
 
     ins = Inserter(doc, find_paragraph(doc, "4.4后端详细设计"))
-    ins.figure(E4 / "c1_user_register_login.png", "图4-6 用户服务核心代码（BCrypt 注册/JWT 登录）", 5.9)
-    ins.figure(E4 / "c2_jwt_filter.png", "图4-7 JWT 统一鉴权过滤器（精确白名单/401/403）", 5.9)
-    ins.figure(E4 / "c3_train_async.png", "图4-8 在线训练异步任务核心代码（ProcessBuilder 调用算法域）", 5.9)
-    ins.figure(E4 / "r4_train_log.png", "图4-9 在线训练任务真实日志尾部", 5.8)
+    ins.figure(MID / "final_pipeline.png", "图4-7 视频推理三线程流水线（批量加速 + 严格保序）", 6.1)
+    ins.figure(E4 / "c1_user_register_login.png", "图4-8 用户服务核心代码（BCrypt 注册/JWT 登录）", 5.9)
+    ins.figure(E4 / "c2_jwt_filter.png", "图4-9 JWT 统一鉴权过滤器（精确白名单/401/403）", 5.9)
+    ins.figure(E4 / "c3_train_async.png", "图4-10 在线训练异步任务核心代码（ProcessBuilder 调用算法域）", 5.9)
+    ins.figure(E4 / "r4_train_log.png", "图4-11 在线训练任务真实日志尾部", 5.8)
 
     ins = Inserter(doc, find_paragraph(doc, "5.1前端测试"))
     ins.para("前端采用\"自动化资源契约测试 + 浏览器人工联调\"结合：pytest 套件中含 SPA 服务契约用例（入口壳、history 路由回退、资产可达、旧版回退），页面功能按\"正常/异常/边界\"手工遍历（空数据兜底、错误通知、双域令牌过期提示）。联调中发现并修复的真实问题包括：跨域白名单遗漏 8010 源、管理域登录与数据加载的时序竞态（AdminGate logged-in 事件解决）、旧缓存导致资源 404（入口文档 no-cache + 资产 404 兜底解决）。", size=10)
