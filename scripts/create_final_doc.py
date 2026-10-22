@@ -371,8 +371,23 @@ def fill_report() -> None:
     ins.para("管理域按 Controller/Service/Repository 三层组织，统一 Result{code,message,data} 响应与全局异常处理，JwtAuthFilter 精确匹配白名单并对 /api/users/** 集中执行 admin 角色控制；算法域为 FastAPI 单服务，视频采用\"有界解码队列→批量推理→严格保序后处理\"三线程流水线，保证检测可批量加速而跟踪/规则严格按原始帧序执行。", size=10)
 
     ins = Inserter(doc, find_paragraph(doc, "4.1数据库详细设计"))
-    ins.figure(E4 / "r2_mysql_schema.png", "图4-1 safety_admin 库表结构（MySQL 真实 DESCRIBE 输出）", 5.8)
-    ins.para("以 users 表为例：id 自增主键；username 唯一索引；password_hash 存 BCrypt 哈希（成本因子自动加盐），数据库不落明文；role 枚举 admin/operator 支撑接口鉴权；enabled 支持停用而不删除。三表均由 JPA ddl-auto=update 按实体类自动建表，字段与实体注解一一对应。", size=10)
+    ins.figure(MID / "final_db_er.png", "图4-1 系统数据库 ER 关系图（管理域 MySQL + 算法域 SQLite/PostgreSQL）", 6.1)
+    ins.para("管理域核心表字段明细如下（JPA 实体注解与表结构一一对应）：", size=10)
+    ins.table(
+        ["表", "字段", "类型/约束", "说明"],
+        [
+            ["users", "id", "PK 自增", "用户主键"],
+            ["users", "username", "VARCHAR(50) UNIQUE", "登录名，全库唯一"],
+            ["users", "password_hash", "VARCHAR(100)", "BCrypt 哈希，不存明文"],
+            ["users", "role", "VARCHAR(20)", "admin / operator，支撑接口鉴权"],
+            ["users", "enabled", "BOOLEAN", "停用保留账号而不删除"],
+            ["model_train_tasks", "status", "VARCHAR(20)", "pending→running→completed/failed 状态机"],
+            ["model_train_tasks", "best_weights", "VARCHAR(300)", "训练产出的最优权重路径"],
+            ["model_train_tasks", "metrics_json", "VARCHAR(1000)", "从 results.csv 提取的真实指标"],
+        ],
+        font_size=8.6,
+    )
+    ins.para("算法域五表（cameras/danger_zones/inference_jobs/safety_events 等）由 SQLAlchemy 声明式模型维护：其中 danger_zones.polygon 以 0-1 相对坐标 JSON 存储，同一危险区适配任意分辨率视频；safety_events 记录事件类型、等级、人员轨迹与证据截图路径，支撑告警闭环。", size=10)
 
     ins = Inserter(doc, find_paragraph(doc, "4.2.1算法模型选择"))
     ins.bullet("YOLOv8n（轻量基线）：", "参数量最小、推理最快，用于验证训练-评估链路与端侧可行性，但召回不足，不作为业务模型。")
