@@ -6,7 +6,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -88,16 +88,25 @@ def health() -> HealthResponse:
 
 
 @app.get("/{spa_path:path}", include_in_schema=False)
-def spa(spa_path: str = "") -> FileResponse:
+def spa(spa_path: str = "") -> Any:
     """Serve the Vue3 SPA build, falling back to the legacy workbench.
 
     API routes and static mounts register before this catch-all, so only
-    unmatched paths reach the SPA entry document.
+    unmatched paths reach the SPA entry document.  Missing hashed assets
+    must 404 instead of returning HTML: a stale cached index.html would
+    otherwise load HTML as a JS module and blank the whole page.
     """
 
     if (SPA_DIST / "index.html").is_file():
-        candidate = (SPA_DIST / spa_path).resolve() if spa_path else None
-        if candidate and candidate.is_relative_to(SPA_DIST.resolve()) and candidate.is_file():
-            return FileResponse(candidate)
-        return FileResponse(SPA_DIST / "index.html")
+        if spa_path:
+            candidate = (SPA_DIST / spa_path).resolve()
+            if candidate.is_relative_to(SPA_DIST.resolve()) and candidate.is_file():
+                return FileResponse(candidate)
+            if spa_path.startswith("assets/"):
+                raise HTTPException(status_code=404, detail="Asset not found")
+        response = FileResponse(SPA_DIST / "index.html")
+        # The shell must always be revalidated, otherwise browsers keep a
+        # stale index.html that references hashed assets which no longer exist.
+        response.headers["Cache-Control"] = "no-cache"
+        return response
     return FileResponse(STATIC_DIR / "index.html")
