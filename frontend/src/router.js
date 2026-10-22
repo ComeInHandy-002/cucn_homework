@@ -9,7 +9,9 @@ const routes = [
   { path: '/alerts', name: 'alerts', component: () => import('./views/AlertsView.vue'), meta: { title: '告警中心', eyebrow: 'SAFETY EVENTS' } },
   { path: '/configuration', name: 'configuration', component: () => import('./views/ConfigurationView.vue'), meta: { title: '设备与区域', eyebrow: 'SYSTEM CONFIGURATION' } },
   { path: '/admin/users', name: 'admin-users', component: () => import('./views/AdminUsersView.vue'), meta: { title: '用户管理', eyebrow: 'ADMIN · SPRING BOOT' } },
-  { path: '/admin/models', name: 'admin-models', component: () => import('./views/AdminModelsView.vue'), meta: { title: '数据集与模型管理', eyebrow: 'ADMIN · SPRING BOOT' } }
+  { path: '/admin/models', name: 'admin-models', component: () => import('./views/AdminModelsView.vue'), meta: { title: '数据集与模型管理', eyebrow: 'ADMIN · SPRING BOOT' } },
+  // 兜底：未匹配路径（如手输 /admin-users）回到总览，避免空路由白屏
+  { path: '/:pathMatch(.*)*', redirect: '/overview' }
 ]
 
 export default createRouter({
