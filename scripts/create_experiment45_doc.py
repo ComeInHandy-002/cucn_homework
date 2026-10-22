@@ -22,6 +22,8 @@ from docx.shared import Inches, Pt, RGBColor
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 
+from collect_code_assets import build_code_assets
+
 ROOT = Path(__file__).resolve().parents[1]
 E4 = ROOT / "results" / "experiment4"
 E5 = ROOT / "results" / "experiment5"
@@ -123,11 +125,15 @@ def add_figure(cell, path: Path, caption: str, width: float) -> None:
         return
     p = cell.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    # 图与图注必须同页，防止注掉到下一页形成孤行
+    p.paragraph_format.keep_with_next = True
     p.add_run().add_picture(str(path), width=Inches(width))
+    self_anchor = p
     cap = cell.add_paragraph()
     cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r = cap.add_run(caption)
     set_run_font(r, size=8.5, color="666666")
+    cap.paragraph_format.space_after = Pt(4)
 
 
 def render_text_asset(lines: list[str], path: Path, title: str, size=8.4) -> None:
@@ -186,10 +192,19 @@ def build_experiment4() -> Path:
         ("6 调试优化", "修复 CORS 白名单遗漏 8010 源、multipart 解析、时序竞态（登录后再拉取数据）等问题；训练日志落盘便于排障。"),
     ]
     add_table(first, ["步骤", "实际操作与输出"], steps, font_size=8.3)
-    add_figure(first, E4 / "r3_project_tree.png", "图1 backend-java 三层分包源码结构", 4.6)
-    add_figure(first, E4 / "r2_mysql_schema.png", "图2 MySQL safety_admin 库表结构（真实 DESCRIBE 输出）", 5.8)
-    add_figure(first, E4 / "r1_api_matrix.png", "图3 全接口测试矩阵（真实请求-响应，含异常与权限场景）", 5.9)
-    add_figure(first, E4 / "r4_train_log.png", "图4 在线训练任务真实日志尾部", 5.8)
+    add_para(first, "核心代码（一）用户服务：注册使用 BCrypt 加密存储，登录校验通过后由 JwtService 签发含 uid/role 声明的 JWT 令牌：", size=9.6, space_after=2)
+    add_figure(first, E4 / "c1_user_register_login.png", "图1 用户服务核心代码（注册/登录）", 5.9)
+    add_para(first, "核心代码（二）统一鉴权过滤器：白名单放行登录注册，其余接口校验 Bearer 令牌并集中执行 admin 角色控制：", size=9.6, space_after=2)
+    add_figure(first, E4 / "c2_jwt_filter.png", "图2 JWT 统一鉴权过滤器核心代码", 5.9)
+    add_figure(first, E4 / "r3_project_tree.png", "图3 backend-java 三层分包源码结构", 4.6)
+    add_para(first, "核心代码（三）训练任务链：创建任务后经 ProcessBuilder 异步调用算法域真实训练脚本，完成后提取真实指标：", size=9.6, space_after=2)
+    add_figure(first, E4 / "c3_train_async.png", "图4 模型在线训练异步任务核心代码", 5.9)
+    add_figure(first, E4 / "r4_train_log.png", "图5 在线训练任务真实日志尾部", 5.8)
+    add_para(first, "核心代码（四）配置与全局异常：application.yml 数据源/端口/CORS/训练配置，以及统一错误响应：", size=9.6, space_after=2)
+    add_figure(first, E4 / "c4_application_yml.png", "图6 application.yml 核心配置", 5.9)
+    add_figure(first, E4 / "c5_exception_handler.png", "图7 全局异常处理器（参数校验/业务/未知异常分类响应）", 5.9)
+    add_figure(first, E4 / "r2_mysql_schema.png", "图8 MySQL safety_admin 库表结构（真实 DESCRIBE 输出）", 5.8)
+    add_figure(first, E4 / "r1_api_matrix.png", "图9 全接口测试矩阵（真实请求-响应，含异常与权限场景）", 5.9)
 
     add_heading(second, "五、实验思考（问题、分析与解决办法）")
     reflections = [
@@ -252,8 +267,19 @@ def build_experiment5() -> Path:
         ("6 构建与部署", "Vite 构建产物由 FastAPI 静态伺服，SPA history 路由回退；前后端三服务联调（8010/8081/MySQL）。"),
     ]
     add_table(first, ["步骤", "实际操作与输出"], steps, font_size=8.3)
-    add_figure(first, E5 / "ui-admin-users.png", "图1 用户管理页联调运行截图（Spring Boot 数据真实渲染）", 5.9)
-    add_figure(first, E5 / "ui-admin-models.png", "图2 数据集与模型管理页（训练任务与真实指标）", 5.9)
+    add_para(first, "核心代码（一）Axios 封装：请求拦截器统一携带令牌，响应拦截器统一解包并弹出错误提示：", size=9.6, space_after=2)
+    add_figure(first, E5 / "c1_axios_interceptors.png", "图1 adminApi.js — Axios 实例与拦截器核心代码", 5.9)
+    add_para(first, "核心代码（二）管理域登录门：管理域 JWT 与监测域令牌相互独立，登录成功后通过 emit 事件触发页面数据加载，消除异步时序问题：", size=9.6, space_after=2)
+    add_figure(first, E5 / "c2_admingate.png", "图2 AdminGate 管理域登录门核心代码", 5.9)
+    add_figure(first, E5 / "ui-admin-users.png", "图3 用户管理页联调运行截图（Spring Boot 数据真实渲染）", 5.9)
+    add_para(first, "核心代码（三）训练任务轮询：发起训练后每 5 秒自动轮询状态，页面销毁时清理定时器：", size=9.6, space_after=2)
+    add_figure(first, E5 / "c3_train_poll.png", "图4 训练任务发起与自动轮询核心代码", 5.9)
+    add_figure(first, E5 / "ui-admin-models.png", "图5 数据集与模型管理页（训练任务与真实指标）", 5.9)
+    add_para(first, "核心代码（四）Dashboard 可视化：ECharts 告警环形图与真实接口数据绑定：", size=9.6, space_after=2)
+    add_figure(first, E5 / "c4_echarts_donut.png", "图6 ECharts 告警环形图核心代码", 5.9)
+    add_figure(first, E5 / "ui-dashboard.png", "图7 监控总览 Dashboard（环形图/严重度条/趋势折线图）", 5.9)
+    add_figure(first, E5 / "ui-experiments.png", "图8 模型实验页（八组真实实验指标对比柱状图）", 5.9)
+    add_figure(first, E5 / "ui-alerts.png", "图9 告警中心页（实时 WebSocket 接收 + 事件闭环操作）", 5.9)
 
     add_heading(second, "五、实验思考（问题、分析与解决办法）")
     reflections = [
@@ -283,5 +309,6 @@ def build_experiment5() -> Path:
 
 
 if __name__ == "__main__":
+    build_code_assets()
     print(build_experiment4())
     print(build_experiment5())
