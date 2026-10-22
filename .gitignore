@@ -37,3 +37,6 @@ backend-java/logs/
 backend-java/target/
 backend-java/start-local.ps1
 data/admin_uploads/
+
+# ZCode 本地会话目录
+.zcode/
